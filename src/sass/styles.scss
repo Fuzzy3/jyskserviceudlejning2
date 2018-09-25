@@ -34,19 +34,7 @@
 }
 
 
-    
 
-
-
-.navbar-dark-blue {
-    .nav-link {
-        font-size: 12px;
-        font-weight: bold; 
-        text-transform: uppercase;
-        color: black;
-        &:hover {
-            color: darkblue;
-            border-bottom: 1px solid blue;
-        }
-    }
+.site-container {
+    max-width: 800px;
 }
