@@ -2,3 +2,51 @@
 
 @import './variables';
 @import './mixins';
+
+.site-background {
+    background-color: $primary-bg-color;
+}
+
+
+.padding {
+    &-10{
+        padding: 10px;
+    }
+
+    &.no-padding {
+        padding: 0px;
+    }
+}
+
+.margin {
+    &.no-margin {
+        margin: 0px;
+    }
+}
+
+.fill {
+    &-width {
+        width: 100%;
+    }
+    &-height {
+        height: 100%;
+    }
+}
+
+
+    
+
+
+
+.navbar-dark-blue {
+    .nav-link {
+        font-size: 12px;
+        font-weight: bold; 
+        text-transform: uppercase;
+        color: black;
+        &:hover {
+            color: darkblue;
+            border-bottom: 1px solid blue;
+        }
+    }
+}
