@@ -2,5 +2,17 @@
 .site-landing {
     background: url(./assets/cutlery.jpg) no-repeat center center;
     background-size: cover;
-    height: 400px;
+    height: 500px;
+    padding-top: 128px;
+    padding-bottom: 128px;
 }
+
+.landing-header {
+    font-weight: bold;
+    color: white;
+}
+
+.landing-background {
+    background-color: rgba($color: #070853, $alpha: 0.85);
+}
+

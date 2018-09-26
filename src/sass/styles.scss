@@ -22,6 +22,11 @@
     &.no-margin {
         margin: 0px;
     }
+    &-top {
+        &-50 {
+            margin-top: 50px;
+        }
+    }
 }
 
 .fill {
