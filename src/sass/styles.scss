@@ -23,8 +23,25 @@
         margin: 0px;
     }
     &-top {
+        &-10 {
+            margin-top: 10px;
+        }
+        &-20 {
+            margin-top: 20px;
+        }
         &-50 {
             margin-top: 50px;
+        }
+    }
+    &-bottom {
+        &-10 {
+            margin-bottom: 10px;
+        }
+        &-20 {
+            margin-bottom: 20px;
+        }
+        &-50 {
+            margin-bottom: 50px;
         }
     }
 }
@@ -39,7 +56,14 @@
 }
 
 
-
 .site-container {
     max-width: $site-max-width;
+}
+
+.box-shadow {
+    box-shadow: 2px 2px 2px #808080
+}
+
+.btn-call-to-action {
+    width: 150px;
 }

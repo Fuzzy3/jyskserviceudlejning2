@@ -2,9 +2,12 @@
 .site-landing {
     background: url(./assets/cutlery.jpg) no-repeat center center;
     background-size: cover;
-    height: 500px;
-    padding-top: 128px;
-    padding-bottom: 128px;
+    padding: 150px 0px;
+    //height: 600px;
+}
+
+.landing-container {
+    
 }
 
 .landing-header {
@@ -12,7 +15,42 @@
     color: white;
 }
 
+.landing-text {
+    color: white; 
+}
+
 .landing-background {
     background-color: rgba($color: #070853, $alpha: 0.85);
+    min-width: 300px;
+    padding: 15px;
+}
+
+.break-line-info {
+    background-color: rgba($color: rgba(86, 83, 255, 0.315), $alpha: 0.2);
+    height: 300px;
+}
+
+
+.showcase-image {
+    background-size: cover;
+    height: 300px;
+    max-width: 300px;
+    box-shadow: 0 5px 5px 0 #adb5bd;
+    border-radius: 50% !important;
+    margin: 25px;
+
+
+    &.showcase-1 {
+        background: url(./assets/pandekagepande.jpg) no-repeat center center;
+    }
+    &.showcase-2 {
+        background: url(./assets/candyfloss-1-300x225.jpg) no-repeat center center;
+    }
+    &.showcase-3 {
+        background: url(./assets/SlushIcemaskine-1-225x300.jpg) no-repeat center center;
+    }
+    &.showcase-4 {
+        background: url(./assets/Borde76x180cm.bmp) no-repeat center center;
+    }
 }
 
