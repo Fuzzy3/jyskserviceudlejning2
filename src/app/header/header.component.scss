@@ -1,3 +1,6 @@
+@import "../../sass/variables.scss";
+
+
 //Header
 .navbar-dark-blue {
     .nav-link {
@@ -6,12 +9,13 @@
         text-transform: uppercase;
         color: black;
         &:hover {
-            color: darkblue;
-            border-bottom: 2px solid blue;
+            color: $light-brand-color;
+            border-bottom: 2px solid $light-brand-color;
+
         }
         &.active {
-            color: darkblue;
-            border-bottom: 2px solid blue;
+            color: $light-brand-color;
+            border-bottom: 2px solid $light-brand-color;
         }
     }
 }
