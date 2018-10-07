@@ -28,16 +28,21 @@
     padding-bottom: 3rem;
     z-index: 2;
     @media screen and (min-width: 768px) {
-        height: 900px;
+        height: 100%;
         min-height: 0;
         width: 38rem;
         padding-bottom: 0;
     }
 }
 
+.h-150 {
+    height: 150% !important;
+}
+
 .masthead-content {
-    padding-left: 3rem;
-    padding-right: 10rem;
+    padding-top: 4rem;
+    padding-left: 4rem;
+    padding-right: 8rem;
 }
 
 .landing-header {
@@ -47,18 +52,23 @@
 }
 
 .frontpage-image {
-    width: 280px;
+    width: 100%;
 }
 
 .text-container {
     color: white;
     // background-color: rgba(42, 126, 243, 1);
     // border-radius: 20px;
-    // padding: 10px;
+    //padding: 0px 0px;
     margin-top: 30px;
 
     & p {
         font-family: 'Source Sans Pro', sans-serif;
         font-size: 1.2rem;
     }
+}
+
+.showcase-box {
+    width: 300px;
+    padding:20px;
 }

@@ -1,34 +1,36 @@
 <div class="container text-center">
-  <img class="img-fluid" src="../../assets/img/jysk-header.png" alt="Jysk Serviceudlening Header">
+  <a routerLink="/home">
+    <img class="img-fluid" src="../../assets/img/jysk-header.png" alt="Jysk Serviceudlening Header">
+  </a>
 </div>
 <hr class="margin no-margin">
 <nav class="navbar navbar-expand-lg navbar-dark-blue navbar-light">
-  <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler ml-auto" (click)="toggleCollapse()" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse" [class.show]="show" id="navbarSupportedContent">
     <div class="d-flex justify-content-center fill-width">
       <ul class="navbar-nav small-links">
         <li class="nav-item">
-          <a class="nav-link" href="#" [class.active] = "true">Forside</a>
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">Forside</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Om os</a>
+          <a class="nav-link" routerLink="/bestilling" routerLinkActive="active">Bestilling</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Inspiration</a>
+          <a class="nav-link" routerLink="/inspiration" routerLinkActive="active">Inspiration</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Lejebetingelser</a>
+          <a class="nav-link" routerLink="/lejebetingelser" routerLinkActive="active">Lejebetingelser</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Bestilling</a>
+          <a class="nav-link" routerLink="/samarbejdspartnere" routerLinkActive="active">Samarbejdspartnere</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Samarbejdspartnere</a>
+          <a class="nav-link" routerLink="/om-os" routerLinkActive="active">Om os</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Kontakt</a>
+          <a class="nav-link" routerLink="/kontakt" routerLinkActive="active">Kontakt</a>
         </li>
       </ul>
     </div>
