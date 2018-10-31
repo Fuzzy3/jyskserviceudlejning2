@@ -76,6 +76,9 @@
 .fill {
     &-width {
         width: 100%;
+        &-90 {
+            width: 90%;
+        }
     }
     &-height {
         height: 100%;
@@ -89,14 +92,6 @@
 
 .box-shadow {
     box-shadow: 2px 2px 2px #808080
-}
-
-html, body {
-    height: 100%;
-}
-
-body {
-    min-height: 35rem;
 }
 
 .alert-fit-content {

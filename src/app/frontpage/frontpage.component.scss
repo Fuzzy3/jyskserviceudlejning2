@@ -1,6 +1,6 @@
 
 .site-landing {
-    background: url(./assets/cutlery.jpg) no-repeat center center;
+    background-color: #070853;
     background-size: cover;
     padding: 150px 0px;
     //height: 600px;
@@ -44,23 +44,36 @@
 .showcase-image {
     background-size: cover;
     height: 300px;
-    max-width: 300px;
+    //margin-bottom: 20px;
     // box-shadow: 0 5px 5px 0 #adb5bd;
     // border-radius: 50% !important;
     // margin: 25px;
 
 
-    &.showcase-1 {
-        background: url(./assets/pandekagepande.jpg) no-repeat center center;
-    }
     &.showcase-2 {
-        background: url(./assets/candyfloss-1-300x225.jpg) no-repeat center center;
+        background: url(./assets/couvertTilbud.jpg) no-repeat center center;
     }
     &.showcase-3 {
+        background: url(./assets/candyfloss-1-300x225.jpg) no-repeat center center;
+    }
+    &.showcase-1 {
         background: url(./assets/SlushIcemaskine-1-225x300.jpg) no-repeat center center;
     }
     &.showcase-4 {
         background: url(./assets/Borde76x180cm.bmp) no-repeat center center;
     }
 }
+
+.card-size {
+    max-width: 300px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.card {
+    &.product-card {
+        border-radius: 20px;
+    }
+}
+
 

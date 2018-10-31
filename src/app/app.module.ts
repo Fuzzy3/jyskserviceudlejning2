@@ -20,7 +20,7 @@ import { BestillingslisteComponent } from './bestilling/bestillingsliste/bestill
 const appRoutes: Routes = [
   {
     path: 'home',
-    component: Frontpage3Component
+    component: FrontpageComponent
   },
   {
     path: 'bestilling',
