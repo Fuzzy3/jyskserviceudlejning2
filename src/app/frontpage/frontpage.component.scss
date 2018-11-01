@@ -1,18 +1,18 @@
 
-.site-landing {
-    background-color: #070853;
+#site-landing {
+    //background-color: #070853;
     background-size: cover;
     padding: 150px 0px;
     //height: 600px;
 }
 
-.landing-container {
-    
-}
-
 .landing-header {
-    font-weight: bold;
-    color: white;
+    color: #2f3235;
+    font-size: 50px;
+    &-second {
+        font-size: 20px;
+        color: #3a3e42;
+    }
 }
 
 .landing-text {
@@ -20,9 +20,17 @@
 }
 
 .landing-background {
-    background-color: rgba($color: #070853, $alpha: 0.85);
+    //background-color:  #070853;
     min-width: 300px;
     padding: 15px;
+}
+
+section#call-to-action {
+    padding: 60px;
+}
+
+.primary-background {
+    background-color:  #070853;
 }
 
 .break-line-info {
@@ -74,6 +82,7 @@ header {
 
 .card-title {
     border-bottom: solid darkgray 2px;
+    margin-bottom: 5px;
 }
 
 .card-body {
@@ -82,9 +91,16 @@ header {
 
 .price-tag {
     font-weight: bold;
-    font-size: 14px !important;
+    font-size: 22px !important;
 }
 
 .image-container {
-    height: 300px;
+    height: 200px;
+}
+
+.title-section-border {
+    border-bottom: solid black 1px;
+    @media screen and (max-width: 572px) {
+        border-bottom: solid black 1px;
+    }
 }

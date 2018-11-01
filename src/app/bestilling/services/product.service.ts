@@ -22,7 +22,8 @@ export class ProductService {
     navn: 'bord',
     pris: 20,
     billedURL: 'assets/dummy.bmp'
-  },{
+  },
+  {
     navn: 'stol',
     pris: 5,
     billedURL: 'assets/dummy.bmp'
@@ -31,11 +32,12 @@ export class ProductService {
     navn: 'bord',
     pris: 20,
     billedURL: 'assets/dummy.bmp'
-  },{
+  },
+  {
     navn: 'stol',
     pris: 5,
     billedURL: 'assets/dummy.bmp'
-  }]
+  }];
 
   getProducts() {
     return this.products;
