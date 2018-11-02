@@ -102,3 +102,16 @@
 .fill-container {
     min-height: 500px;
 }
+
+.btn {
+    &.btn-primary {
+        color:white;
+        background-color: $primary-brand-color;
+        border-color: $secondary-brand-color;
+    }
+    &.btn-ghost {
+        color: black;
+        background-color: white;
+        border: 2px solid $primary-brand-color;
+    }
+}

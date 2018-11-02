@@ -1,3 +1,4 @@
+@import '../../sass/variables';
 
 #site-landing {
     //background-color: #070853;
@@ -7,11 +8,12 @@
 }
 
 .landing-header {
-    color: #2f3235;
+    color: white;
     font-size: 50px;
+    font-weight: bold;
     &-second {
         font-size: 20px;
-        color: #3a3e42;
+        color: white;
     }
 }
 
@@ -26,11 +28,13 @@
 }
 
 section#call-to-action {
-    padding: 60px;
+    //padding: 60px;
 }
 
 .primary-background {
-    background-color:  #070853;
+    background-color:  $primary-brand-color;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .break-line-info {
@@ -99,8 +103,10 @@ header {
 }
 
 .title-section-border {
-    border-bottom: solid black 1px;
-    @media screen and (max-width: 572px) {
-        border-bottom: solid black 1px;
-    }
+    //border-bottom: solid black 2px;
+}
+
+.button-container {
+    margin-left: 15px;
+    margin-right: 15px;
 }
