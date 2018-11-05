@@ -8,17 +8,21 @@
 }
 
 .landing-header {
-    color: white;
+    //color: #495057;
+    font-family: Merriweather;
     font-size: 50px;
-    font-weight: bold;
+    font-weight: bolder;
+    letter-spacing: 2px;
     &-second {
         font-size: 20px;
-        color: white;
+        font-family: Merriweather;
+        //color: #495057;
     }
 }
 
 .landing-text {
-    color: white; 
+    //color: white;
+    text-align: left;
 }
 
 .landing-background {
@@ -55,12 +59,23 @@ section#call-to-action {
 
 .showcase-image {
     object-fit: contain;
-    //margin-bottom: 20px;
-    // box-shadow: 0 5px 5px 0 #adb5bd;
-    // border-radius: 50% !important;
-    // margin: 25px;
     width: 100%;
-    max-height: 200px;
+    &.img-lg {
+        max-height: 600px;
+    }
+    &.img-md {
+        max-height: 200px;
+    }
+}
+
+.image-container {
+    &.img-lg {
+        height: 600px;
+    }
+    &.img-md {
+        height: 200px;
+    }
+
 }
 
 header {
@@ -82,6 +97,11 @@ header {
         overflow: hidden;
         border: none;
     }
+    &.showcase-product-card {
+        border-radius: 20px;
+        overflow: hidden;
+        border: none;
+    }
 }
 
 .card-title {
@@ -95,12 +115,10 @@ header {
 
 .price-tag {
     font-weight: bold;
-    font-size: 22px !important;
+    font-size: 40px !important;
 }
 
-.image-container {
-    height: 200px;
-}
+
 
 #call-to-action-buttons {
     margin-top: 30px;
@@ -110,4 +128,18 @@ header {
 .button-container {
     margin-left: 15px;
     margin-right: 15px;
+}
+
+.title-section-border {
+    //border-bottom: 0.25rem solid #c1c5ca; 
+}
+
+.my-card {
+    padding: 50px;
+    background-color: white;
+    max-height: 600px;
+}
+
+.body {
+    background-color: #f8f9fa;
 }

@@ -28,6 +28,16 @@
     &.no-padding {
         padding: 0px;
     }
+    &-top {
+        &-20 {
+            padding-top: 20px;
+        }
+    }
+    &-bottom {
+        &-20 {
+            padding-bottom: 20px;
+        }
+    }
 }
 
 .margin {
@@ -56,8 +66,17 @@
         &-20 {
             margin-top: 20px;
         }
+        &-30 {
+            margin-top: 30px;
+        }
+        &-40 {
+            margin-top: 40px;
+        }
         &-50 {
             margin-top: 50px;
+        }
+        &-100 {
+            margin-top: 100px;
         }
     }
     &-bottom {
@@ -69,6 +88,9 @@
         }
         &-50 {
             margin-bottom: 50px;
+        }
+        &-100 {
+            margin-bottom: 100px;
         }
     }
 }
@@ -125,8 +147,12 @@
                 color: white;
             }
         }
-        &.btn-large {
+        &.btn-lg {
             width: 300px;
+            height: 60px;
+        }
+        &.btn-md {
+            width: 200px;
             height: 60px;
         }
         
@@ -134,4 +160,10 @@
             padding-left: 5px;
         }
     }    
+}
+
+.border-radius {
+    &-20 {
+        border-radius: 20px !important;
+    }
 }

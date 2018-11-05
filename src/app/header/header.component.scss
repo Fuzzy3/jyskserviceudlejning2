@@ -4,6 +4,8 @@
 //Header
 .navbar-dark-blue {
     .nav-link {
+        font-family: 'Poppins';
+        letter-spacing: 1px;
         font-size: 12px;
         font-weight: bold; 
         text-transform: uppercase;
@@ -18,4 +20,9 @@
             border-bottom: 2px solid $light-brand-color;
         }
     }
+}
+
+.logo-container {
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
