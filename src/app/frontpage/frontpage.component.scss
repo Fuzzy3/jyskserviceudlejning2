@@ -23,7 +23,12 @@
 .landing-text {
     //color: white;
     text-align: left;
+    font-family: Merriweather;
+    font-size: 14px;
+    line-height: 28px;
 }
+
+
 
 .landing-background {
     //background-color:  #070853;
@@ -60,6 +65,7 @@ section#call-to-action {
 .showcase-image {
     object-fit: contain;
     width: 100%;
+    padding: 5px;
     &.img-lg {
         max-height: 600px;
     }
@@ -79,21 +85,18 @@ section#call-to-action {
 }
 
 .card-col {
-    max-width: 300px;
     padding: 0px 10px 0px 10px;
     &:first-child {
-        padding: 0px 10px 0px 0px;
+        padding: 0px 20px 0px 0px;
     }
     &:last-child {
-        padding: 0px 0px 0px 10px;
+        padding: 0px 0px 0px 20px;
     }
-    //font-family: Merriweather;
-    
+    // font-family: Merriweather;
 }
 
 .col-inner {
     padding: 0 10px 0 10px;
-
 }
 
 .card {
@@ -117,6 +120,7 @@ section#call-to-action {
 
 .card-body {
     text-align: center !important;
+    padding: 20px 20px 0px 20px;
     &.left {
         text-align: left !important;
     }
@@ -144,9 +148,13 @@ section#call-to-action {
 }
 
 .my-card {
-    padding: 50px;
     background-color: white;
-    max-height: 600px;
+    height: 550px;
+    border-radius: 20px;
+    padding: 45px 5px 45px 5px;
+    &.padding-lg {
+        padding: 50px;
+    }
 }
 
 .body {
@@ -155,5 +163,8 @@ section#call-to-action {
 
 .card-header {
     font-family: Merriweather;
-    
+}
+
+.card-container {
+    vertical-align: middle !important; 
 }
