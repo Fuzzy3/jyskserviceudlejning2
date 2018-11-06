@@ -78,12 +78,17 @@ section#call-to-action {
 
 }
 
-header {
-//    max-width: 90%;
-}
-
 .card-col {
     max-width: 300px;
+    padding: 0px 10px 0px 10px;
+    &:first-child {
+        padding: 0px 10px 0px 0px;
+    }
+    &:last-child {
+        padding: 0px 0px 0px 10px;
+    }
+    //font-family: Merriweather;
+    
 }
 
 .col-inner {
@@ -112,6 +117,9 @@ header {
 
 .card-body {
     text-align: center !important;
+    &.left {
+        text-align: left !important;
+    }
 }
 
 .price-tag {
@@ -143,4 +151,9 @@ header {
 
 .body {
     background-color: #f8f9fa;
+}
+
+.card-header {
+    font-family: Merriweather;
+    
 }
