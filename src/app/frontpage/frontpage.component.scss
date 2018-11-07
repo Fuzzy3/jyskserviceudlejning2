@@ -61,6 +61,41 @@ section#call-to-action {
     font-weight: bold;
 }
 
+//Cards
+.card {
+    border-radius: 20px;
+    overflow: hidden;
+    height: 320px;
+    &.card-height {
+        &-lg {
+            height:550px;
+        }
+    }
+}
+
+.product-padding {
+    padding: 45px 5px 45px 5px;
+}
+
+
+.my-card {
+    height: 550px;
+    border-radius: 20px;
+    padding: 45px 5px 45px 5px;
+    &.padding-lg {
+        padding: 50px;
+    }
+}
+
+.card-col {
+    padding: 0px 10px 0px 10px;
+    &:first-child {
+        padding: 0px 20px 0px 0px;
+    }
+    &:last-child {
+        padding: 0px 0px 0px 20px;
+    }
+}
 
 .showcase-image {
     object-fit: contain;
@@ -71,6 +106,10 @@ section#call-to-action {
     }
     &.img-md {
         max-height: 200px;
+    }
+    &.img-fit {
+        object-fit: cover;
+        padding: 0px;
     }
 }
 
@@ -84,34 +123,10 @@ section#call-to-action {
 
 }
 
-.card-col {
-    padding: 0px 10px 0px 10px;
-    &:first-child {
-        padding: 0px 20px 0px 0px;
-    }
-    &:last-child {
-        padding: 0px 0px 0px 20px;
-    }
-    // font-family: Merriweather;
-}
 
-.col-inner {
-    padding: 0 10px 0 10px;
-}
 
-.card {
-    &.product-card {
-        border-radius: 20px;
-        overflow: hidden;
-        border: none;
-    }
-    &.showcase-product-card {
-        border-radius: 20px;
-        overflow: hidden;
-        border: none;
-        padding: 45px 5px 45px 5px;
-    }
-}
+
+
 
 .card-title {
     border-bottom: solid darkgray 2px;
@@ -147,15 +162,7 @@ section#call-to-action {
     border-bottom: 0.25rem solid #c1c5ca; 
 }
 
-.my-card {
-    background-color: white;
-    height: 550px;
-    border-radius: 20px;
-    padding: 45px 5px 45px 5px;
-    &.padding-lg {
-        padding: 50px;
-    }
-}
+
 
 .body {
     background-color: #f8f9fa;
@@ -163,6 +170,10 @@ section#call-to-action {
 
 .card-header {
     font-family: Merriweather;
+    & h4 {
+        line-height: 40px;
+        font-weight: bold;
+    }
 }
 
 .card-container {

@@ -173,3 +173,32 @@
         border-radius: 20px !important;
     }
 }
+
+.no-border {
+    border: none !important;
+}
+
+
+.col-spacing {
+    &-10 {
+        padding: 0 10px 0 10px;
+    }
+}
+
+.height {
+    &-100 {
+        height: 100px;
+    }
+    &-500 {
+        height: 500px;
+    }
+    &-550 {
+        height: 550px;
+    }
+}
+
+.section-splitter {
+    text-align: center;
+    border-bottom: 0.25rem solid #c1c5ca; 
+    width: 1200px;
+}
