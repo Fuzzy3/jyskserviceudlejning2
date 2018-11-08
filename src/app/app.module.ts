@@ -16,6 +16,8 @@ import { BestillingComponent } from './bestilling/bestilling.component';
 import { SamarbejdspartnereComponent } from './samarbejdspartnere/samarbejdspartnere.component';
 import { KontaktComponent } from './kontakt/kontakt.component';
 import { BestillingslisteComponent } from './bestilling/bestillingsliste/bestillingsliste.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ProductService } from './bestilling/services/product.service';
 
 const appRoutes: Routes = [
   {
@@ -74,10 +76,11 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(
-      appRoutes
-    )
+      appRoutes, {scrollPositionRestoration: 'enabled'}
+    ),
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

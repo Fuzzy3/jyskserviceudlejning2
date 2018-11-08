@@ -1,6 +1,7 @@
+import { ProduktSerie } from './model/produktSerie.model';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from './services/product.service';
-import { Product } from './model/produkt.model';
+import { Produkt } from './model/produkt.model';
 
 @Component({
   selector: 'app-bestilling',
@@ -8,12 +9,12 @@ import { Product } from './model/produkt.model';
   styleUrls: ['./bestilling.component.scss']
 })
 export class BestillingComponent implements OnInit {
-  products: Product[];
+  productSerier: ProduktSerie[];
 
   constructor(private productService: ProductService) { }
 
   ngOnInit() {
-    this.products = this.productService.getProducts();
+    this.productService.getProducts().subscribe(produktSerier => this.productSerier = produktSerier);
   }
 
 }

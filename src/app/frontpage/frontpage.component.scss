@@ -77,16 +77,6 @@ section#call-to-action {
     padding: 45px 5px 45px 5px;
 }
 
-
-.my-card {
-    height: 550px;
-    border-radius: 20px;
-    padding: 45px 5px 45px 5px;
-    &.padding-lg {
-        padding: 50px;
-    }
-}
-
 .card-col {
     padding: 0px 10px 0px 10px;
     &:first-child {
@@ -155,12 +145,6 @@ section#call-to-action {
     border-bottom: 0.25rem solid #c1c5ca;
 }
 
-
-
-.body {
-    background-color: #f8f9fa;
-}
-
 .card-header {
     font-family: Merriweather;
     & h4 {
@@ -173,14 +157,6 @@ section#call-to-action {
     vertical-align: middle !important;
 }
 
-// h4.box-link-text {
-    //     &:hover {
-        //         text-decoration: none !important;
-        //         color: black !important;
-        //     }
-        // }
-
-
 a:hover, a:visited, a:link, a:active {
     &.box-link {
         text-decoration: none;
@@ -189,14 +165,25 @@ a:hover, a:visited, a:link, a:active {
 
 .box-link {
     & .card:hover {
-        border: solid $primary-brand-color 2px;
-    }
-    & .box-link-text {
-        color: #212529;
-        &:hover {
-            color: $primary-brand-color;
+        border: solid $light-brand-color 3px;
+        & .box-link-text {
+            color: $light-brand-color;
         }
     }
 }
 
+.box-link-text {
+    color: #212529;
+}
+
+p {
+    font-family: Merriweather;
+}
+
+.card-text-small {
+    padding: 5px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 25px;
+}
 

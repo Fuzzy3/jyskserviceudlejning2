@@ -1,5 +1,10 @@
+import { ProduktSerie } from './../model/produktSerie.model';
 import { Injectable } from '@angular/core';
-import { Product } from '../model/produkt.model';
+import { HttpClient } from '@angular/common/http';
+import {Observable, of} from 'rxjs';
+import {catchError, publishLast, refCount} from 'rxjs/operators';
+
+import { Produkt } from '../model/produkt.model';
 
 
 @Injectable({
@@ -7,41 +12,22 @@ import { Product } from '../model/produkt.model';
 })
 export class ProductService {
 
-  products: Product[] = [
-  {
-    navn: 'bord',
-    pris: 20,
-    billedURL: 'assets/dummy.bmp'
-  },
-  {
-    navn: 'stol',
-    pris: 5,
-    billedURL: 'assets/dummy.bmp'
-  },
-  {
-    navn: 'bord',
-    pris: 20,
-    billedURL: 'assets/dummy.bmp'
-  },
-  {
-    navn: 'stol',
-    pris: 5,
-    billedURL: 'assets/dummy.bmp'
-  },
-  {
-    navn: 'bord',
-    pris: 20,
-    billedURL: 'assets/dummy.bmp'
-  },
-  {
-    navn: 'stol',
-    pris: 5,
-    billedURL: 'assets/dummy.bmp'
-  }];
+  private request$: Observable<ProduktSerie[]>;
 
-  getProducts() {
-    return this.products;
+  constructor(http: HttpClient) {
+    this.request$ = http.get<Produkt[]>('assets/produkter.json').pipe(
+      catchError((error: Response) => {
+        console.error('Kunne ikke læse produkter', error.statusText);
+        return of([]);
+      }),
+      publishLast(),
+      refCount()
+    );
   }
 
-  constructor() { }
+  public getProducts(): Observable<ProduktSerie[]> {
+    return this.request$;
+  }
+
+
 }

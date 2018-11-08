@@ -29,6 +29,9 @@
         padding: 0px;
     }
     &-top {
+        &-10 {
+            padding-top: 10px !important;
+        }
         &-20 {
             padding-top: 20px;
         }
@@ -37,6 +40,9 @@
         }
     }
     &-bottom {
+        &-10 {
+            padding-bottom: 10px;
+        }
         &-20 {
             padding-bottom: 20px;
         }
@@ -201,4 +207,8 @@
     text-align: center;
     border-bottom: 0.25rem solid #c1c5ca; 
     width: 1200px;
+}
+
+.body-background {
+    background-color: #f8f9fa;
 }
