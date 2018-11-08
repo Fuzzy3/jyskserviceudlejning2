@@ -123,11 +123,6 @@ section#call-to-action {
 
 }
 
-
-
-
-
-
 .card-title {
     border-bottom: solid darkgray 2px;
     margin-bottom: 5px;
@@ -146,8 +141,6 @@ section#call-to-action {
     font-size: 40px !important;
 }
 
-
-
 #call-to-action-buttons {
     margin-top: 30px;
     margin-bottom: 30px;
@@ -159,7 +152,7 @@ section#call-to-action {
 }
 
 .title-section-border {
-    border-bottom: 0.25rem solid #c1c5ca; 
+    border-bottom: 0.25rem solid #c1c5ca;
 }
 
 
@@ -177,5 +170,33 @@ section#call-to-action {
 }
 
 .card-container {
-    vertical-align: middle !important; 
+    vertical-align: middle !important;
 }
+
+// h4.box-link-text {
+    //     &:hover {
+        //         text-decoration: none !important;
+        //         color: black !important;
+        //     }
+        // }
+
+
+a:hover, a:visited, a:link, a:active {
+    &.box-link {
+        text-decoration: none;
+    }
+}
+
+.box-link {
+    & .card:hover {
+        border: solid $primary-brand-color 2px;
+    }
+    & .box-link-text {
+        color: #212529;
+        &:hover {
+            color: $primary-brand-color;
+        }
+    }
+}
+
+
