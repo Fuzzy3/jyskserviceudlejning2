@@ -11,26 +11,27 @@
         </div>
     </div>
 </section>
-<div class="container padding-bottom-50" *ngFor="let produktSerie of productSerier">
-    <div class="row">
-        <div class="col">
-            <h2 class="">{{produktSerie.overskrift}}</h2>
+<section id="products" class="margin-top-50">
+    <div class="container padding-bottom-50" *ngFor="let produktSerie of productSerier">
+        <div class="row">
+            <div class="col">
+                <h2 class="">{{produktSerie.overskrift}}</h2>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4 margin-top-20 card-col" *ngFor="let produkt of produktSerie.produkter">
-            <div class="col-inner">
-                <div class="card box-shadow">
-                    <div class="image-container img-md">
-                        <img class="card-img-top showcase-image img-md" [src]="produkt.billedURL" alt="Card image cap">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">{{produkt.navn}}</h5>
-                        <h4 class="price-tag">{{produkt.pris}},-</h4>
-                    </div>
-                </div>  
+        <div class="row">
+            <div class="col-md-4 margin-top-20 card-col" *ngFor="let produkt of produktSerie.produkter">
+                <div class="col-inner">
+                    <div class="card box-shadow">
+                        <div class="image-container img-md">
+                            <img class="card-img-top showcase-image img-md" [src]="produkt.billedURL" alt="Card image cap">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{produkt.navn}}</h5>
+                            <h4 class="price-tag">{{produkt.pris}},-</h4>
+                        </div>
+                    </div>  
+                </div>
             </div>
         </div>
     </div>
-</div>
-
+</section>    
