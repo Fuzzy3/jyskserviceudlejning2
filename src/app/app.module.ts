@@ -18,6 +18,7 @@ import { KontaktComponent } from './kontakt/kontakt.component';
 import { BestillingslisteComponent } from './bestilling/bestillingsliste/bestillingsliste.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductService } from './bestilling/services/product.service';
+import { FormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   {
@@ -78,7 +79,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes, {scrollPositionRestoration: 'enabled'}
     ),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
