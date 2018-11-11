@@ -12,6 +12,9 @@
     &.img-md {
         max-height: 200px;
     }
+    &.img-sm {
+        max-height: 150px;
+    }
     &.img-fit {
         object-fit: cover;
         padding: 0px;
@@ -25,7 +28,9 @@
     &.img-md {
         height: 200px;
     }
-
+    &.img-sm {
+        height: 150px;
+    }
 }
 
 .card-title {
@@ -53,6 +58,9 @@
     &.card-height {
         &-lg {
             height:550px;
+        }
+        &-md {
+            height: 380px;
         }
     }
 }

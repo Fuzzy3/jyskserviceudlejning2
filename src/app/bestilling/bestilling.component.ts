@@ -1,3 +1,5 @@
+import { BestillingInfo } from './model/bestillingInfo.model';
+import { Bestilling, IBestilling } from './model/bestilling.model';
 import { ProduktSerie } from './model/produktSerie.model';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProductService } from './services/product.service';
@@ -10,8 +12,10 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./bestilling.component.scss']
 })
 export class BestillingComponent implements OnInit {
-  productSerier: ProduktSerie[];
   @ViewChild('f') bestillingsForm: NgForm;
+  productSerier: ProduktSerie[];
+  bestillingsListe: IBestilling = {};
+  bestillingInfo: BestillingInfo;
   navn = '';
   adresse = '';
   postnr = '';
@@ -28,7 +32,21 @@ export class BestillingComponent implements OnInit {
   }
 
   onSubmit() {
+    this.bestillingInfo.navn = this.navn;
+    this.bestillingInfo.adresse = this.adresse;
+    this.bestillingInfo.postnr = this.postnr;
+    this.bestillingInfo.by = this.by;
+    this.bestillingInfo.telefon = this.telefon;
+    this.bestillingInfo.email = this.email;
+    this.bestillingInfo.dato = this.dato;
+    this.bestillingInfo.besked = this.besked;
     console.log(this.bestillingsForm);
+  }
+
+  onProductAdded(amount: number, produktSerieId: number, produktId: number) {
+    const id = produktSerieId + '' + produktId;
+    this.bestillingsListe[id] = {antal: amount, produkt: this.productSerier[produktSerieId].produkter[produktId]};
+    console.log(this.bestillingsListe);
   }
 
   fillFormWithDummyData() {
