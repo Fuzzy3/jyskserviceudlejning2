@@ -5,6 +5,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProductService } from './services/product.service';
 import { Produkt } from './model/produkt.model';
 import { NgForm } from '@angular/forms';
+import { MailService } from './services/mail.service';
 
 @Component({
   selector: 'app-bestilling',
@@ -25,28 +26,29 @@ export class BestillingComponent implements OnInit {
   dato = '';
   besked = '';
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private mailService: MailService) { }
 
   ngOnInit() {
     this.productService.getProducts().subscribe(produktSerier => this.productSerier = produktSerier);
   }
 
   onSubmit() {
-    this.bestillingInfo.navn = this.navn;
-    this.bestillingInfo.adresse = this.adresse;
-    this.bestillingInfo.postnr = this.postnr;
-    this.bestillingInfo.by = this.by;
-    this.bestillingInfo.telefon = this.telefon;
-    this.bestillingInfo.email = this.email;
-    this.bestillingInfo.dato = this.dato;
-    this.bestillingInfo.besked = this.besked;
-    console.log(this.bestillingsForm);
+    this.bestillingInfo = new BestillingInfo;
+    this.bestillingInfo.navn = this.bestillingsForm.form.value.navn;
+    this.bestillingInfo.adresse = this.bestillingsForm.form.value.adresse;
+    this.bestillingInfo.postnr = this.bestillingsForm.form.value.postnr;
+    this.bestillingInfo.by = this.bestillingsForm.form.value.by;
+    this.bestillingInfo.telefon = this.bestillingsForm.form.value.telefon;
+    this.bestillingInfo.email = this.bestillingsForm.form.value.email;
+    this.bestillingInfo.dato = this.bestillingsForm.form.value.dato;
+    this.bestillingInfo.besked = this.bestillingsForm.form.value.besked;
+
+    this.mailService.sendMail(this.bestillingInfo, this.bestillingsListe);
   }
 
   onProductAdded(amount: number, produktSerieId: number, produktId: number) {
     const id = produktSerieId + '' + produktId;
     this.bestillingsListe[id] = {antal: amount, produkt: this.productSerier[produktSerieId].produkter[produktId]};
-    console.log(this.bestillingsListe);
   }
 
   fillFormWithDummyData() {
@@ -56,7 +58,7 @@ export class BestillingComponent implements OnInit {
     this.by = 'Husum';
     this.telefon = '30223568';
     this.email = 'Hans@gmail.com';
-    this.dato = '24/12/2018';
+    this.dato = '2018-12-24';
     this.besked = 'Kan det hentes d. 23. og afleveres igen d. 27.?';
   }
 }
