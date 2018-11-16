@@ -1,0 +1,43 @@
+[{
+    "overskrift": "Borde og stole",
+    "produkter": [ 
+    {
+        "navn": "Borde, 73 x 180cm",
+        "pris": 29.00,
+        "billedURL": "assets/dummy.bmp"
+    },
+    {
+        "navn": "Klapstol",
+        "pris": 8.5,
+        "billedURL": "assets/Klapstol.jpg"
+    }]
+},
+{
+    "overskrift": "Andet",
+    "produkter": [ 
+    {
+        "navn": "bord",
+        "pris": 20,
+        "billedURL": "assets/dummy.bmp"
+    },
+    {
+        "navn": "bord",
+        "pris": 20,
+        "billedURL": "assets/dummy.bmp"
+    },
+    {
+        "navn": "bord",
+        "pris": 20,
+        "billedURL": "assets/dummy.bmp"
+    },
+    {
+        "navn": "bord",
+        "pris": 20,
+        "billedURL": "assets/dummy.bmp"
+    },
+    {
+        "navn": "bord",
+        "pris": 20,
+        "billedURL": "assets/dummy.bmp"
+    }]
+}]
