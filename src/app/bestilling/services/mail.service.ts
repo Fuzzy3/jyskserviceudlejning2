@@ -9,27 +9,38 @@ import { Injectable } from '@angular/core';
 })
 export class MailService {
 
-  constructor(private http: HttpClient) { }
+    httpOptions = {
+        headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+        })
+    };
 
-  sendMail(info: BestillingInfo, bestilling: IBestilling) {
-    console.log(info);
-    console.log(bestilling);
-    let url= (" https://us-central1-jyskserviceudlejningdk.cloudfunctions.net/httpEmail");
-    let params: URLSearchParams = new URLSearchParams();
-    let _options = {headers: new HttpHeaders({'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' })};
+    constructor(private http: HttpClient) { }
 
-    params.set('to', 'oestjacobsen93@gmail.com');
-    params.set('from', 'redbird.world.solutions@gmail.com');
-    params.set('subject', 'test-email');
-    params.set('content', 'Hello World');
+    sendMail(info: BestillingInfo, bestilling: IBestilling) {
+        console.log(info);
+        console.log(bestilling);
+        const url = 'https://us-central1-jyskserviceudlejningdk.cloudfunctions.net/httpEmail';
+        const data = {
+            toEmail: 'somebody@example.com',
+            name: 'Seff Delaney'
+        };
 
-    return this.http.post(url, params, _options)
-                    .toPromise()
-                    .then( res => {
-                      console.log(res)
-                    })
-                    .catch(err => {
-                      console.log(err)
-                    })
-  }
+        this.http.post(url, data).subscribe(res => {
+            console.log(res);
+        });
+
+
+        // return this.http.post(url, params, this.httpOptions)
+        //     .toPromise()
+        //     .then( res => {
+        //         console.log('hello');
+        //         console.log(res);
+        //     })
+        //     .catch(err => {
+        //         console.log('err');
+        //         console.log(err);
+        // });
+    }
 }
