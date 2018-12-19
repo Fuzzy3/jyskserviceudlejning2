@@ -1,6 +1,7 @@
 const functions = require('firebase-functions');
 const sendgrid = require('@sendgrid/mail');
-sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
+//sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
+sendgrid.setApiKey('hidden');
 
 function sendOwnTestMail() {
   const msg = {
@@ -33,19 +34,25 @@ exports.httpEmail = functions.https.onRequest((req, res) => {
     res.set('Access-Control-Allow-Methods', 'GET, POST');
     res.set('Access-Control-Allow-Headers', 'Content-Type, Access-Control-Allow-Origin');
     res.set('Access-Control-Max-Age', '3600');
-    console.log("OPTIONS");
-    console.log(req);
     res.status(204).send('');
   } else {
-    console.log("OTHER");
-    console.log(req.body);
-    console.log(req.body.name)
-    var namesh = req.body.name;
     res.set('Access-Control-Allow-Origin', '*');
-    sendTestMail();
-    res.send({'name': req.body.name});
+    sendMail(req.body);
+    res.send({'to': req.body.to});
   }
 });
+
+function sendMail(mailInfo) {
+  var mailRequest = {
+    to: mailInfo.to,
+    from: mailInfo.from,
+    subject: mailInfo.subject,
+    text: mailInfo.text,
+    html: mailInfo.html,
+  }
+  sendgrid.send(mailRequest);
+  console.log("Mail requested: " + mailRequest.to);
+}
 
 // return Promise.resolve()
   //   .then(() => {
