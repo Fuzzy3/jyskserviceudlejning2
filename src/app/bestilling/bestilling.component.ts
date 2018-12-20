@@ -43,7 +43,21 @@ export class BestillingComponent implements OnInit {
     this.bestillingInfo.dato = this.bestillingsForm.form.value.dato;
     this.bestillingInfo.besked = this.bestillingsForm.form.value.besked;
 
-    this.mailService.sendMail(this.bestillingInfo, this.bestillingsListe);
+
+    // this.mailService.sendMail(this.bestillingInfo, this.bestillingsListe);
+  }
+
+  retrieveInfo(): BestillingInfo {
+    this.bestillingInfo = new BestillingInfo();
+    this.bestillingInfo.navn = this.bestillingsForm.form.value.navn;
+    this.bestillingInfo.adresse = this.bestillingsForm.form.value.adresse;
+    this.bestillingInfo.postnr = this.bestillingsForm.form.value.postnr;
+    this.bestillingInfo.by = this.bestillingsForm.form.value.by;
+    this.bestillingInfo.telefon = this.bestillingsForm.form.value.telefon;
+    this.bestillingInfo.email = this.bestillingsForm.form.value.email;
+    this.bestillingInfo.dato = this.bestillingsForm.form.value.dato;
+    this.bestillingInfo.besked = this.bestillingsForm.form.value.besked;
+    return this.bestillingInfo;
   }
 
   onProductAdded(amount: number, produktSerieId: number, produktId: number) {

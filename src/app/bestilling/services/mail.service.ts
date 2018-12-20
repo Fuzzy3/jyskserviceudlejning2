@@ -39,10 +39,9 @@ export class MailService {
         };
 
         console.log(emailRequest);
-        this.http.post(url, emailRequest).subscribe(res => {
-            console.log(res);
-        });
-
+        // this.http.post(url, emailRequest).subscribe(res => {
+        //     console.log(res);
+        // });
     }
 
     generateHeaderHtml(name: string, date: string): string {
