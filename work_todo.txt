@@ -1,0 +1,22 @@
+Todo:
+- Validation of date-field
+- Modal order pop-up
+- Get and insert real products
+- Get and insert texts on other pages 
+- Mobile responsive
+- Meeting to get clarification
+- Order placed pop-up
+- Restyling of order-page
+
+
+Product map: (Sorted)
+- Modal order pop-up
+- Order placed pop-up
+- Get (Text and products) and insert real products
+- Restyling of order-page
+- Meeting to get clarification
+- Insert texts on other pages 
+- Mobile responsive
+- Validation of date-field
+
+

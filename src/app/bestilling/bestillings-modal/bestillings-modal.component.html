@@ -1,0 +1,41 @@
+<ng-template #content let-modal>
+  <div class="modal-header" style="padding-left: 30px;">
+    <h4 class="modal-title" id="modal-basic-title">Her er din bestilling!</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <p><strong>Navn:</strong> {{info.navn}}</p>
+          <p><strong>Adresse:</strong> {{info.adresse}}, {{info.postnr}} {{info.by}}</p>
+          <p><strong>Telefon:</strong> {{info.telefon}}</p>
+          <p><strong>Mail:</strong> {{info.email}}</p>
+          <p><strong>Dato:</strong> {{info.dato}}</p>
+          <p><strong>Besked:</strong> {{info.besked}} </p>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col">
+          <p>Bestilling</p>
+          <div class="list-group">
+            <div class="list-group-item" *ngFor="let produkt of generateOrderList() ; index as p">
+              {{produkt.navn}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <p *ngIf="generateOrderList().length == 0">Bestilling ikke tilladt uden at have valgt minimum et produkt</p>
+    <button type="button" class="btn btn-outline-dark" [disabled]="generateOrderList().length == 0" (click)="modal.close('Order send')">Bestil</button>
+  </div>
+</ng-template>
+<div class="button-container text-center">
+  <button class="btn btn-primary btn-md" [disabled]="disabledOrderButton" (click)="open(content)">Bestil</button>
+</div>
+<hr>

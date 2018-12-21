@@ -19,6 +19,9 @@ import { BestillingslisteComponent } from './bestilling/bestillingsliste/bestill
 import { HttpClientModule } from '@angular/common/http';
 import { ProductService } from './bestilling/services/product.service';
 import { FormsModule } from '@angular/forms';
+import { BestillingsModalComponent } from './bestilling/bestillings-modal/bestillings-modal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 const appRoutes: Routes = [
   {
@@ -72,7 +75,8 @@ const appRoutes: Routes = [
     BestillingComponent,
     SamarbejdspartnereComponent,
     KontaktComponent,
-    BestillingslisteComponent
+    BestillingslisteComponent,
+    BestillingsModalComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +84,8 @@ const appRoutes: Routes = [
       appRoutes, {scrollPositionRestoration: 'enabled'}
     ),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
