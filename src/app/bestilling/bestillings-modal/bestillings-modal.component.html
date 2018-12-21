@@ -1,6 +1,6 @@
 <ng-template #content let-modal>
   <div class="modal-header" style="padding-left: 30px;">
-    <h4 class="modal-title" id="modal-basic-title">Her er din bestilling!</h4>
+    <h4 class="modal-title" id="modal-basic-title">Din Bestilling</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -36,6 +36,6 @@
   </div>
 </ng-template>
 <div class="button-container text-center">
-  <button class="btn btn-primary btn-md" [disabled]="disabledOrderButton" (click)="open(content)">Bestil</button>
+  <button class="btn btn-primary btn-md" [disabled]="disabledOrderButton" (click)="open(content)">Gå til bestilling</button>
 </div>
 <hr>

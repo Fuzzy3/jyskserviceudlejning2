@@ -37,7 +37,9 @@ export class BestillingsModalComponent {
     const produkter: Produkt[] = [];
     Object.keys(this.bestilling).forEach(key => {
         const value = this.bestilling[key]; /* Use key, value here */
-        produkter.push(value.produkt);
+        if(value.antal > 0) {
+          produkter.push(value.produkt);
+        }
     });
     return produkter;
   }
