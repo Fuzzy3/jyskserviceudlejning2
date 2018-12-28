@@ -45,6 +45,7 @@
         </div>
     </div>
 </section>    
+<hr>
 <section id="bestillingsform" class="margin-top-20 margin-bottom-20">
         <div class="container">
             <div class="row justify-content-center">
@@ -89,7 +90,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="besked">Besked</label>
-                                <input type="text" id="besked" class="form-control" [(ngModel)]="besked" name="besked" >
+                                <textarea id="besked" class="form-control" style="min-height: 120px;" [(ngModel)]="besked" name="besked"></textarea>
                             </div>
                         </div>
                         <app-bestillings-modal [bestilling]="bestillingsListe" [info]="retrieveInfo()" [disabledOrderButton]="!f.valid"></app-bestillings-modal>
