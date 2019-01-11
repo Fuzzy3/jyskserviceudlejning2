@@ -14,35 +14,44 @@
 <section id="products" class="margin-top-50">
     <div class="container padding-bottom-50" *ngFor="let produktSerie of productSerier; index as i">
         <div class="row">
-            <div class="col">
-                <h2 class="">{{produktSerie.overskrift}}</h2>
+            <div class="col-md-3">
+
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4 margin-top-20 card-col" *ngFor="let produkt of produktSerie.produkter; index as p">
-                <div class="col-inner">
-                    <div class="card card-height-md box-shadow">
-                        <div class="image-container img-md">
-                            <img class="card-img-top showcase-image img-md" [src]="produkt.billedURL" alt="Card image cap">
+            <div class="col-md-9">
+                <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <h2 class="">{{produktSerie.overskrift}}</h2>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <h5 class="card-title">{{produkt.navn}}</h5>
-                            <h4 class="price-tag">{{produkt.pris}},-</h4>
-                            <form class="padding-top-10">
-                                <div class="form-row">
-                                    <div class="col-3">
-                                        <label>Antal</label>
-                                    </div>
-                                    <div class="col-9">
-                                        <input type="number" class="form-control" (input)="onProductAdded($event.target.value, i, p)">
-                                    </div>
+                        <div class="row">
+                            <div class="col-md-4 margin-top-20 card-col" *ngFor="let produkt of produktSerie.produkter; index as p">
+                                <div class="col-inner">
+                                    <div class="card card-height-md box-shadow">
+                                        <div class="image-container img-md">
+                                            <img class="card-img-top showcase-image img-md" [src]="produkt.billedURL" alt="Card image cap">
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{produkt.navn}}</h5>
+                                            <h4 class="price-tag">{{produkt.pris}},-</h4>
+                                            <form class="padding-top-10">
+                                                <div class="form-row">
+                                                    <div class="col-3">
+                                                        <label>Antal</label>
+                                                    </div>
+                                                    <div class="col-9">
+                                                        <input type="number" class="form-control" (input)="onProductAdded($event.target.value, i, p)">
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>  
                                 </div>
-                            </form>
+                            </div>
                         </div>
-                    </div>  
+                    </div>
                 </div>
             </div>
-        </div>
     </div>
 </section>    
 <hr>
