@@ -1,3 +1,21 @@
-<p>
-  bestillingsliste works!
-</p>
+<div class="container-fluid padding no-padding">
+  <div class="row">
+    <div class="col-md-12" style="padding-right: 0px">
+        <p>Bestilling</p>
+        <div class="list-group">
+          <div class="list-group-item padding-5" *ngFor="let bestilling of generateOrderList() ; index as p">
+            <div class="container">
+              <div class="row bestilling">
+                <div class="col-md-2 verticalLine text-center" style="padding-right: 0px">
+                    {{bestilling.antal}}
+                </div>
+                <div class="col-md-10" style="padding: 0px 0px 0px 5px;">
+                    {{bestilling.produkt.navn}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

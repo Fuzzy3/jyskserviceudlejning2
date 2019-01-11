@@ -36,6 +36,7 @@
 .card-title {
     border-bottom: solid darkgray 2px;
     margin-bottom: 5px;
+    font-size: 13px;
 }
 
 .card-body {
@@ -48,20 +49,23 @@
 
 .price-tag {
     font-weight: bold;
-    font-size: 40px !important;
+    //font-size: 40px !important;
+    font-size: 13px !important;
 }
 
 .card {
     border-radius: 20px;
     overflow: hidden;
     height: 320px;
-    padding: 25px;
     &.card-height {
         &-lg {
             height:550px;
         }
         &-md {
             height: 380px;
+        }
+        &-auto {
+            height: auto;
         }
     }
 }

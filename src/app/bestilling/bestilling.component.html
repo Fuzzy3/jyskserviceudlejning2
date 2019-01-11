@@ -1,57 +1,71 @@
 <section id="products-intro" class="padding-top-50">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-10">
-                <h5 class="text-center">
-                    Hos Jysk Serviceudlejning er det muligt at bestille online.
-                    For at gøre det så nemt som muligt, udfyldes nedenstående bestillingsformular. Her får De et hurtigt overblik over hvad der kan lejes, og fungerer samtidig som huskeseddel, så De ikke glemmer noget. 
-                    Vi står altid gerne tilrådighed med gode råd og vejledning til planlægningen af Deres fest! 
-                </h5>
+            <div class="col-md-12 card-col">
+                <div class="col-inner">
+                    <div class="card card-height-auto border-radius-20 box-shadow">
+                        <div class="card-body padding-50">
+                            <p class="text-center margin no-margin">
+                                Hos Jysk Serviceudlejning er det muligt at bestille online.
+                                For at gøre det så nemt som muligt, udfyldes nedenstående bestillingsformular. Her får De et hurtigt overblik over hvad der kan lejes, og fungerer samtidig som huskeseddel, så De ikke glemmer noget. 
+                                Vi står altid gerne tilrådighed med gode råd og vejledning til planlægningen af Deres fest! 
+                            </p>   
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </div>
 </section>
 <section id="products" class="margin-top-50">
-    <div class="container padding-bottom-50" *ngFor="let produktSerie of productSerier; index as i">
+    <div class="container">
         <div class="row">
-            <div class="col-md-3">
-
+            <div class="col-md-3 padding no-padding">
+                <app-bestillingsliste [bestilling]="bestillingsListe"></app-bestillingsliste>
             </div>
             <div class="col-md-9">
-                <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <h2 class="">{{produktSerie.overskrift}}</h2>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4 margin-top-20 card-col" *ngFor="let produkt of produktSerie.produkter; index as p">
-                                <div class="col-inner">
-                                    <div class="card card-height-md box-shadow">
-                                        <div class="image-container img-md">
-                                            <img class="card-img-top showcase-image img-md" [src]="produkt.billedURL" alt="Card image cap">
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">{{produkt.navn}}</h5>
-                                            <h4 class="price-tag">{{produkt.pris}},-</h4>
-                                            <form class="padding-top-10">
-                                                <div class="form-row">
-                                                    <div class="col-3">
-                                                        <label>Antal</label>
-                                                    </div>
-                                                    <div class="col-9">
-                                                        <input type="number" class="form-control" (input)="onProductAdded($event.target.value, i, p)">
-                                                    </div>
+                <div class="container padding-bottom-50" *ngFor="let produktSerie of productSerier; index as i">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <h2 class="">{{produktSerie.overskrift}}</h2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6 col-xl-4 col-sm-6 margin-top-20 card-col" *ngFor="let produkt of produktSerie.produkter; index as p">
+                                        <div class="col-inner">
+                                            <div class="card padding-10 card-height-md box-shadow">
+                                                <div class="image-container img-md d-flex align-items-center">
+                                                    <img class="card-img-top showcase-image img-md" [src]="produkt.billedURL" alt="Card image cap">
                                                 </div>
-                                            </form>
+                                                <div class="card-body">
+                                                    <p class="card-title">{{produkt.navn}}</p>
+                                                    <p class="price-tag margin no-margin">DKK {{produkt.pris}}</p>
+                                                    <form class="margin-top-10 padding-5">
+                                                        <div class="form-row">
+                                                            <div class="col-6">
+                                                                <input type="number" class="form-control" #productAmount>
+                                                            </div>
+                                                            <div class="col-6 button-container">
+                                                                <button class="btn btn-primary" (click)="onProductAdded(productAmount.value, i, p)" >Tilføj <i class="fa fa-shopping-basket"></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>  
                                         </div>
-                                    </div>  
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
+        </div>
+    </div>
+    
     </div>
 </section>    
 <hr>
