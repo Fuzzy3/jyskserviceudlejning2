@@ -1,10 +1,10 @@
 [{
-    "overskrift": "Borde og stole",
+    "overskrift": "Borde & stole",
     "produkter": [ 
     {
         "navn": "Borde, 73 x 180cm",
         "pris": 29.00,
-        "billedURL": "assets/dummy.bmp"
+        "billedURL": "assets/Borde,76x180cm.jpg"
     },
     {
         "navn": "Klapstol",
@@ -13,31 +13,41 @@
     }]
 },
 {
-    "overskrift": "Andet",
+    "overskrift": "Tilbudscouverter",
     "produkter": [ 
     {
-        "navn": "bord",
-        "pris": 20,
-        "billedURL": "assets/dummy.bmp"
+        "navn": "Standardcourvert",
+        "pris": 6.95,
+        "billedURL": "assets/Standardkuvert.jpg"
     },
     {
-        "navn": "bord",
-        "pris": 20,
-        "billedURL": "assets/dummy.bmp"
-    },
-    {
-        "navn": "bord",
-        "pris": 20,
-        "billedURL": "assets/dummy.bmp"
-    },
-    {
-        "navn": "bord",
-        "pris": 20,
-        "billedURL": "assets/dummy.bmp"
-    },
-    {
-        "navn": "bord",
-        "pris": 20,
-        "billedURL": "assets/dummy.bmp"
+        "navn": "Luksuscouvert",
+        "pris": 11.95,
+        "billedURL": "assets/Luksuskuvert.jpg"
     }]
-}]
+},
+{
+    "overskrift": "Slushice",
+    "produkter": [ 
+    {
+        "navn": "Slushicemaskine",
+        "pris": 399.00,
+        "billedURL": "assets/SlushIcemaskine.jpg"
+    },
+    {
+        "navn": "Saft til slushice (pr liter)",
+        "pris": 32.00,
+        "billedURL": "assets/Safttilslushice.jpg"
+    },
+    {
+        "navn": "Krus stor",
+        "pris": 1.50,
+        "billedURL": ""
+    },
+    {
+        "navn": "Sugerør med ske",
+        "pris": 0.5,
+        "billedURL": ""
+    }]
+}
+]

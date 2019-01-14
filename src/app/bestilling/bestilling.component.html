@@ -36,10 +36,10 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 col-lg-6 col-xl-4 col-sm-6 margin-top-20 card-col" *ngFor="let produkt of produktSerie.produkter; index as p">
-                                        <div class="col-inner">
+                                        <div class="col-inner" *ngIf="produkt.billedURL == '';else img_product" >
                                             <div class="card padding-10 card-height-md box-shadow">
                                                 <div class="image-container img-md d-flex align-items-center">
-                                                    <img class="card-img-top showcase-image img-md" [src]="produkt.billedURL" alt="Card image cap">
+                                                    <h1 class="text-center">{{produkt.navn}}</h1>
                                                 </div>
                                                 <div class="card-body">
                                                     <p class="card-title">{{produkt.navn}}</p>
@@ -55,8 +55,31 @@
                                                         </div>
                                                     </form>
                                                 </div>
-                                            </div>  
+                                            </div>
                                         </div>
+                                        <ng-template #img_product>
+                                            <div class="col-inner" >
+                                                <div class="card padding-10 card-height-md box-shadow">
+                                                    <div class="image-container img-md d-flex align-items-center">
+                                                        <img class="card-img-top showcase-image img-md" [src]="produkt.billedURL" alt="Card image cap">
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <p class="card-title">{{produkt.navn}}</p>
+                                                        <p class="price-tag margin no-margin">DKK {{produkt.pris}}</p>
+                                                        <form class="margin-top-10 padding-5">
+                                                            <div class="form-row">
+                                                                <div class="col-6">
+                                                                    <input type="number" class="form-control" #productAmount>
+                                                                </div>
+                                                                <div class="col-6 button-container">
+                                                                    <button class="btn btn-primary" (click)="onProductAdded(productAmount.value, i, p)" >Tilføj <i class="fa fa-shopping-basket"></i></button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>  
+                                            </div>
+                                        </ng-template>
                                     </div>
                                 </div>
                             </div>
