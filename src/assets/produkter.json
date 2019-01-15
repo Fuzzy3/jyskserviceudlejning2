@@ -49,5 +49,145 @@
         "pris": 0.5,
         "billedURL": ""
     }]
+},
+{
+    "overskrift": "Popcornmaskine",
+    "produkter": [ 
+    {
+        "navn": "Popcorn",
+        "pris": 199.00,
+        "billedURL": "assets/Popcornmaskine.JPG"
+    }]
+},
+{
+    "overskrift": "Candy Floss maskine",
+    "produkter": [ 
+    {
+        "navn": "Candyfloss",
+        "pris": 199.00,
+        "billedURL": "assets/candyfloss.JPG"
+    }]
+},
+{
+    "overskrift": "Chololadefontæne",
+    "produkter": [ 
+    {
+        "navn": "Chokoladefontæne",
+        "pris": 199.00,
+        "billedURL": "assets/Chokoladefontæne.jpg"
+    }]
+},
+{
+    "overskrift": "Pandekager",
+    "produkter": [ 
+    {
+        "navn": "Pandekagepande",
+        "pris": 199.00,
+        "billedURL": "assets/Pandekagepande.jpg"
+    }]
+},
+{
+    "overskrift": "Hvidt procelæn, Hvid Figgjo",
+    "produkter": [ 
+    {
+        "navn": "Middagstallerken",
+        "pris": 1.0,
+        "billedURL": "assets/Middagstallerken.jpg"
+    },
+    {
+        "navn": "Frokosttallerken",
+        "pris": 1.0,
+        "billedURL": "assets/Frokosttallerken.jpg"
+    },
+    {
+        "navn": "Dybtallerken",
+        "pris": 1.0,
+        "billedURL": "assets/Dybtallerken.jpg"
+    },
+    {
+        "navn": "Desserttallerken",
+        "pris": 1.0,
+        "billedURL": "assets/Desserttallerken.jpg"
+    },
+    {
+        "navn": "Overkop",
+        "pris": 1.0,
+        "billedURL": "assets/Overkop.jpg"
+    },
+    {
+        "navn": "Underkop",
+        "pris": 1.0,
+        "billedURL": "assets/Underkop.jpg"
+    },
+    {
+        "navn": "Sukkerskål",
+        "pris": 2.50,
+        "billedURL": "assets/Sukkerskål.jpg"
+    },
+    {
+        "navn": "Flødekande",
+        "pris": 2.50,
+        "billedURL": "assets/Flødekande.jpg"
+    },
+    {
+        "navn": "Salt & peber",
+        "pris": 2.50,
+        "billedURL": "assets/Saltogpeber.jpg"
+    },
+    {
+        "navn": "Askebægre",
+        "pris": 2.80,
+        "billedURL": ""
+    },
+    {
+        "navn": "Kuvertaskebægre",
+        "pris": 1.5,
+        "billedURL": ""
+    }]
+},
+{
+    "overskrift": "Bestik",
+    "produkter": [ 
+    {
+        "navn": "Gafler",
+        "pris": 0.95,
+        "billedURL": "assets/Gafler.jpg"
+    },
+    {
+        "navn": "Knive",
+        "pris": 0.95,
+        "billedURL": "assets/Knive.jpg"
+    },
+    {
+        "navn": "Skeer",
+        "pris": 0.95,
+        "billedURL": "assets/Skeer.jpg"
+    },
+    {
+        "navn": "Teskeer",
+        "pris": 0.80,
+        "billedURL": "assets/Teskeer.jpg"
+    },
+    {
+        "navn": "Kagegafler",
+        "pris": 0.80,
+        "billedURL": "assets/Kagegafler.jpg"
+    },
+    {
+        "navn": "Pålægsgafler",
+        "pris": 0.80,
+        "billedURL": "assets/Pålægsgafler.jpg"
+    },
+    {
+        "navn": "Kartoffelskeer",
+        "pris": 3.00,
+        "billedURL": "assets/Kartoffelskeer.jpg"
+    },
+    {
+        "navn": "Sauceskeer",
+        "pris": 199.00,
+        "billedURL": "assets/Sauceskeer.jpg"
+    }
+]
 }
 ]

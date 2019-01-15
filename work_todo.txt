@@ -7,6 +7,10 @@ Todo:
 - Meeting to get clarification
 - Order placed pop-up
 - Restyling of order-page
+- Bestillingside: Tilføj, button size depending on screen width
+- Bestillingside: insert products
+- Make dummy page of each of the rest of the pages
+- Fit no-image texts
 
 
 Product map: (Sorted)

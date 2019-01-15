@@ -38,19 +38,19 @@
                                     <div class="col-md-6 col-lg-6 col-xl-4 col-sm-6 margin-top-20 card-col" *ngFor="let produkt of produktSerie.produkter; index as p">
                                         <div class="col-inner" *ngIf="produkt.billedURL == '';else img_product" >
                                             <div class="card padding-10 card-height-md box-shadow">
-                                                <div class="image-container img-md d-flex align-items-center">
-                                                    <h1 class="text-center">{{produkt.navn}}</h1>
+                                                <div class="image-container img-md d-flex align-items-center justify-content-center">
+                                                    <h4 class="text-center">Intet billede tilgængeligt</h4>
                                                 </div>
                                                 <div class="card-body">
                                                     <p class="card-title">{{produkt.navn}}</p>
-                                                    <p class="price-tag margin no-margin">DKK {{produkt.pris}}</p>
+                                                    <p class="price-tag margin no-margin">DKK {{produkt.pris | number: '1.2-2'}}</p>
                                                     <form class="margin-top-10 padding-5">
                                                         <div class="form-row">
                                                             <div class="col-6">
                                                                 <input type="number" class="form-control" #productAmount>
                                                             </div>
                                                             <div class="col-6 button-container">
-                                                                <button class="btn btn-primary" (click)="onProductAdded(productAmount.value, i, p)" >Tilføj <i class="fa fa-shopping-basket"></i></button>
+                                                                <button class="btn btn-primary font-size-small" (click)="onProductAdded(productAmount.value, i, p)" >Tilføj <i class="fa fa-shopping-basket"></i></button>
                                                             </div>
                                                         </div>
                                                     </form>
@@ -65,14 +65,14 @@
                                                     </div>
                                                     <div class="card-body">
                                                         <p class="card-title">{{produkt.navn}}</p>
-                                                        <p class="price-tag margin no-margin">DKK {{produkt.pris}}</p>
+                                                        <p class="price-tag margin no-margin">DKK {{produkt.pris | number: '1.2-2'}}</p>
                                                         <form class="margin-top-10 padding-5">
                                                             <div class="form-row">
                                                                 <div class="col-6">
                                                                     <input type="number" class="form-control" #productAmount>
                                                                 </div>
                                                                 <div class="col-6 button-container">
-                                                                    <button class="btn btn-primary" (click)="onProductAdded(productAmount.value, i, p)" >Tilføj <i class="fa fa-shopping-basket"></i></button>
+                                                                    <button class="btn btn-primary font-size-small" (click)="onProductAdded(productAmount.value, i, p)" >Tilføj <i class="fa fa-shopping-basket"></i></button>
                                                                 </div>
                                                             </div>
                                                         </form>
