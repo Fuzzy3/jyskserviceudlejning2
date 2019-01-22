@@ -1,15 +1,9 @@
 Todo:
 - Validation of date-field
-- Modal order pop-up
-- Get and insert real products
-- Get and insert texts on other pages 
 - Mobile responsive
-- Meeting to get clarification
-- Order placed pop-up
+- Order placed pop-up/page
 - Restyling of order-page
 - Bestillingside: Tilføj, button size depending on screen width
-- Bestillingside: insert products
-- Make dummy page of each of the rest of the pages
 - Fit no-image texts
 
 
@@ -17,10 +11,30 @@ Product map: (Sorted)
 - Modal order pop-up
 - Order placed pop-up
 - Get (Text and products) and insert real products
+- Insert texts on other pages 
+--------------------------------
 - Restyling of order-page
 - Meeting to get clarification
-- Insert texts on other pages 
 - Mobile responsive
 - Validation of date-field
 
+
+Defects:
+- Toggle navbar on, then increase window size. Buttons will have moved to right
+
+
+Spørgsmål til Jens:
+- Kontaktformular på Kontakt
+- Samarbejdspartnere links?
+- Depositum på Slush ice
+- Lejebetingelser afkrydsning ved bestilling
+- Autogebyr på bestilling
+- Generelt Design
+- Skal der være animationer?
+- Manglende billeder (f.eks. kuverttilbud)
+- Rette stavefejl?
+- Manglende Kuvertlinks
+- Mailopbygning og information?
+- Validering på dato-felt
+- 
 

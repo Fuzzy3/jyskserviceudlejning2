@@ -53,22 +53,7 @@
     font-size: 13px !important;
 }
 
-.card {
-    border-radius: 20px;
-    overflow: hidden;
-    height: 320px;
-    &.card-height {
-        &-lg {
-            height:550px;
-        }
-        &-md {
-            height: 380px;
-        }
-        &-auto {
-            height: auto;
-        }
-    }
-}
+
 
 label {
     font-weight: bold;

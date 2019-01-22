@@ -6,12 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  show:boolean = false;
+  show = false;
 
   toggleCollapse() {
-    this.show = !this.show
+    this.show = !this.show;
   }
-  
+
+  toggleHide() {
+    this.show = false;
+  }
+
   constructor() { }
 
   ngOnInit() {

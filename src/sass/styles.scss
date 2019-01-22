@@ -2,6 +2,7 @@
 
 @import './variables';
 @import './mixins';
+@import './jysk-styles';
 
 .site-background {
     background-color: $primary-bg-color;
@@ -118,6 +119,9 @@
         &-20 {
             margin-bottom: 20px;
         }
+        &-30 {
+            margin-bottom: 30px;
+        }
         &-50 {
             margin-bottom: 50px;
         }
@@ -161,6 +165,12 @@
 
 .fill-container {
     min-height: 500px;
+    &-100 {
+        min-height: 100px;
+    }
+    &-200 {
+        min-height: 200px;
+    }
 }
 
 .button-container {
@@ -211,11 +221,11 @@
 }
 
 
-.col-spacing {
-    &-10 {
-        padding: 0 10px 0 10px;
-    }
-}
+// .col-spacing {
+//     &-10 {
+//         padding: 0 10px 0 10px !important;
+//     }
+// }
 
 .height {
     &-100 {
@@ -272,5 +282,17 @@ input.ng-invalid.ng-touched  {
     padding: 20px 20px 0px 20px;
     &.left {
         text-align: left !important;
+    }
+}
+
+.align-text {
+    &-right {
+        text-align: right;
+    }
+    &-left {
+        text-align: left;
+    }
+    &-center {
+        text-align: center;
     }
 }
