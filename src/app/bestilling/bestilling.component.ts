@@ -30,6 +30,9 @@ export class BestillingComponent implements OnInit {
 
   ngOnInit() {
     this.productService.getProducts().subscribe(produktSerier => this.productSerier = produktSerier);
+    if (this.productService.isDataCached()) {
+      this.bestillingsListe = this.productService.getBestillingsliste();
+    }
   }
 
   onSubmit() {
@@ -62,10 +65,11 @@ export class BestillingComponent implements OnInit {
 
   onProductAdded(amount: number, produktSerieId: number, produktId: number) {
     const id = produktSerieId + '' + produktId;
-    if(amount == 0) {
+    if (amount === 0) {
       this.bestillingsListe[id] = null;
     }
     this.bestillingsListe[id] = {antal: amount, produkt: this.productSerier[produktSerieId].produkter[produktId]};
+    this.productService.setBestillingsliste(this.bestillingsListe);
   }
 
   fillFormWithDummyData() {
