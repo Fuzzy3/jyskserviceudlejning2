@@ -1,40 +1,94 @@
-Todo:
-- Validation of date-field
-- Mobile responsive
-- Order placed pop-up/page
-- Restyling of order-page
-- Bestillingside: Tilføj, button size depending on screen width
-- Fit no-image texts
-
-
-Product map: (Sorted)
-- Modal order pop-up
-- Order placed pop-up
-- Get (Text and products) and insert real products
-- Insert texts on other pages 
---------------------------------
-- Restyling of order-page
-- Meeting to get clarification
-- Mobile responsive
-- Validation of date-field
-
-
 Defects:
 - Toggle navbar on, then increase window size. Buttons will have moved to right
 
+Clarifications:
+- Kontaktformular på Kontakt -> Bare mail
+- Samarbejdspartnere links? -> Fjernet links
+- Depositum på Slush ice -> gør intet
+- Lejebetingelser afkrydsning ved bestilling -> Gør intet
+- Autogebyr på bestilling -> vis på mail kun
+- Generelt Design -> har vi snakket om
+- Skal der være animationer? -> Uden animationer
+- Manglende billeder (f.eks. kuverttilbud) -> Jens sender dem
+- Rette stavefejl? -> Rette dem
+- Manglende Kuvertlinks -> Hardcode kuvertprodukter med ekstra info om indhold (evt større firkanter - leg med design)
+- Mailopbygning og information? -> Mangler ekspeditionsgebyr
+- Validering på dato-felt -> Nej
+- Generelt SEO-optimering -> se rapport
 
-Spørgsmål til Jens:
-- Kontaktformular på Kontakt
-- Samarbejdspartnere links?
-- Depositum på Slush ice
-- Lejebetingelser afkrydsning ved bestilling
-- Autogebyr på bestilling
-- Generelt Design
-- Skal der være animationer?
-- Manglende billeder (f.eks. kuverttilbud)
-- Rette stavefejl?
-- Manglende Kuvertlinks
-- Mailopbygning og information?
-- Validering på dato-felt
-- 
+Product backlog (Ikke i rækkefølge):
+- Skift titel på forsiden
+- Skift billede og pris på kuvert (Evt give mulighed for at ændre pris)
+- ekspeditionsgebyr på mail
+- Minus animationer
+- Løsning til kuvert-tilbud
+- SEO-optimering
+- Tilføj facebook og instagram icons/links
+- Fjern space til footer Samarbejdspartnere
+- Redesign af bestilling:
+    - Nyt design
+        - Redesign af Sideopbygning
+        - Design Sticky-menu
+        - Design Dynamic floating button
+        - Design af velkomsttekst
+        - Design af Sticky bestillingsliste
+    - Fjern sendknap fra bund og put som sticky
+    - Lav sticky bestilling kun for desktop, mobil må være foruden
+- Redesign af Modal
+    - Fjern kontaktinfo fra bunden og put ind i modal
+    - Bestilling i modal
+    - Bestil og få et tilbud tekst
+    - Kun validering på navn, email og brugsdato -> Optimer dette til email.
+- Optimering til mobiler:
+    - Fjern sticky menu
+    - Bestil knap skal stadig "flyve"
+    - Ingen overlap og andre problemer
+
+Små ændringer (Flere på en morgen):
+- Skift titel på forsiden
+- ekspeditionsgebyr på mail
+- Minus animationer (inkl. fjerne dependency)
+- Fjern space til footer Samarbejdspartnere
+
+Mellem ændringer (En enkelt på en morgen):
+- Skift billede og pris på kuvert (Evt give mulighed for at ændre pris)
+- Tilføj facebook og instagram icons/links
+
+Større ændringer: (Tager flere morgener at komme igennem)
+- SEO-optimering
+    - tilføj website titel
+    - tilføj website meta-data
+    - tilføj alt-tags til billeder
+    - Se rapport
+- Løsning til kuvert-tilbud
+- Redesign af bestilling:
+    - Nyt design
+        - Redesign af Sideopbygning
+        - Design Sticky-menu
+        - Design Dynamic floating button
+        - Design af velkomsttekst
+        - Design af Sticky bestillingsliste
+    - Fjern sendknap fra bund og put som sticky
+    - Lav sticky bestilling kun for desktop, mobil må være foruden
+- Redesign af Modal
+    - Fjern kontaktinfo fra bunden og put ind i modal
+    - Bestilling i modal
+    - Bestil og få et tilbud tekst
+    - Kun validering på navn, email og brugsdato -> Optimer dette til email.
+- Optimering til mobiler:
+    - Fjern sticky menu
+    - Bestil knap skal stadig "flyve"
+    - Ingen overlap og andre problemer
+- Lav, tak for din bestilling "side"
+
+Waiting for Jens:
+- Manglende produktbilleder
+- Titel på forside
+
+
+Done:
+- Skift tekst på Kontakt -> er kun mail
+
+
+
 

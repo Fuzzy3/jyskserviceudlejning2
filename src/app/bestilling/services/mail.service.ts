@@ -13,6 +13,7 @@ export class MailService {
     bestilling: IBestilling;
     info: BestillingInfo;
     receiverMail: String = 'redbird.world.solutions@gmail.com';
+    ekspeditionsgebyr = 62.50;
 
     httpOptions = {
         headers: new HttpHeaders({
@@ -20,6 +21,8 @@ export class MailService {
             'Access-Control-Allow-Origin': '*'
         })
     };
+
+    
 
     constructor(private http: HttpClient) { }
 
@@ -39,9 +42,9 @@ export class MailService {
         };
 
         console.log(emailRequest);
-        // this.http.post(url, emailRequest).subscribe(res => {
-        //     console.log(res);
-        // });
+        this.http.post(url, emailRequest).subscribe(res => {
+            console.log(res);
+        });
     }
 
     generateHeaderHtml(name: string, date: string): string {
@@ -92,6 +95,8 @@ export class MailService {
                 value.produkt.pris + 'kr. stk = ' + sumSingleProduct + 'kr.'));
             sumAllProducts = sumAllProducts + sumSingleProduct;
         });
+        sumAllProducts = sumAllProducts + this.ekspeditionsgebyr;
+        html = html.concat(this.paragraf('Ekspeditionsgebyr - af ' + this.ekspeditionsgebyr + 'kr.'));
         html = html.concat(this.paragraf(this.bold('Pris ialt: ') + sumAllProducts));
         html = html.concat('</div><hr>');
         return html;
