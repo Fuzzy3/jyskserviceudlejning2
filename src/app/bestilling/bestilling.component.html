@@ -61,7 +61,7 @@
                                             <div class="col-inner" >
                                                 <div class="card padding-10 card-height-md box-shadow">
                                                     <div class="image-container img-md d-flex align-items-center">
-                                                        <img class="card-img-top showcase-image img-md image-orientation" [src]="produkt.billedURL" alt="Card image cap">
+                                                        <img class="card-img-top showcase-image img-md" [src]="produkt.billedURL" (error)="produkt.billedURL = ''" alt="Card image cap">
                                                     </div>
                                                     <div class="card-body">
                                                         <p class="card-title">{{produkt.navn}}</p>
