@@ -1,3 +1,5 @@
+Deploy most recent version to fuzzy3.github.io
+
 Defects:
 - Toggle navbar on, then increase window size. Buttons will have moved to right
 
@@ -15,6 +17,8 @@ Clarifications:
 - Mailopbygning og information? -> Mangler ekspeditionsgebyr
 - Validering på dato-felt -> Nej
 - Generelt SEO-optimering -> se rapport
+
+
 
 Product backlog (Ikke i rækkefølge):
 - Skift titel på forsiden
@@ -46,9 +50,9 @@ Product backlog (Ikke i rækkefølge):
 
 Små ændringer (Flere på en morgen):
 - Skift titel på forsiden
-- ekspeditionsgebyr på mail
-- Minus animationer (inkl. fjerne dependency)
-- Fjern space til footer Samarbejdspartnere
+- Nye tekster
+- Manglende billeder til produkter
+- Samling af maskineprodukter
 
 Mellem ændringer (En enkelt på en morgen):
 - Skift billede og pris på kuvert (Evt give mulighed for at ændre pris)
@@ -82,12 +86,17 @@ Større ændringer: (Tager flere morgener at komme igennem)
 - Lav, tak for din bestilling "side"
 
 Waiting for Jens:
-- Manglende produktbilleder
 - Titel på forside
+- Damprenser pris
+
 
 
 Done:
 - Skift tekst på Kontakt -> er kun mail
+- Fjern space til footer Samarbejdspartnere
+- Manglende produktbilleder
+- Ekspeditionsgebyr på mail
+
 
 
 

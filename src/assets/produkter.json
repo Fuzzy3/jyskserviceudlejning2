@@ -23,7 +23,7 @@
     {
         "navn": "Luksuscouvert",
         "pris": 11.95,
-        "billedURL": "assets/Luksuskuvert.jpg"
+        "billedURL": "assets/luksuskuv.png"
     }]
 },
 {
@@ -42,48 +42,46 @@
     {
         "navn": "Krus stor",
         "pris": 1.50,
-        "billedURL": ""
+        "billedURL": "assets/Krus1.jpg"
     },
     {
         "navn": "Sugerør med ske",
         "pris": 0.5,
-        "billedURL": ""
+        "billedURL": "assets/Sugerør.jpg"
     }]
 },
 {
-    "overskrift": "Popcornmaskine",
+    "overskrift": "Maskiner",
     "produkter": [ 
     {
-        "navn": "Popcorn",
+        "navn": "Popcornmaskine",
         "pris": 199.00,
         "billedURL": "assets/Popcornmaskine.JPG"
-    }]
-},
-{
-    "overskrift": "Candy Floss maskine",
-    "produkter": [ 
+    },
     {
-        "navn": "Candyfloss",
+        "navn": "Candyflossmaskine",
         "pris": 199.00,
         "billedURL": "assets/candyfloss.JPG"
-    }]
-},
-{
-    "overskrift": "Chololadefontæne",
-    "produkter": [ 
+    },
     {
         "navn": "Chokoladefontæne",
         "pris": 199.00,
         "billedURL": "assets/Chokoladefontæne.jpg"
-    }]
-},
-{
-    "overskrift": "Pandekager",
-    "produkter": [ 
+    },
     {
         "navn": "Pandekagepande",
         "pris": 199.00,
         "billedURL": "assets/Pandekagepande.jpg"
+    },
+    {
+        "navn": "Italiensk Proffesionel ismaskine",
+        "pris": 4500.00,
+        "billedURL": "assets/Ismaskine.jpg"
+    },
+    {
+        "navn": "Damprenser",
+        "pris": 100,
+        "billedURL": "assets/damprenser.gif"
     }]
 },
 {
@@ -292,12 +290,12 @@
     {
         "navn": "Kaffekande",
         "pris": 9.00,
-        "billedURL": "assets/Tekande.jpg"
+        "billedURL": "assets/Kaffekande.jpg"
     },
     {
         "navn": "Tekande",
         "pris": 9.00,
-        "billedURL": "assets/Glasskål_23cm.jpg"
+        "billedURL": "assets/Tekande.jpg"
     }]
 },
 {
@@ -306,26 +304,17 @@
     {
         "navn": "175 x 140 (cirkamål)",
         "pris": 9.00,
-        "billedURL": ""
+        "billedURL": "assets/duge1.jpg"
     },
     {
         "navn": "220 x 140 (cirkamål)",
         "pris": 9.00,
-        "billedURL": ""
+        "billedURL": "assets/duge1.jpg"
     },
     {
         "navn": "Stofservietter",
         "pris": 9.00,
-        "billedURL": ""
-    }]
-},
-{
-    "overskrift": "Italiensk Proffesionel ismaskine",
-    "produkter": [ 
-    {
-        "navn": "Is",
-        "pris": 4500.00,
-        "billedURL": "assets/Ismaskine.jpg"
+        "billedURL": "assets/stofserviet.jpg"
     }]
 }
 ]
