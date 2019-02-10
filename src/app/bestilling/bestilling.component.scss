@@ -62,3 +62,19 @@ label {
 .font-size-small {
     font-size: 12px !important;
 }
+
+.side-order-menu {
+    border-right: 1px solid rgba(0,0,0,.125);
+    
+}
+
+h2.product-title {
+    font-size: 22px;
+}
+
+.sticky-order-list {
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+    z-index: 10;
+}

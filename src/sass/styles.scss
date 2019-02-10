@@ -33,7 +33,7 @@
     }
 
     &.no-padding {
-        padding: 0px;
+        padding: 0px !important;
     }
     &-top {
         &-5 {
@@ -136,6 +136,15 @@
         }
         &-50 {
             margin-bottom: 50px;
+        }
+        &-60 {
+            margin-bottom: 60px;
+        }
+        &-70 {
+            margin-bottom: 70px;
+        }
+        &-80 {
+            margin-bottom: 80px;
         }
         &-100 {
             margin-bottom: 100px;

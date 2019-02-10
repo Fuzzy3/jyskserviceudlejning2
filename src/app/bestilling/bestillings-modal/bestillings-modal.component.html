@@ -9,12 +9,7 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <p><strong>Navn:</strong> {{info.navn}}</p>
-          <p><strong>Adresse:</strong> {{info.adresse}}, {{info.postnr}} {{info.by}}</p>
-          <p><strong>Telefon:</strong> {{info.telefon}}</p>
-          <p><strong>Mail:</strong> {{info.email}}</p>
-          <p><strong>Dato:</strong> {{info.dato}}</p>
-          <p><strong>Besked:</strong> {{info.besked}} </p>
+          <p>Here be dragons</p>
         </div>
       </div>
       <hr>
@@ -23,9 +18,69 @@
           <p>Bestilling</p>
           <div class="list-group">
             <div class="list-group-item" *ngFor="let produkt of generateOrderList() ; index as p">
-              {{produkt.navn}}
+              {{produkt.antal}} stk {{produkt.navn}}
             </div>
           </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col">
+          <form (ngSubmit)="onSubmit()" #f="ngForm">
+            <div id="bruger-data">
+              <button class="btn btn-secondary float-right" type="button" (click)="fillFormWithDummyData()">Udfyld form</button>
+              <div class="form-group">
+                <label for="navn">Navn</label>
+                <input type="text" id="navn" class="form-control" [(ngModel)]="navn" #navnInput="ngModel" name="navn"
+                  required>
+                <div class="invalid-feedback" *ngIf="!navnInput.valid && navnInput.touched">Dit navn skal være udfyldt</div>
+              </div>
+              <div class="form-group">
+                <label for="adresse">Adresse</label>
+                <input type="text" id="adresse" class="form-control" [(ngModel)]="adresse" #adresseInput="ngModel" name="adresse"
+                  required>
+                <div class="invalid-feedback" *ngIf="!adresseInput.valid && adresseInput.touched">Din adresse skal være
+                  udfyldt</div>
+              </div>
+              <div class="form-group">
+                <label for="postnr">Post nr.</label>
+                <input type="text" id="postnr" class="form-control" [(ngModel)]="postnr" #postnrInput="ngModel" name="postnr"
+                  required>
+                <div class="invalid-feedback" *ngIf="!postnrInput.valid && postnrInput.touched">Din adresse skal være
+                  udfyldt</div>
+              </div>
+              <div class="form-group">
+                <label for="by">By</label>
+                <input type="text" id="by" class="form-control" [(ngModel)]="by" #byInput="ngModel" name="by" required>
+                <div class="invalid-feedback" *ngIf="!byInput.valid && byInput.touched">Din adresse skal være udfyldt</div>
+              </div>
+              <div class="form-group">
+                <label for="telefon">Telefon nr.</label>
+                <input type="text" id="telefon" class="form-control" [(ngModel)]="telefon" #telefonInput="ngModel" name="telefon"
+                  required>
+                <div class="invalid-feedback" *ngIf="!telefonInput.valid && telefonInput.touched">Din adresse skal være
+                  udfyldt</div>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" [(ngModel)]="email" #emailInput="ngModel" name="email"
+                  required email>
+                <div class="invalid-feedback" *ngIf="!emailInput.valid && emailInput.touched">Din adresse skal være
+                  udfyldt</div>
+              </div>
+              <div class="form-group">
+                <label for="dato">Brugs dato</label>
+                <input type="date" id="dato" class="form-control" [(ngModel)]="dato" #datoInput="ngModel" name="dato"
+                  required date>
+                <div class="invalid-feedback" *ngIf="!datoInput.valid && datoInput.touched">Din adresse skal være
+                  udfyldt</div>
+              </div>
+              <div class="form-group">
+                <label for="besked">Besked</label>
+                <textarea id="besked" class="form-control" style="min-height: 120px;" [(ngModel)]="besked" name="besked"></textarea>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>

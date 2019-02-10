@@ -4,9 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FrontpageComponent } from './frontpage/frontpage.component';
-import { Frontpage2Component } from './frontpage2/frontpage2.component';
 import { FooterComponent } from './footer/footer.component';
-import { Frontpage3Component } from './frontpage3/frontpage3.component';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { OmOsComponent } from './om-os/om-os.component';
@@ -66,8 +64,6 @@ const appRoutes: Routes = [
     HeaderComponent,
     FrontpageComponent,
     FooterComponent,
-    Frontpage2Component,
-    Frontpage3Component,
     PageNotFoundComponent,
     OmOsComponent,
     InspirationComponent,

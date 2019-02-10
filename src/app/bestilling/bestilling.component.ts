@@ -16,15 +16,7 @@ export class BestillingComponent implements OnInit {
   @ViewChild('f') bestillingsForm: NgForm;
   productSerier: ProduktSerie[];
   bestillingsListe: IBestilling = {};
-  bestillingInfo: BestillingInfo;
-  navn = '';
-  adresse = '';
-  postnr = '';
-  by = '';
-  telefon = '';
-  email = '';
-  dato = '';
-  besked = '';
+
 
   constructor(private productService: ProductService, private mailService: MailService) { }
 
@@ -33,34 +25,6 @@ export class BestillingComponent implements OnInit {
     if (this.productService.isDataCached()) {
       this.bestillingsListe = this.productService.getBestillingsliste();
     }
-  }
-
-  onSubmit() {
-    this.bestillingInfo = new BestillingInfo;
-    this.bestillingInfo.navn = this.bestillingsForm.form.value.navn;
-    this.bestillingInfo.adresse = this.bestillingsForm.form.value.adresse;
-    this.bestillingInfo.postnr = this.bestillingsForm.form.value.postnr;
-    this.bestillingInfo.by = this.bestillingsForm.form.value.by;
-    this.bestillingInfo.telefon = this.bestillingsForm.form.value.telefon;
-    this.bestillingInfo.email = this.bestillingsForm.form.value.email;
-    this.bestillingInfo.dato = this.bestillingsForm.form.value.dato;
-    this.bestillingInfo.besked = this.bestillingsForm.form.value.besked;
-
-
-    // this.mailService.sendMail(this.bestillingInfo, this.bestillingsListe);
-  }
-
-  retrieveInfo(): BestillingInfo {
-    this.bestillingInfo = new BestillingInfo();
-    this.bestillingInfo.navn = this.bestillingsForm.form.value.navn;
-    this.bestillingInfo.adresse = this.bestillingsForm.form.value.adresse;
-    this.bestillingInfo.postnr = this.bestillingsForm.form.value.postnr;
-    this.bestillingInfo.by = this.bestillingsForm.form.value.by;
-    this.bestillingInfo.telefon = this.bestillingsForm.form.value.telefon;
-    this.bestillingInfo.email = this.bestillingsForm.form.value.email;
-    this.bestillingInfo.dato = this.bestillingsForm.form.value.dato;
-    this.bestillingInfo.besked = this.bestillingsForm.form.value.besked;
-    return this.bestillingInfo;
   }
 
   onProductAdded(amount: number, produktSerieId: number, produktId: number) {
@@ -72,14 +36,4 @@ export class BestillingComponent implements OnInit {
     this.productService.setBestillingsliste(this.bestillingsListe);
   }
 
-  fillFormWithDummyData() {
-    this.navn = 'Hans';
-    this.adresse = 'Bystævneparken 19';
-    this.postnr = '2700';
-    this.by = 'Husum';
-    this.telefon = '30223568';
-    this.email = 'Hans@gmail.com';
-    this.dato = '2018-12-24';
-    this.besked = 'Kan det hentes d. 23. og afleveres igen d. 27.?';
-  }
 }

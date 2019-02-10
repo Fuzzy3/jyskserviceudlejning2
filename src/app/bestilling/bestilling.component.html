@@ -4,144 +4,94 @@
             <div class="col-md-12 card-col">
                 <div class="col-inner">
                     <div class="card card-height-auto border-radius-20 box-shadow">
-                        <div class="card-body space-around-50">
-                            <p class="text-center margin no-margin">
-                                Hos Jysk Serviceudlejning er det muligt at bestille online.
-                                For at gøre det så nemt som muligt, udfyldes nedenstående bestillingsformular. Her får De et hurtigt overblik over hvad der kan lejes, og fungerer samtidig som huskeseddel, så De ikke glemmer noget. 
-                                Vi står altid gerne tilrådighed med gode råd og vejledning til planlægningen af Deres fest! 
-                            </p>   
+                        <div class="card-body padding no-padding">
+                            <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-3 side-order-menu padding-10" [ngClass]="{sticky">
+                                            <app-bestillingsliste [bestilling]="bestillingsListe"></app-bestillingsliste>
+                                            <app-bestillings-modal [bestilling]="bestillingsListe"></app-bestillings-modal>
+                                        </div>
+                                        <div class="col-md-9 margin-top-30">
+                                            <div class="container padding-bottom-60" *ngFor="let produktSerie of productSerier; index as i">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="container">
+                                                            <div class="row">
+                                                                <div class="col">
+                                                                    <h2 class="product-title">{{produktSerie.overskrift}}</h2>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-6 col-lg-6 col-xl-4 col-sm-6 margin-top-10 card-col" *ngFor="let produkt of produktSerie.produkter; index as p">
+                                                                    <div class="col-inner" *ngIf="produkt.billedURL == '';else img_product">
+                                                                        <div class="card padding-10 card-height-md box-shadow">
+                                                                            <div class="image-container img-md d-flex align-items-center justify-content-center">
+                                                                                <h4 class="text-center">Intet billede tilgængeligt</h4>
+                                                                            </div>
+                                                                            <div class="card-body">
+                                                                                <p class="card-title">{{produkt.navn}}</p>
+                                                                                <p class="price-tag margin no-margin">DKK {{produkt.pris | number:
+                                                                                    '1.2-2'}}</p>
+                                                                                <form class="margin-top-10 padding-5">
+                                                                                    <div class="form-row">
+                                                                                        <div class="col-6">
+                                                                                            <input type="number" class="form-control"
+                                                                                                #productAmount>
+                                                                                        </div>
+                                                                                        <div class="col-6 button-container">
+                                                                                            <button class="btn btn-primary font-size-small" (click)="onProductAdded(productAmount.value, i, p)">Tilføj
+                                                                                                <i class="fa fa-shopping-basket"></i></button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <ng-template #img_product>
+                                                                        <div class="col-inner">
+                                                                            <div class="padding-10 card-height-md">
+                                                                                <div class="image-container img-md d-flex align-items-center">
+                                                                                    <img class="card-img-top showcase-image img-md" [src]="produkt.billedURL"
+                                                                                        (error)="produkt.billedURL = ''" alt="Card image cap">
+                                                                                </div>
+                                                                                <div class="card-body padding no-padding">
+                                                                                    <p class="card-title">{{produkt.navn}}</p>
+                                                                                    <p class="price-tag margin no-margin">DKK {{produkt.pris |
+                                                                                        number: '1.2-2'}}</p>
+                                                                                    <form class="margin-top-10 padding-5">
+                                                                                        <div class="form-row">
+                                                                                            <div class="col-6">
+                                                                                                <input type="number" min="0" class="form-control"
+                                                                                                    #productAmount>
+                                                                                            </div>
+                                                                                            <div class="col-6 button-container">
+                                                                                                <button class="btn btn-primary font-size-small"
+                                                                                                    (click)="onProductAdded(productAmount.value, i, p)">Tilføj
+                                                                                                    <i class="fa fa-shopping-basket"></i></button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </ng-template>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            
                         </div>
                     </div>
                 </div>
-                
             </div>
         </div>
     </div>
 </section>
 <section id="products" class="margin-top-50">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 padding no-padding">
-                <app-bestillingsliste [bestilling]="bestillingsListe"></app-bestillingsliste>
-            </div>
-            <div class="col-md-9">
-                <div class="container padding-bottom-50" *ngFor="let produktSerie of productSerier; index as i">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col">
-                                        <h2 class="">{{produktSerie.overskrift}}</h2>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6 col-lg-6 col-xl-4 col-sm-6 margin-top-20 card-col" *ngFor="let produkt of produktSerie.produkter; index as p">
-                                        <div class="col-inner" *ngIf="produkt.billedURL == '';else img_product" >
-                                            <div class="card padding-10 card-height-md box-shadow">
-                                                <div class="image-container img-md d-flex align-items-center justify-content-center">
-                                                    <h4 class="text-center">Intet billede tilgængeligt</h4>
-                                                </div>
-                                                <div class="card-body">
-                                                    <p class="card-title">{{produkt.navn}}</p>
-                                                    <p class="price-tag margin no-margin">DKK {{produkt.pris | number: '1.2-2'}}</p>
-                                                    <form class="margin-top-10 padding-5">
-                                                        <div class="form-row">
-                                                            <div class="col-6">
-                                                                <input type="number" class="form-control" #productAmount>
-                                                            </div>
-                                                            <div class="col-6 button-container">
-                                                                <button class="btn btn-primary font-size-small" (click)="onProductAdded(productAmount.value, i, p)" >Tilføj <i class="fa fa-shopping-basket"></i></button>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <ng-template #img_product>
-                                            <div class="col-inner" >
-                                                <div class="card padding-10 card-height-md box-shadow">
-                                                    <div class="image-container img-md d-flex align-items-center">
-                                                        <img class="card-img-top showcase-image img-md" [src]="produkt.billedURL" (error)="produkt.billedURL = ''" alt="Card image cap">
-                                                    </div>
-                                                    <div class="card-body">
-                                                        <p class="card-title">{{produkt.navn}}</p>
-                                                        <p class="price-tag margin no-margin">DKK {{produkt.pris | number: '1.2-2'}}</p>
-                                                        <form class="margin-top-10 padding-5">
-                                                            <div class="form-row">
-                                                                <div class="col-6">
-                                                                    <input type="number" min="0" class="form-control" #productAmount>
-                                                                </div>
-                                                                <div class="col-6 button-container">
-                                                                    <button class="btn btn-primary font-size-small" (click)="onProductAdded(productAmount.value, i, p)" >Tilføj <i class="fa fa-shopping-basket"></i></button>
-                                                                </div>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>  
-                                            </div>
-                                        </ng-template>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-        </div>
-    </div>
-    
-    </div>
-</section>    
-<hr>
-<section id="bestillingsform" class="margin-top-20 margin-bottom-20">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <form (ngSubmit)="onSubmit()" #f="ngForm" >
-                        <div id="bruger-data">
-                            <button class="btn btn-secondary float-right" type="button" (click)="fillFormWithDummyData()">Udfyld form</button>
-                            <div class="form-group">
-                                <label for="navn">Navn</label>
-                                <input type="text" id="navn" class="form-control" [(ngModel)]="navn" #navnInput="ngModel" name="navn" required>
-                                <div class="invalid-feedback" *ngIf="!navnInput.valid && navnInput.touched">Dit navn skal være udfyldt</div>
-                            </div>
-                            <div class="form-group">
-                                <label for="adresse">Adresse</label>
-                                <input type="text" id="adresse" class="form-control" [(ngModel)]="adresse" #adresseInput="ngModel" name="adresse" required>
-                                <div class="invalid-feedback" *ngIf="!adresseInput.valid && adresseInput.touched">Din adresse skal være udfyldt</div>
-                            </div>
-                            <div class="form-group">
-                                <label for="postnr">Post nr.</label>
-                                <input type="text" id="postnr" class="form-control" [(ngModel)]="postnr" #postnrInput="ngModel" name="postnr" required>
-                                <div class="invalid-feedback" *ngIf="!postnrInput.valid && postnrInput.touched">Din adresse skal være udfyldt</div>
-                            </div>
-                            <div class="form-group">
-                                <label for="by">By</label>
-                                <input type="text" id="by" class="form-control" [(ngModel)]="by" #byInput="ngModel" name="by" required>
-                                <div class="invalid-feedback" *ngIf="!byInput.valid && byInput.touched">Din adresse skal være udfyldt</div>
-                            </div>
-                            <div class="form-group">
-                                <label for="telefon">Telefon nr.</label>
-                                <input type="text" id="telefon" class="form-control" [(ngModel)]="telefon" #telefonInput="ngModel" name="telefon" required>
-                                <div class="invalid-feedback" *ngIf="!telefonInput.valid && telefonInput.touched">Din adresse skal være udfyldt</div>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" class="form-control" [(ngModel)]="email" #emailInput="ngModel" name="email" required email>
-                                <div class="invalid-feedback" *ngIf="!emailInput.valid && emailInput.touched">Din adresse skal være udfyldt</div>
-                            </div>
-                            <div class="form-group">
-                                <label for="dato">Brugs dato</label>
-                                <input type="date" id="dato" class="form-control" [(ngModel)]="dato" #datoInput="ngModel" name="dato" required date>
-                                <div class="invalid-feedback" *ngIf="!datoInput.valid && datoInput.touched">Din adresse skal være udfyldt</div>
-                            </div>
-                            <div class="form-group">
-                                <label for="besked">Besked</label>
-                                <textarea id="besked" class="form-control" style="min-height: 120px;" [(ngModel)]="besked" name="besked"></textarea>
-                            </div>
-                        </div>
-                        <app-bestillings-modal [bestilling]="bestillingsListe" [info]="retrieveInfo()" [disabledOrderButton]="!f.valid"></app-bestillings-modal>
-                    </form>
-                </div>
-            </div>
-        </div>
+
 </section>
