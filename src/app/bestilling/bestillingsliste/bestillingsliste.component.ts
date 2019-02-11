@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit, HostListener } from '@angular/core';
 import { IBestilling, Bestilling } from '../model/bestilling.model';
 import { Produkt } from '../model/produkt.model';
 
@@ -20,7 +20,7 @@ export class BestillingslisteComponent implements OnInit {
     const produkter: Bestilling[] = [];
     Object.keys(this.bestilling).forEach(key => {
         const value = this.bestilling[key]; /* Use key, value here */
-        if(value.antal > 0) {
+        if (value.antal > 0) {
           produkter.push(value);
         }
     });

@@ -1,7 +1,8 @@
+import { element } from 'protractor';
 import { BestillingInfo } from './model/bestillingInfo.model';
 import { Bestilling, IBestilling } from './model/bestilling.model';
 import { ProduktSerie } from './model/produktSerie.model';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, HostListener, AfterViewInit } from '@angular/core';
 import { ProductService } from './services/product.service';
 import { Produkt } from './model/produkt.model';
 import { NgForm } from '@angular/forms';
@@ -12,10 +13,37 @@ import { MailService } from './services/mail.service';
   templateUrl: './bestilling.component.html',
   styleUrls: ['./bestilling.component.scss']
 })
-export class BestillingComponent implements OnInit {
-  @ViewChild('f') bestillingsForm: NgForm;
+export class BestillingComponent implements OnInit, AfterViewInit {
   productSerier: ProduktSerie[];
   bestillingsListe: IBestilling = {};
+  menuPosition: any;
+  @ViewChild('stickyMenu') menuElement: ElementRef;
+  sticky: Boolean = false;
+  @ViewChild('stickyParent') parentMenuElement: ElementRef;
+  @HostListener('window:scroll', ['$event']) handleScroll() {
+    const windowScroll = window.pageYOffset;
+        if (windowScroll >= this.menuPosition) {
+            console.log('true');
+            this.sticky = true;
+          } else {
+            console.log('false');
+            this.sticky = false;
+        }
+  }
+
+  ngAfterViewInit() {
+    console.log(this.menuElement);
+    let elementTop = this.menuElement.nativeElement.offsetTop;
+    const elementHeight = this.menuElement.nativeElement.offsetHeight;
+    let traverse = this.menuElement.nativeElement.offsetParent;
+
+    while (traverse) {
+      elementTop += traverse.offsetTop;
+      traverse = traverse.offsetParent;
+    }
+    this.menuPosition = elementTop + (elementHeight / 2.0);
+    console.log(this.menuPosition);
+  }
 
 
   constructor(private productService: ProductService, private mailService: MailService) { }

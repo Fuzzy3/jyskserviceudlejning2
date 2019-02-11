@@ -7,9 +7,11 @@
                         <div class="card-body padding no-padding">
                             <div class="container">
                                     <div class="row">
-                                        <div class="col-md-3 side-order-menu padding-10" [ngClass]="{sticky">
-                                            <app-bestillingsliste [bestilling]="bestillingsListe"></app-bestillingsliste>
-                                            <app-bestillings-modal [bestilling]="bestillingsListe"></app-bestillings-modal>
+                                        <div class="col-md-3 side-order-menu padding-10" #stickyParent>
+                                            <div [class.sticky]="sticky" #stickyMenu>
+                                                <app-bestillingsliste [bestilling]="bestillingsListe"></app-bestillingsliste>
+                                                <app-bestillings-modal [bestilling]="bestillingsListe"></app-bestillings-modal>
+                                            </div>
                                         </div>
                                         <div class="col-md-9 margin-top-30">
                                             <div class="container padding-bottom-60" *ngFor="let produktSerie of productSerier; index as i">
