@@ -19,7 +19,6 @@ export class BestillingComponent implements OnInit, AfterViewInit {
   menuPosition: any;
   @ViewChild('stickyMenu') menuElement: ElementRef;
   sticky: Boolean = false;
-  @ViewChild('stickyParent') parentMenuElement: ElementRef;
   @HostListener('window:scroll', ['$event']) handleScroll() {
     const windowScroll = window.pageYOffset;
         if (windowScroll >= this.menuPosition) {
@@ -32,17 +31,7 @@ export class BestillingComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    console.log(this.menuElement);
-    let elementTop = this.menuElement.nativeElement.offsetTop;
-    const elementHeight = this.menuElement.nativeElement.offsetHeight;
-    let traverse = this.menuElement.nativeElement.offsetParent;
-
-    while (traverse) {
-      elementTop += traverse.offsetTop;
-      traverse = traverse.offsetParent;
-    }
-    this.menuPosition = elementTop + (elementHeight / 2.0);
-    console.log(this.menuPosition);
+    this.menuPosition = 213;
   }
 
 

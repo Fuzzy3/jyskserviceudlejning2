@@ -1,7 +1,11 @@
 <div class="container-fluid padding no-padding">
   <div class="row">
     <div class="col-md-12 padding no-padding">
-        <p>Bestilling</p>
+      <p>Bestilling</p>
+      <div *ngIf="generateOrderList().length == 0; else product_list">
+        <em>Du har ikke tilføjet nogen produkter</em>
+      </div>
+      <ng-template #product_list>
         <div class="list-group">
           <div class="list-group-item padding-5" *ngFor="let bestilling of generateOrderList() ; index as p">
             <div class="container">
@@ -16,6 +20,7 @@
             </div>
           </div>
         </div>
+      </ng-template>
     </div>
   </div>
 </div>

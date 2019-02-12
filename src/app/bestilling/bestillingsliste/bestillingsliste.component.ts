@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit, HostListener } from '@angular/core';
 import { IBestilling, Bestilling } from '../model/bestilling.model';
 import { Produkt } from '../model/produkt.model';
+import { generate } from 'rxjs';
 
 @Component({
   selector: 'app-bestillingsliste',
