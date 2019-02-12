@@ -1,4 +1,4 @@
-<section id="products-intro" class="padding-top-50">
+<section id="products-intro" class="padding-top-50 padding-bottom-50" #fullHeight>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12 card-col">
@@ -7,13 +7,109 @@
                         <div class="card-body padding no-padding">
                             <div class="container">
                                     <div class="row">
-                                        <div class="col-md-3 side-order-menu padding-10" #stickyParent>
-                                            <div [class.sticky]="sticky" #stickyMenu>
+                                        <div class="col-md-3 side-order-menu padding-10" style="padding-top: 30px !important" [class.d-flex]="stickyBot" [class.align-items-end]="stickyBot" #stickyParent>
+                                            <div [class.sticky]="sticky" [class.sticky-width]=stickyBot #stickyMenu>
                                                 <app-bestillingsliste [bestilling]="bestillingsListe"></app-bestillingsliste>
+                                                <hr>
                                                 <app-bestillings-modal [bestilling]="bestillingsListe"></app-bestillings-modal>
                                             </div>
                                         </div>
                                         <div class="col-md-9 margin-top-30">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <h2 class="product-title">Kuverttilbud</h2>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 col-lg-6 col-xl-6 col-sm-6 margin-top-10 card-col">
+                                                    <div class="col-inner">
+                                                        <div class="card-height-md" style="padding: 0px 20px 0px 80px">
+                                                            <div class="image-container img-md d-flex align-items-center">
+                                                                <img class="card-img-top showcase-image img-md img-fit" src="assets/Standardkuvert.jpg" alt="Card image cap">
+                                                            </div>
+                                                            <div class="card-body padding no-padding">
+                                                                <p class="card-title">Standardkuvert</p>
+                                                                <p class="price-tag margin no-margin">DKK 6.95 <em>(Spar 27%)</em></p>
+                                                                <form class="margin-top-10 padding-5">
+                                                                    <div class="form-row">
+                                                                        <div class="col-6">
+                                                                            <input type="number" min="0" class="form-control"
+                                                                                #standardKuvertAmount>
+                                                                        </div>
+                                                                        <div class="col-6 button-container">
+                                                                            <button class="btn btn-primary font-size-small" tabindex="-1" (click)="onKuvertProductAdded(standardKuvertAmount.value, '998', 'Standardkuvert', 6.95)"                                                                                                
+
+                                                                                >Tilføj
+                                                                                <i class="fa fa-shopping-basket"></i></button>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                                <div class="container">
+                                                                    <div class="row kuvert-list padding-10 d-flex justify-content-center">
+                                                                        <p><strong>Standardkuverter indeholder følgende:</strong>
+                                                                            <br />1 Middagstallerken
+                                                                            <br />1 Desserttallerken
+                                                                            <br />1 Kniv
+                                                                            <br />1 Gaffel
+                                                                            <br />1 Dessertske
+                                                                            <br />1 Theske
+                                                                            <br />1 Kop m. underkop
+                                                                            <br />1 Rødvinsglas
+                                                                            <br />1 Hvidvinsglas
+                                                                            <br />1 Portvinsglas
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-lg-6 col-xl-6 col-sm-6 margin-top-10 card-col">
+                                                    <div class="col-inner">
+                                                        <div class="card-height-md" style="padding: 0px 80px 0px 20px">
+                                                            <div class="image-container img-md d-flex align-items-center">
+                                                                <img class="card-img-top showcase-image img-md img-fit" src="assets/luksuskuv.png" alt="Card image cap">
+                                                            </div>
+                                                            <div class="card-body padding no-padding">
+                                                                <p class="card-title">Luksuskuvert</p>
+                                                                <p class="price-tag margin no-margin">11,95 <em>(Spar 22%)</em></p>
+                                                                <form class="margin-top-10 padding-5">
+                                                                    <div class="form-row">
+                                                                        <div class="col-6">
+                                                                            <input type="number" min="0" class="form-control"
+                                                                                #luksusKuvertAmount>
+                                                                        </div>
+                                                                        <div class="col-6 button-container">
+                                                                            <button class="btn btn-primary font-size-small" tabindex="-1" (click)="onKuvertProductAdded(luksusKuvertAmount.value, '999', 'Luksuskuvert', 11.95)">Tilføj
+                                                                                <i class="fa fa-shopping-basket"></i></button>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                                <div class="container">
+                                                                    <div class="row kuvert-list padding-10 d-flex justify-content-center">
+                                                                        <p><strong>Luksuskuverter indeholder følgende:</strong>
+                                                                            <br />1 Middagstallerken
+                                                                            <br />1 Frokosttallerken
+                                                                            <br />1 Desserttallerken
+                                                                            <br />2 Knive
+                                                                            <br />2 Gafler
+                                                                            <br />1 Dessertske
+                                                                            <br />1 Theske
+                                                                            <br />1 Kop m. underkop
+                                                                            <br />1 Champagne/Martiniglas
+                                                                            <br />1 Rødvinsglas
+                                                                            <br />1 Hvidvinsglas
+                                                                            <br />1 Portvinsglas
+                                                                            <br />1 Cognacglas
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr>
                                             <div class="container padding-bottom-60" *ngFor="let produktSerie of productSerier; index as i">
                                                 <div class="row">
                                                     <div class="col-md-12">
@@ -41,7 +137,7 @@
                                                                                                 #productAmount>
                                                                                         </div>
                                                                                         <div class="col-6 button-container">
-                                                                                            <button class="btn btn-primary font-size-small" (click)="onProductAdded(productAmount.value, i, p)">Tilføj
+                                                                                            <button class="btn btn-primary font-size-small" tabindex="-1" (click)="onProductAdded(productAmount.value, i, p)">Tilføj
                                                                                                 <i class="fa fa-shopping-basket"></i></button>
                                                                                         </div>
                                                                                     </div>
@@ -67,7 +163,7 @@
                                                                                                     #productAmount>
                                                                                             </div>
                                                                                             <div class="col-6 button-container">
-                                                                                                <button class="btn btn-primary font-size-small"
+                                                                                                <button class="btn btn-primary font-size-small" tabindex="-1"                                                                                                
                                                                                                     (click)="onProductAdded(productAmount.value, i, p)">Tilføj
                                                                                                     <i class="fa fa-shopping-basket"></i></button>
                                                                                             </div>
@@ -86,14 +182,10 @@
                                         </div>
                                     </div>
                                 </div>                                
-                            
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
-<section id="products" class="margin-top-50">
-
 </section>

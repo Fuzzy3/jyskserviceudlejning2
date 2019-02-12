@@ -3,22 +3,22 @@
     <div class="col-md-12 padding no-padding">
       <p>Bestilling</p>
       <div *ngIf="generateOrderList().length == 0; else product_list">
-        <em>Du har ikke tilføjet nogen produkter</em>
+        <em class="bestilling">Du har ikke tilføjet nogen produkter</em>
       </div>
       <ng-template #product_list>
         <div class="list-group">
-          <div class="list-group-item padding-5" *ngFor="let bestilling of generateOrderList() ; index as p">
-            <div class="container">
-              <div class="row bestilling">
-                <div class="col-md-2 verticalLine text-center">
-                    {{bestilling.antal}}
-                </div>
-                <div class="col-md-10" style="padding: 0px 0px 0px 5px;">
-                    {{bestilling.produkt.navn}}
+          <div *ngFor="let bestilling of generateOrderList() ; index as p">
+            <div class="list-group-item padding-5 no-border" *ngIf="p < 20">
+              <div class="container">
+                <div class="row bestilling">
+                  <div class="col-md-12">
+                      {{bestilling.antal}}x {{bestilling.produkt.navn}}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <div class="list-group-item padding-5 no-border text-align-right" *ngIf="generateOrderList().length > 20"><strong>+{{generateOrderList().length - 20}}</strong></div>
         </div>
       </ng-template>
     </div>

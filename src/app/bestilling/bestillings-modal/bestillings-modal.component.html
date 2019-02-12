@@ -18,7 +18,7 @@
           <p>Bestilling</p>
           <div class="list-group">
             <div class="list-group-item" *ngFor="let produkt of generateOrderList() ; index as p">
-              {{produkt.antal}} stk {{produkt.navn}}
+              {{produkt.antal}}x {{produkt.navn}}
             </div>
           </div>
         </div>
@@ -28,7 +28,7 @@
         <div class="col">
           <form (ngSubmit)="onSubmit()" #f="ngForm">
             <div id="bruger-data">
-              <button class="btn btn-secondary float-right" type="button" (click)="fillFormWithDummyData()">Udfyld form</button>
+              <!-- <button class="btn btn-secondary float-right" type="button" (click)="fillFormWithDummyData()">Udfyld form</button> -->
               <div class="form-group">
                 <label for="navn">Navn</label>
                 <input type="text" id="navn" class="form-control" [(ngModel)]="navn" #navnInput="ngModel" name="navn"

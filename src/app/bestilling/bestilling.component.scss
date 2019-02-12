@@ -75,7 +75,15 @@ h2.product-title {
 
 .sticky {
     position: fixed;
-    top: 0;
+    top: 10px;
     z-index: 10;
     width: 248.5px;
+}
+
+.sticky-width {
+    width: 248.5px;
+}
+
+.kuvert-list {
+    font-size: 13px;
 }
