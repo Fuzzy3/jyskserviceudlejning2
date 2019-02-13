@@ -60,11 +60,6 @@
         "billedURL": "assets/Pandekagepande.jpg"
     },
     {
-        "navn": "Italiensk Proffesionel ismaskine",
-        "pris": 4500.00,
-        "billedURL": "assets/Ismaskine.jpg"
-    },
-    {
         "navn": "Damprenser",
         "pris": 100,
         "billedURL": "assets/damprenser.gif"
@@ -119,15 +114,11 @@
         "billedURL": "assets/Saltogpeber.jpg"
     },
     {
-        "navn": "Askebægre",
+        "navn": "Askebæger",
         "pris": 2.80,
-        "billedURL": ""
-    },
-    {
-        "navn": "Kuvertaskebægre",
-        "pris": 1.5,
-        "billedURL": ""
-    }]
+        "billedURL": "assets/aske1.png"
+    }
+    ]
 },
 {
     "overskrift": "Bestik",
@@ -302,5 +293,15 @@
         "pris": 9.00,
         "billedURL": "assets/stofserviet.jpg"
     }]
+},
+{
+    "overskrift": "Andet",
+    "produkter": [ 
+        {
+            "navn": "Italiensk Proffesionel Ismaskine",
+            "pris": 4500.00,
+            "billedURL": "assets/Ismaskine.jpg"
+        }
+    ]
 }
 ]

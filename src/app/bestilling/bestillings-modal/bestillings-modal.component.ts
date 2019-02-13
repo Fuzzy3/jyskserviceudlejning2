@@ -36,7 +36,9 @@ export class BestillingsModalComponent {
   open(content) {
     console.log(this.bestilling);
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.onSubmit();
       console.log('Closed with: ' + result);
+      //console.log(this.bestillingInfo);
       this.mailService.sendMail(this.bestillingInfo, this.bestilling);
     }, (reason) => {
       console.log('Exited ' + this.getDismissReason(reason));
@@ -70,6 +72,7 @@ export class BestillingsModalComponent {
 
   onSubmit() {
     this.bestillingInfo = new BestillingInfo;
+    console.log(this.bestillingsForm);
     this.bestillingInfo.navn = this.bestillingsForm.form.value.navn;
     this.bestillingInfo.adresse = this.bestillingsForm.form.value.adresse;
     this.bestillingInfo.postnr = this.bestillingsForm.form.value.postnr;

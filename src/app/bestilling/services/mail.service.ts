@@ -22,8 +22,6 @@ export class MailService {
         })
     };
 
-    
-
     constructor(private http: HttpClient) { }
 
     sendMail(info: BestillingInfo, bestilling: IBestilling) {

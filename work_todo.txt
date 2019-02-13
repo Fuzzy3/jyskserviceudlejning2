@@ -48,11 +48,49 @@ Product backlog (Ikke i rækkefølge):
     - Bestil knap skal stadig "flyve"
     - Ingen overlap og andre problemer
 
+
+
 Små ændringer (Flere på en morgen):
-- Skift titel på forsiden
 - Nye tekster
-- Manglende billeder til produkter
-- Samling af maskineprodukter
+
+Mellem ændringer (En enkelt på en morgen):
+- Tilføj facebook og instagram icons/links
+
+Større ændringer: (Tager flere morgener at komme igennem)
+- SEO-optimering
+    - tilføj website titel
+    - tilføj website meta-data
+    - tilføj alt-tags til billeder
+    - Se rapport
+- Redesign af Modal
+    - Bestilling i modal
+    - Bestil og få et tilbud tekst
+    - Kun validering på navn, email og brugsdato -> Optimer dette til email.
+- Optimering til mobiler:
+    - Fjern sticky menu
+    - Bestil knap skal stadig "flyve"
+    - Ingen overlap og andre problemer
+- Lav, tak for din bestilling "side"
+
+Waiting for Jens:
+- Titel på forside
+- Damprenser pris
+
+Done:
+- Skift tekst på Kontakt -> er kun mail
+- Fjern space til footer Samarbejdspartnere
+- Manglende produktbilleder
+- Ekspeditionsgebyr på mail
+
+
+Bestilling top tekst: 
+Hos Jysk Serviceudlejning er det muligt at bestille online.
+For at gøre det så nemt som muligt, udfyldes nedenstående bestillingsformular. Her får
+De et hurtigt overblik over hvad der kan lejes, og fungerer samtidig som huskeseddel,
+så De ikke glemmer noget.
+Vi står altid gerne tilrådighed med gode råd og vejledning til planlægningen af Deres
+fest!
+
 
 Mellem ændringer (En enkelt på en morgen):
 - Skift billede og pris på kuvert (Evt give mulighed for at ændre pris)
@@ -88,20 +126,3 @@ Større ændringer: (Tager flere morgener at komme igennem)
 Waiting for Jens:
 - Titel på forside
 - Damprenser pris
-
-
-
-Done:
-- Skift tekst på Kontakt -> er kun mail
-- Fjern space til footer Samarbejdspartnere
-- Manglende produktbilleder
-- Ekspeditionsgebyr på mail
-
-
-Bestilling top tekst: 
-Hos Jysk Serviceudlejning er det muligt at bestille online.
-For at gøre det så nemt som muligt, udfyldes nedenstående bestillingsformular. Her får
-De et hurtigt overblik over hvad der kan lejes, og fungerer samtidig som huskeseddel,
-så De ikke glemmer noget.
-Vi står altid gerne tilrådighed med gode råd og vejledning til planlægningen af Deres
-fest!

@@ -13,20 +13,6 @@
     }]
 },
 {
-    "overskrift": "Tilbudscouverter",
-    "produkter": [ 
-    {
-        "navn": "Standardcourvert",
-        "pris": 6.95,
-        "billedURL": "assets/Standardkuvert.jpg"
-    },
-    {
-        "navn": "Luksuscouvert",
-        "pris": 11.95,
-        "billedURL": "assets/luksuskuv.png"
-    }]
-},
-{
     "overskrift": "Slushice",
     "produkter": [ 
     {

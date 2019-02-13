@@ -284,7 +284,7 @@ h5 {
 //forms
 
 
-input.ng-valid  {
+input.ng-valid.ng-touched  {
     border-left: 5px solid #42A948; /* green */
 }
 
@@ -295,6 +295,9 @@ input.ng-invalid.ng-touched  {
 .invalid-feedback {
     display: inline-block !important;
 }
+
+
+
 
 .card-title {
     border-bottom: solid darkgray 2px;

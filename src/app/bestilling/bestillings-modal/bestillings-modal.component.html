@@ -30,50 +30,42 @@
             <div id="bruger-data">
               <!-- <button class="btn btn-secondary float-right" type="button" (click)="fillFormWithDummyData()">Udfyld form</button> -->
               <div class="form-group">
-                <label for="navn">Navn</label>
+                <label for="navn">Navn*</label>
                 <input type="text" id="navn" class="form-control" [(ngModel)]="navn" #navnInput="ngModel" name="navn"
                   required>
                 <div class="invalid-feedback" *ngIf="!navnInput.valid && navnInput.touched">Dit navn skal være udfyldt</div>
               </div>
               <div class="form-group">
                 <label for="adresse">Adresse</label>
-                <input type="text" id="adresse" class="form-control" [(ngModel)]="adresse" #adresseInput="ngModel" name="adresse"
-                  required>
-                <div class="invalid-feedback" *ngIf="!adresseInput.valid && adresseInput.touched">Din adresse skal være
-                  udfyldt</div>
+                <input type="text" id="adresse" class="form-control" [(ngModel)]="adresse" #adresseInput="ngModel" name="adresse">
               </div>
-              <div class="form-group">
-                <label for="postnr">Post nr.</label>
-                <input type="text" id="postnr" class="form-control" [(ngModel)]="postnr" #postnrInput="ngModel" name="postnr"
-                  required>
-                <div class="invalid-feedback" *ngIf="!postnrInput.valid && postnrInput.touched">Din adresse skal være
-                  udfyldt</div>
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="postnr">Post nr.</label>
+                  <input type="text" id="postnr" class="form-control" [(ngModel)]="postnr" #postnrInput="ngModel" name="postnr">
+                </div>
+                <div class="form-group col-md-8">
+                  <label for="by">By</label>
+                  <input type="text" id="by" class="form-control" [(ngModel)]="by" #byInput="ngModel" name="by">
+                </div>
               </div>
-              <div class="form-group">
-                <label for="by">By</label>
-                <input type="text" id="by" class="form-control" [(ngModel)]="by" #byInput="ngModel" name="by" required>
-                <div class="invalid-feedback" *ngIf="!byInput.valid && byInput.touched">Din adresse skal være udfyldt</div>
-              </div>
-              <div class="form-group">
+              <div class="form-group">  
                 <label for="telefon">Telefon nr.</label>
-                <input type="text" id="telefon" class="form-control" [(ngModel)]="telefon" #telefonInput="ngModel" name="telefon"
-                  required>
-                <div class="invalid-feedback" *ngIf="!telefonInput.valid && telefonInput.touched">Din adresse skal være
-                  udfyldt</div>
+                <input type="text" id="telefon" class="form-control" [(ngModel)]="telefon" #telefonInput="ngModel" name="telefon">
               </div>
               <div class="form-group">
-                <label for="email">Email</label>
+                <label for="email">Email*</label>
                 <input type="email" id="email" class="form-control" [(ngModel)]="email" #emailInput="ngModel" name="email"
                   required email>
-                <div class="invalid-feedback" *ngIf="!emailInput.valid && emailInput.touched">Din adresse skal være
+                <div class="invalid-feedback" *ngIf="!emailInput.valid && emailInput.touched">Din email skal være
                   udfyldt</div>
               </div>
               <div class="form-group">
-                <label for="dato">Brugs dato</label>
+                <label for="dato">Brugs dato*</label>
                 <input type="date" id="dato" class="form-control" [(ngModel)]="dato" #datoInput="ngModel" name="dato"
                   required date>
-                <div class="invalid-feedback" *ngIf="!datoInput.valid && datoInput.touched">Din adresse skal være
-                  udfyldt</div>
+                <div class="invalid-feedback" *ngIf="!datoInput.valid && datoInput.touched">En brugsdato skal være
+                  valgt</div>
               </div>
               <div class="form-group">
                 <label for="besked">Besked</label>
@@ -85,9 +77,13 @@
       </div>
     </div>
   </div>
-  <div class="modal-footer">
-    <p *ngIf="generateOrderList().length == 0">Bestilling ikke tilladt uden at have valgt minimum et produkt</p>
-    <button type="button" class="btn btn-outline-dark" [disabled]="generateOrderList().length == 0" (click)="modal.close('Order send')">Bestil</button>
+  <div class="modal-footer d-flex justify-content-center">
+    <div class="row">
+      <div class="col">
+        <div class="invalid-feedback" *ngIf="generateOrderList().length == 0">Bestilling ikke tilladt uden at have valgt minimum et produkt</div>
+        <button type="button" class="btn btn-outline-dark" [hidden]="generateOrderList().length == 0" [disabled]="generateOrderList().length == 0" (click)="modal.close('Order send')">Bestil</button>
+      </div>
+    </div>
   </div>
 </ng-template>
 <div class="button-container text-center">
