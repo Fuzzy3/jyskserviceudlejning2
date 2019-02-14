@@ -4,7 +4,7 @@ import { ProduktOrder } from './../model/produktOrder.model';
 import { ProduktSerie } from './../model/produktSerie.model';
 import { BestillingInfo } from './../model/bestillingInfo.model';
 import { IBestilling } from './../model/bestilling.model';
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, ViewChildren } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { send } from 'q';
@@ -17,7 +17,7 @@ import { send } from 'q';
 })
 export class BestillingsModalComponent {
 
-  @ViewChild('f') bestillingsForm: NgForm;
+  @ViewChild('userInfoForm') bestillingsForm: NgForm;
   @Input() bestilling: IBestilling;
   @Input() disabledOrderButton: boolean;
   closeResult: string;
@@ -72,15 +72,16 @@ export class BestillingsModalComponent {
 
   onSubmit() {
     this.bestillingInfo = new BestillingInfo;
-    console.log(this.bestillingsForm);
-    this.bestillingInfo.navn = this.bestillingsForm.form.value.navn;
-    this.bestillingInfo.adresse = this.bestillingsForm.form.value.adresse;
-    this.bestillingInfo.postnr = this.bestillingsForm.form.value.postnr;
-    this.bestillingInfo.by = this.bestillingsForm.form.value.by;
-    this.bestillingInfo.telefon = this.bestillingsForm.form.value.telefon;
-    this.bestillingInfo.email = this.bestillingsForm.form.value.email;
-    this.bestillingInfo.dato = this.bestillingsForm.form.value.dato;
-    this.bestillingInfo.besked = this.bestillingsForm.form.value.besked;
+    this.bestillingInfo.navn = this.navn;
+    this.bestillingInfo.adresse = this.adresse;
+    this.bestillingInfo.postnr = this.postnr;
+    this.bestillingInfo.by = this.by;
+    this.bestillingInfo.telefon = this.telefon;
+    this.bestillingInfo.email = this.email;
+    this.bestillingInfo.dato = this.dato;
+    this.bestillingInfo.besked = this.besked;
+    close('Order send');
+    console.log(this.bestillingInfo);
   }
 
   fillFormWithDummyData() {

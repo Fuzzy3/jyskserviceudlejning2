@@ -49,10 +49,6 @@
                   <input type="text" id="by" class="form-control" [(ngModel)]="by" #byInput="ngModel" name="by">
                 </div>
               </div>
-              <div class="form-group">  
-                <label for="telefon">Telefon nr.</label>
-                <input type="text" id="telefon" class="form-control" [(ngModel)]="telefon" #telefonInput="ngModel" name="telefon">
-              </div>
               <div class="form-group">
                 <label for="email">Email*</label>
                 <input type="email" id="email" class="form-control" [(ngModel)]="email" #emailInput="ngModel" name="email"
@@ -60,28 +56,30 @@
                 <div class="invalid-feedback" *ngIf="!emailInput.valid && emailInput.touched">Din email skal være
                   udfyldt</div>
               </div>
-              <div class="form-group">
-                <label for="dato">Brugs dato*</label>
-                <input type="date" id="dato" class="form-control" [(ngModel)]="dato" #datoInput="ngModel" name="dato"
-                  required date>
-                <div class="invalid-feedback" *ngIf="!datoInput.valid && datoInput.touched">En brugsdato skal være
-                  valgt</div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="dato">Brugs dato*</label>
+                  <input type="date" id="dato" class="form-control" [(ngModel)]="dato" #datoInput="ngModel" name="dato"
+                    required date>
+                  <div class="invalid-feedback" *ngIf="!datoInput.valid && datoInput.touched">En brugsdato skal være
+                    valgt</div>
+                </div> 
+                <div class="form-group col-md-6">  
+                  <label for="telefon">Telefon nr.</label>
+                  <input type="text" id="telefon" class="form-control" [(ngModel)]="telefon" #telefonInput="ngModel" name="telefon">
+                </div>       
               </div>
               <div class="form-group">
                 <label for="besked">Besked</label>
                 <textarea id="besked" class="form-control" style="min-height: 120px;" [(ngModel)]="besked" name="besked"></textarea>
               </div>
             </div>
+            <div class="button-container text-center">
+              <div class="invalid-feedback" *ngIf="generateOrderList().length == 0">Bestilling ikke tilladt uden at have valgt minimum et produkt</div>
+              <button class="btn btn-primary btn-md" type="submit" [disabled]="generateOrderList().length == 0" [hidden]="generateOrderList().length == 0" (click)="">Bestil</button>
+            </div>
           </form>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal-footer d-flex justify-content-center">
-    <div class="row">
-      <div class="col">
-        <div class="invalid-feedback" *ngIf="generateOrderList().length == 0">Bestilling ikke tilladt uden at have valgt minimum et produkt</div>
-        <button type="button" class="btn btn-outline-dark" [hidden]="generateOrderList().length == 0" [disabled]="generateOrderList().length == 0" (click)="modal.close('Order send')">Bestil</button>
       </div>
     </div>
   </div>
