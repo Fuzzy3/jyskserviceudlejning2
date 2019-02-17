@@ -42,7 +42,6 @@ export class BestillingComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.menuPosition = 233;
-    console.log(this.fullHeightElement);
   }
 
   private calcStopperY() {

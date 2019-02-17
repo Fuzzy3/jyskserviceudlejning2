@@ -19,6 +19,7 @@ import { ProductService } from './bestilling/services/product.service';
 import { FormsModule } from '@angular/forms';
 import { BestillingsModalComponent } from './bestilling/bestillings-modal/bestillings-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BestillingsModalFormComponent } from './bestilling/bestillings-modal/bestillings-modal-form/bestillings-modal-form.component';
 
 
 const appRoutes: Routes = [
@@ -72,7 +73,8 @@ const appRoutes: Routes = [
     SamarbejdspartnereComponent,
     KontaktComponent,
     BestillingslisteComponent,
-    BestillingsModalComponent
+    BestillingsModalComponent,
+    BestillingsModalFormComponent
   ],
   imports: [
     BrowserModule,

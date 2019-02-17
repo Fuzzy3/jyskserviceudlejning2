@@ -1,0 +1,53 @@
+<form (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
+    <div id="bruger-data">
+      <!-- <button class="btn btn-secondary float-right" type="button" (click)="fillFormWithDummyData()">Udfyld form</button> -->
+      <div class="form-group">
+        <label for="navn">Navn*</label>
+        <input type="text" id="navn" class="form-control" [(ngModel)]="navn" #navnInput="ngModel" name="navn"
+          required>
+        <div class="invalid-feedback" *ngIf="!navnInput.valid && navnInput.touched">Dit navn skal være udfyldt</div>
+      </div>
+      <div class="form-group">
+        <label for="adresse">Adresse</label>
+        <input type="text" id="adresse" class="form-control" [(ngModel)]="adresse" #adresseInput="ngModel" name="adresse">
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="postnr">Post nr.</label>
+          <input type="text" id="postnr" class="form-control" [(ngModel)]="postnr" #postnrInput="ngModel" name="postnr">
+        </div>
+        <div class="form-group col-md-8">
+          <label for="by">By</label>
+          <input type="text" id="by" class="form-control" [(ngModel)]="by" #byInput="ngModel" name="by">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email*</label>
+        <input type="email" id="email" class="form-control" [(ngModel)]="email" #emailInput="ngModel" name="email"
+          required email>
+        <div class="invalid-feedback" *ngIf="!emailInput.valid && emailInput.touched">Din email skal være
+          udfyldt</div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="dato">Brugs dato*</label>
+          <input type="date" id="dato" class="form-control" [(ngModel)]="dato" #datoInput="ngModel" name="dato"
+            required date>
+          <div class="invalid-feedback" *ngIf="!datoInput.valid && datoInput.touched">En brugsdato skal være
+            valgt</div>
+        </div> 
+        <div class="form-group col-md-6">  
+          <label for="telefon">Telefon nr.</label>
+          <input type="text" id="telefon" class="form-control" [(ngModel)]="telefon" #telefonInput="ngModel" name="telefon">
+        </div>       
+      </div>
+      <div class="form-group">
+        <label for="besked">Besked</label>
+        <textarea id="besked" class="form-control" style="min-height: 120px;" [(ngModel)]="besked" name="besked"></textarea>
+      </div>
+    </div>
+    <div class="button-container text-center">
+      <div class="invalid-feedback" *ngIf="disabledOrderButton">Bestilling ikke tilladt uden at have valgt minimum et produkt</div>
+      <button class="btn btn-primary btn-md" type="submit" [disabled]="disabledOrderButton" [hidden]="disabledOrderButton">Bestil</button>
+    </div>
+  </form>

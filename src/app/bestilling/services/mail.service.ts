@@ -27,22 +27,30 @@ export class MailService {
     sendMail(info: BestillingInfo, bestilling: IBestilling) {
         this.info = info;
         this.bestilling = bestilling;
-        const subjectFromInfo = 'Ny bestilling d. ' + info.dato + ' af ' + info.navn;
         const url = 'https://us-central1-jyskserviceudlejningdk.cloudfunctions.net/httpEmail';
+
         const htmlToSend = this.generateEmailHtml();
+        const toEmail = this.receiverMail;
+        const fromEmail = info.email;
+        const subjectFromInfo = 'Ny bestilling d. ' + info.dato + ' af ' + info.navn;
+        const textToSend = 'Bestilling fra: ' + info.navn;
 
-        const emailRequest = {
-            to: this.receiverMail,
-            from: info.email,
-            subject: subjectFromInfo,
-            text: info.besked,
-            html: htmlToSend
-        };
+        if (htmlToSend && toEmail && fromEmail && subjectFromInfo && textToSend) {
+            const emailRequest = {
+                to: toEmail,
+                from: fromEmail,
+                subject: subjectFromInfo,
+                text: textToSend,
+                html: htmlToSend
+            };
+            console.log(emailRequest);
 
-        console.log(emailRequest);
-        this.http.post(url, emailRequest).subscribe(res => {
-            console.log(res);
-        });
+            this.http.post(url, emailRequest).subscribe(res => {
+                console.log(res);
+            });
+            return true;
+        }
+        return false;
     }
 
     generateHeaderHtml(name: string, date: string): string {
@@ -74,10 +82,12 @@ export class MailService {
 
     generateEmailHtml(): String {
         let html = '<div style="font-size: 15px; color: black;">';
+        console.log(this.info.dato);
         html = html.concat(this.generateHeaderHtml(this.info.navn, this.info.dato));
         html = html.concat(this.generateOrderListHtml());
         html = html.concat(this.generateFooterHtml());
         html = html.concat('</div>');
+        console.log(html);
         return html;
     }
 

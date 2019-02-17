@@ -19,27 +19,14 @@ export class BestillingsModalComponent {
 
   @ViewChild('userInfoForm') bestillingsForm: NgForm;
   @Input() bestilling: IBestilling;
-  @Input() disabledOrderButton: boolean;
   closeResult: string;
-  bestillingInfo: BestillingInfo;
-  navn = '';
-  adresse = '';
-  postnr = '';
-  by = '';
-  telefon = '';
-  email = '';
-  dato = '';
-  besked = '';
 
-  constructor(private modalService: NgbModal, private mailService: MailService) {}
+
+  constructor(private modalService: NgbModal) {}
 
   open(content) {
-    console.log(this.bestilling);
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.onSubmit();
       console.log('Closed with: ' + result);
-      //console.log(this.bestillingInfo);
-      this.mailService.sendMail(this.bestillingInfo, this.bestilling);
     }, (reason) => {
       console.log('Exited ' + this.getDismissReason(reason));
     });
@@ -70,29 +57,10 @@ export class BestillingsModalComponent {
     }
   }
 
-  onSubmit() {
-    this.bestillingInfo = new BestillingInfo;
-    this.bestillingInfo.navn = this.navn;
-    this.bestillingInfo.adresse = this.adresse;
-    this.bestillingInfo.postnr = this.postnr;
-    this.bestillingInfo.by = this.by;
-    this.bestillingInfo.telefon = this.telefon;
-    this.bestillingInfo.email = this.email;
-    this.bestillingInfo.dato = this.dato;
-    this.bestillingInfo.besked = this.besked;
-    close('Order send');
-    console.log(this.bestillingInfo);
-  }
-
-  fillFormWithDummyData() {
-    this.navn = 'Hans';
-    this.adresse = 'Bystævneparken 19';
-    this.postnr = '2700';
-    this.by = 'Husum';
-    this.telefon = '30223568';
-    this.email = 'Hans@gmail.com';
-    this.dato = '2018-12-24';
-    this.besked = 'Kan det hentes d. 23. og afleveres igen d. 27.?';
+  closeModal(shouldClose) {
+    if (shouldClose) {
+      this.modalService.dismissAll('Submitted');
+    }
   }
 
 }

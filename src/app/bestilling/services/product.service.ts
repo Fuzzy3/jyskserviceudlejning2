@@ -18,7 +18,6 @@ export class ProductService {
   private dataCached = false;
 
   constructor(http: HttpClient) {
-    console.log(this.dataCached);
     this.request$ = http.get<Produkt[]>('assets/produkter.json').pipe(
       catchError((error: Response) => {
         console.error('Kunne ikke læse produkter', error.statusText);
