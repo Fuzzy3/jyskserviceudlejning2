@@ -72,6 +72,7 @@ export class MailService {
 
     generateFooterHtml(): string {
         let html = '<div>';
+        
         html = html.concat(this.paragraf(this.bold('Email: ') + this.info.email));
         html = html.concat(this.paragraf(this.bold('Telefon: ') + this.info.telefon));
         html = html.concat(this.paragraf(this.bold('Adresse: ') + this.info.adresse + ', ' + this.info.postnr + ' ' + this.info.by));

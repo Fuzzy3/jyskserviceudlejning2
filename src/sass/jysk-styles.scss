@@ -7,8 +7,41 @@
     &-secodary {
         font-size: 20px;
     }
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 330px) {
+        font-size: 20px;
+    }
+    @media screen and (min-width: 330px) and (max-width: 470px) {
         font-size: 30px;
+    }
+    @media screen and (min-width: 470px) and (max-width: 770px) {
+        font-size: 40px;
+    }
+    &.samarbejdspartnere {
+        @media screen and (max-width: 360px) {
+            font-size: 20px;
+        }
+        @media screen and (min-width: 360px) and (max-width: 530px) {
+            font-size: 25px;
+        }
+        @media screen and (min-width: 530px) and (max-width: 768px) {
+            font-size: 36px;
+        } 
+    }
+    &.frontpage {
+        padding-bottom: 40px;
+        @media screen and (max-width: 360px) {
+            font-size: 20px;
+        }
+        @media screen and (min-width: 360px) and (max-width: 530px) {
+            font-size: 25px;
+        }
+        @media screen and (min-width: 530px) and (max-width: 991px) {
+            font-size: 30px;
+        }
+        @media screen and (max-width: 991px) {
+            padding-bottom: 25px;
+            padding-top: 10px;
+        } 
     }
 }
 
@@ -30,6 +63,9 @@
     &.card-height {
         &-lg {
             height:550px;
+            @media screen and (max-width: 450px) {
+                height: auto;
+            }
         }
         &-md {
             height: 380px;
@@ -43,11 +79,19 @@
 
 .col-spacing-10 {
     padding: 0px 10px 0px 10px !important;
-    &:first-child {
-        padding: 0px 20px 0px 0px !important;
+
+
+    @media screen and (min-width: 992px) {
+        &:first-child {
+            padding: 0px 20px 0px 0px !important;
+        }
+        &:last-child {
+            padding: 0px 0px 0px 20px !important;
+        }
     }
-    &:last-child {
-        padding: 0px 0px 0px 20px !important;
+
+    @media screen and (max-width: 991px) {
+        padding: 10px 10px 10px 10px !important;
     }
 }
 
@@ -71,11 +115,30 @@
         color: #2b2b2b !important;
         line-height: 28px !important;
     }
+    h2 {
+        @media screen and (max-width: 350px) {
+            font-size: 20px;
+        }
+        @media screen and (min-width: 350px) and (max-width: 470px) {
+            font-size: 30px;
+        }
+    }
+    &.frontpage {
+        @media screen and (min-width: 992px) {
+            padding-bottom: 60px;
+        } 
+        @media screen and (max-width: 991px) {
+            padding-bottom: 25px;
+        } 
+    }
 }
 
 .space-around-50 {
     padding: 50px !important;
-    @media screen and (max-width: 450px) {
+    // @media screen and (max-width: 450px) {
+    //     padding: 20px !important;
+    // }
+    @media screen and (max-width: 991px) {
         padding: 20px !important;
     }
 }

@@ -1,4 +1,4 @@
-<form (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
+<form (ngSubmit)="f.form.valid && onSubmit()" ngNativeValidate #f="ngForm">
     <div id="bruger-data">
       <!-- <button class="btn btn-secondary float-right" type="button" (click)="fillFormWithDummyData()">Udfyld form</button> -->
       <div class="form-group">
@@ -48,6 +48,6 @@
     </div>
     <div class="button-container text-center">
       <div class="invalid-feedback" *ngIf="disabledOrderButton">Bestilling ikke tilladt uden at have valgt minimum et produkt</div>
-      <button class="btn btn-primary btn-md" type="submit" [disabled]="disabledOrderButton" [hidden]="disabledOrderButton">Bestil</button>
+      <button class="btn btn-primary btn-md" type="submit" [disabled]="disabledOrderButton || !f.form.valid" [hidden]="disabledOrderButton">Bestil</button>
     </div>
   </form>

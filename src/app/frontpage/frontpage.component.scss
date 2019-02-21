@@ -39,6 +39,9 @@
 
 .product-padding {
     padding: 45px 5px 45px 5px;
+    @media screen and (max-width: 766px){
+        padding: 5px 5px 5px 5px;
+    }
 }
 
 
@@ -47,7 +50,7 @@
     width: 100%;
     padding: 5px;
     &.img-lg {
-        max-height: 600px;
+        max-height: 315px;
     }
     &.img-md {
         max-height: 200px;
@@ -65,22 +68,36 @@
     &.img-md {
         height: 200px;
     }
-
 }
 
-.price-tag {
-    font-weight: bold;
-    font-size: 40px !important;
-}
 
 #call-to-action-buttons {
     margin-top: 30px;
     margin-bottom: 30px;
 }
 
-.button-container {
-    margin-left: 15px;
-    margin-right: 15px;
+.card-container {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.dynamic-padding-bot {
+    padding-bottom: 50px;
+    @media screen and (max-width: 766px){
+        padding-bottom: 20px;
+        &:last-child {
+            padding-bottom: 60px;
+        }
+    }
+}
+
+.flex-small {
+    @media screen and (max-width: 450px){
+        flex: 0 0 100%;
+        max-width: 100%;
+        text-align: center !important;
+        padding-bottom: 10px;
+    }
 }
 
 .title-section-border {
@@ -92,6 +109,10 @@
     & h4 {
         line-height: 40px;
         font-weight: bold;
+        font-size: 24px;
+        @media screen and (min-width: 470px) and (max-width: 1200px) {
+            font-size: 20px;
+        }
     }
 }
 
@@ -125,5 +146,25 @@ p {
     font-size: 14px;
     text-align: center;
     line-height: 25px;
+}
+
+.frontpage-dynamic-card-title {
+    & .card-title {
+        border-bottom: solid darkgray 2px;
+        margin-bottom: 5px;
+        font-size: 20px;
+        @media screen and (min-width: 992px) and (max-width: 1200px) {
+            font-size: 16px;
+        }
+    }
+    & .price-tag {
+        font-weight: bold;
+        font-size: 40px !important;
+
+        @media screen and (min-width: 992px) and (max-width: 1200px) {
+            font-size: 35px;
+        }
+    }
+    
 }
 

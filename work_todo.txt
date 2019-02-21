@@ -65,7 +65,7 @@ Større ændringer: (Tager flere morgener at komme igennem)
 - Redesign af Modal
     - Bestilling i modal
     - Bestil og få et tilbud tekst
-    - Kun validering på navn, email og brugsdato -> Optimer dette til email.
+    - Kun validering på navn, email og brugsdato -> Optimer dette til email. -> CACHE
 - Optimering til mobiler:
     - Fjern sticky menu
     - Bestil knap skal stadig "flyve"
@@ -74,7 +74,6 @@ Større ændringer: (Tager flere morgener at komme igennem)
 
 Waiting for Jens:
 - Titel på forside
-- Damprenser pris
 
 Done:
 - Skift tekst på Kontakt -> er kun mail

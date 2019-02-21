@@ -17,7 +17,6 @@ import { send } from 'q';
 })
 export class BestillingsModalComponent {
 
-  @ViewChild('userInfoForm') bestillingsForm: NgForm;
   @Input() bestilling: IBestilling;
   closeResult: string;
 
