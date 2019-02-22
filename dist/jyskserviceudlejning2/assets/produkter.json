@@ -60,9 +60,14 @@
         "billedURL": "assets/Pandekagepande.jpg"
     },
     {
-        "navn": "Damprenser",
+        "navn": "Tæpperenser",
         "pris": 299.00,
         "billedURL": "assets/damprenser.gif"
+    },
+    {
+        "navn": "Radonmåler (1 uge)",
+        "pris": 275.00,
+        "billedURL": "assets/radonmaaler.jpg"
     }]
 },
 {
@@ -280,17 +285,17 @@
     "produkter": [ 
     {
         "navn": "175 x 140 (cirkamål)",
-        "pris": 9.00,
+        "pris": 42.00,
         "billedURL": "assets/duge1.jpg"
     },
     {
         "navn": "220 x 140 (cirkamål)",
-        "pris": 9.00,
+        "pris": 54.00,
         "billedURL": "assets/duge1.jpg"
     },
     {
         "navn": "Stofservietter",
-        "pris": 9.00,
+        "pris": 8.00,
         "billedURL": "assets/stofserviet.jpg"
     }]
 },
