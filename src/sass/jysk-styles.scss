@@ -38,10 +38,30 @@
         @media screen and (min-width: 530px) and (max-width: 991px) {
             font-size: 30px;
         }
+        @media screen and (min-width: 992px) and (max-width: 1200px) {
+            font-size: 45px;
+        }
         @media screen and (max-width: 991px) {
             padding-bottom: 25px;
             padding-top: 10px;
         } 
+    }
+}
+
+.kuvert-card {
+    padding: 0px 20px 0px 20px;
+    &.left {
+        @media screen and (min-width: 1200px) {
+            padding-left: 80px;
+        }
+    }
+    &.right {
+        @media screen and (min-width: 1200px) {
+            padding-right: 80px;
+        }
+    }
+    @media screen and (min-width: 470px) and (max-width: 991px) {
+        padding: 0px 10px 0px 10px;
     }
 }
 

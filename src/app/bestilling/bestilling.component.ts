@@ -20,7 +20,10 @@ export class BestillingComponent implements OnInit, AfterViewInit {
   @ViewChild('fullHeight') fullHeightElement: ElementRef;
   stickyBot: Boolean = false;
   sticky: Boolean = false;
+  phoneWidth: Boolean = false;
   innerHeight: any;
+  public innerWidth: any;
+
   @HostListener('window:scroll', ['$event']) handleScroll() {
     const windowScroll = window.pageYOffset;
         if ((windowScroll >= this.menuPosition) && (windowScroll <= this.calcStopperY())) {
@@ -38,6 +41,7 @@ export class BestillingComponent implements OnInit, AfterViewInit {
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.innerHeight = window.innerHeight;
+    this.innerWidth = window.innerWidth;
   }
 
   ngAfterViewInit() {
@@ -49,10 +53,19 @@ export class BestillingComponent implements OnInit, AfterViewInit {
     return fullHeight + this.menuPosition - (innerHeight * 0.8);
   }
 
+  private setPhoneWidth(width: number) {
+    if (width < 768) {
+      this.phoneWidth = true;
+    } else {
+      this.phoneWidth = false;
+    }
+  }
+
 
   constructor(private productService: ProductService, private mailService: MailService) { }
 
   ngOnInit() {
+    this.innerWidth = window.innerWidth;
     this.productService.getProducts().subscribe(produktSerier => this.productSerier = produktSerier);
     if (this.productService.isDataCached()) {
       this.bestillingsListe = this.productService.getBestillingsliste();

@@ -78,10 +78,22 @@ h2.product-title {
     top: 10px;
     z-index: 10;
     width: 248.5px;
+    @media screen and (min-width: 992px) and (max-width: 1200px) {
+        width: 203.5px;
+    }
+    @media screen and (min-width: 470px) and (max-width: 991px) {
+        width: 143.5px;
+    }
 }
 
 .sticky-width {
     width: 248.5px;
+    @media screen and (min-width: 992px) and (max-width: 1200px) {
+        width: 203.5px;
+    }
+    @media screen and (min-width: 470px) and (max-width: 991px) {
+        width: 143.5px;
+    }
 }
 
 .kuvert-list {
