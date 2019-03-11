@@ -237,6 +237,9 @@
             }
             &.btn-sticky {
                 font-size: 14px;
+                @media screen and (min-width: 320px) and (max-width: 767px) {
+                    box-shadow: 4px 4px 4px #808080
+                }
             }
         }
         &.btn-ghost {

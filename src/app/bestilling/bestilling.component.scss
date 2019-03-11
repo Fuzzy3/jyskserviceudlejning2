@@ -81,8 +81,16 @@ h2.product-title {
     @media screen and (min-width: 992px) and (max-width: 1200px) {
         width: 203.5px;
     }
-    @media screen and (min-width: 470px) and (max-width: 991px) {
+    @media screen and (min-width: 768px) and (max-width: 991px) {
         width: 143.5px;
+    }
+    @media screen and (min-width: 320px) and (max-width: 767px) {
+        position: fixed;
+        bottom: 20px;
+        top: unset;
+        z-index: 10;
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
 
@@ -91,7 +99,7 @@ h2.product-title {
     @media screen and (min-width: 992px) and (max-width: 1200px) {
         width: 203.5px;
     }
-    @media screen and (min-width: 470px) and (max-width: 991px) {
+    @media screen and (min-width: 768px) and (max-width: 991px) {
         width: 143.5px;
     }
 }

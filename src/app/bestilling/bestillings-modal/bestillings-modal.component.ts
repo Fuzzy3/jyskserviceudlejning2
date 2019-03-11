@@ -18,6 +18,7 @@ import { send } from 'q';
 export class BestillingsModalComponent {
 
   @Input() bestilling: IBestilling;
+  @Input() phoneMode: Boolean;
   closeResult: string;
 
 

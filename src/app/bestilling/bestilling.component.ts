@@ -12,10 +12,10 @@ import { MailService } from './services/mail.service';
   templateUrl: './bestilling.component.html',
   styleUrls: ['./bestilling.component.scss']
 })
-export class BestillingComponent implements OnInit, AfterViewInit {
+export class BestillingComponent implements OnInit {
   productSerier: ProduktSerie[];
   bestillingsListe: IBestilling = {};
-  menuPosition: any;
+  menuPosition: any = 233;
   @ViewChild('stickyMenu') menuElement: ElementRef;
   @ViewChild('fullHeight') fullHeightElement: ElementRef;
   stickyBot: Boolean = false;
@@ -26,26 +26,25 @@ export class BestillingComponent implements OnInit, AfterViewInit {
 
   @HostListener('window:scroll', ['$event']) handleScroll() {
     const windowScroll = window.pageYOffset;
-        if ((windowScroll >= this.menuPosition) && (windowScroll <= this.calcStopperY())) {
-          this.sticky = true;
-          this.stickyBot = false;
-        } else if (windowScroll > this.calcStopperY()) {
-          this.sticky = false;
-          this.stickyBot = true;
-        } else {
-          this.sticky = false;
-          this.stickyBot = false;
-        }
+    if (!this.phoneWidth) {
+      if ((windowScroll >= this.menuPosition) && (windowScroll <= this.calcStopperY())) {
+        this.sticky = true;
+        this.stickyBot = false;
+      } else if (windowScroll > this.calcStopperY()) {
+        this.sticky = false;
+        this.stickyBot = true;
+      } else {
+        this.sticky = false;
+        this.stickyBot = false;
+      }
+    }
   }
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.innerHeight = window.innerHeight;
     this.innerWidth = window.innerWidth;
-  }
-
-  ngAfterViewInit() {
-    this.menuPosition = 233;
+    this.setPhoneWidth(innerWidth);
   }
 
   private calcStopperY() {
@@ -56,8 +55,10 @@ export class BestillingComponent implements OnInit, AfterViewInit {
   private setPhoneWidth(width: number) {
     if (width < 768) {
       this.phoneWidth = true;
+      this.sticky = true;
     } else {
       this.phoneWidth = false;
+      this.sticky = false;
     }
   }
 
@@ -66,6 +67,7 @@ export class BestillingComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.innerWidth = window.innerWidth;
+    this.setPhoneWidth(this.innerWidth);
     this.productService.getProducts().subscribe(produktSerier => this.productSerier = produktSerier);
     if (this.productService.isDataCached()) {
       this.bestillingsListe = this.productService.getBestillingsliste();

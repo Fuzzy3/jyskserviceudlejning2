@@ -49,19 +49,20 @@ Product backlog (Ikke i rækkefølge):
     - Ingen overlap og andre problemer
 
 
-
-Små ændringer (Flere på en morgen):
-- Nye tekster
-
-Mellem ændringer (En enkelt på en morgen):
-- Tilføj facebook og instagram icons/links
-
-Større ændringer: (Tager flere morgener at komme igennem)
+Større ændringer:
 - SEO-optimering
     - tilføj website titel
     - tilføj website meta-data
     - tilføj alt-tags til billeder
     - Se rapport
+- Lav, tak for din bestilling "side"
+
+
+Done:
+- Skift tekst på Kontakt -> er kun mail
+- Fjern space til footer Samarbejdspartnere
+- Manglende produktbilleder
+- Ekspeditionsgebyr på mail
 - Redesign af Modal
     - Bestilling i modal
     - Bestil og få et tilbud tekst
@@ -70,16 +71,11 @@ Større ændringer: (Tager flere morgener at komme igennem)
     - Fjern sticky menu
     - Bestil knap skal stadig "flyve"
     - Ingen overlap og andre problemer
-- Lav, tak for din bestilling "side"
+Små ændringer (Flere på en morgen):
+- Nye tekster
 
-Waiting for Jens:
-- Titel på forside
-
-Done:
-- Skift tekst på Kontakt -> er kun mail
-- Fjern space til footer Samarbejdspartnere
-- Manglende produktbilleder
-- Ekspeditionsgebyr på mail
+Mellem ændringer (En enkelt på en morgen):
+- Tilføj facebook og instagram icons/links
 
 
 Bestilling top tekst: 

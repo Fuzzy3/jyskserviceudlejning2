@@ -9,9 +9,11 @@
                                     <div class="row">
                                         <div class="col-md-3 side-order-menu" style="padding-top: 30px !important" [class.d-flex]="stickyBot" [class.align-items-end]="stickyBot" #stickyParent>
                                             <div [class.sticky]="sticky" [class.sticky-width]=stickyBot #stickyMenu>
-                                                <app-bestillingsliste [bestilling]="bestillingsListe"></app-bestillingsliste>
-                                                <hr>
-                                                <app-bestillings-modal [bestilling]="bestillingsListe"></app-bestillings-modal>
+                                                <div *ngIf="phoneWidth == false">
+                                                    <app-bestillingsliste [bestilling]="bestillingsListe" *ngIf="phoneWidth == false"></app-bestillingsliste>
+                                                    <hr>
+                                                </div>
+                                                <app-bestillings-modal [bestilling]="bestillingsListe" [phoneMode]="phoneWidth"></app-bestillings-modal>
                                             </div>
                                         </div>
                                         <div class="col-md-9 margin-top-30">
