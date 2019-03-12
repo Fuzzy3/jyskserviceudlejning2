@@ -20,6 +20,8 @@ import { FormsModule } from '@angular/forms';
 import { BestillingsModalComponent } from './bestilling/bestillings-modal/bestillings-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BestillingsModalFormComponent } from './bestilling/bestillings-modal/bestillings-modal-form/bestillings-modal-form.component';
+import { AfsluttetBestillingComponent } from './afsluttet-bestilling/afsluttet-bestilling.component';
+import { LoadingComponent } from './loading/loading.component';
 
 
 const appRoutes: Routes = [
@@ -51,6 +53,14 @@ const appRoutes: Routes = [
     path: 'kontakt',
     component: KontaktComponent
   },
+  {
+    path: 'tak-for-din-bestilling',
+    component: AfsluttetBestillingComponent
+  },
+  {
+    path: 'loading',
+    component: LoadingComponent
+  },
   { path: '',
     redirectTo: '/home',
     pathMatch: 'full'
@@ -74,7 +84,9 @@ const appRoutes: Routes = [
     KontaktComponent,
     BestillingslisteComponent,
     BestillingsModalComponent,
-    BestillingsModalFormComponent
+    BestillingsModalFormComponent,
+    AfsluttetBestillingComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,7 @@ import { IBestilling } from './../model/bestilling.model';
 import { Component, OnInit, Input, ViewChild, ElementRef, ViewChildren } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 import { send } from 'q';
 
 

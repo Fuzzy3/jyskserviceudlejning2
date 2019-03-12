@@ -18,8 +18,6 @@ Clarifications:
 - Validering på dato-felt -> Nej
 - Generelt SEO-optimering -> se rapport
 
-
-
 Product backlog (Ikke i rækkefølge):
 - Skift titel på forsiden
 - Skift billede og pris på kuvert (Evt give mulighed for at ændre pris)
@@ -55,7 +53,6 @@ Større ændringer:
     - tilføj website meta-data
     - tilføj alt-tags til billeder
     - Se rapport
-- Lav, tak for din bestilling "side"
 
 
 Done:
@@ -73,6 +70,7 @@ Done:
     - Ingen overlap og andre problemer
 Små ændringer (Flere på en morgen):
 - Nye tekster
+- Lav, tak for din bestilling "side"
 
 Mellem ændringer (En enkelt på en morgen):
 - Tilføj facebook og instagram icons/links

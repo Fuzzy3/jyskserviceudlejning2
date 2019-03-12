@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Bestilling, IBestilling } from './../model/bestilling.model';
 import { BestillingInfo } from './../model/bestillingInfo.model';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -22,7 +23,7 @@ export class MailService {
         })
     };
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private router: Router) { }
 
     sendMail(info: BestillingInfo, bestilling: IBestilling) {
         this.info = info;
@@ -36,6 +37,7 @@ export class MailService {
         const textToSend = 'Bestilling fra: ' + info.navn;
 
         if (htmlToSend && toEmail && fromEmail && subjectFromInfo && textToSend) {
+            this.router.navigateByUrl('/loading');
             const emailRequest = {
                 to: toEmail,
                 from: fromEmail,
@@ -46,7 +48,7 @@ export class MailService {
             console.log(emailRequest);
 
             this.http.post(url, emailRequest).subscribe(res => {
-                console.log(res);
+                this.router.navigateByUrl('/tak-for-din-bestilling');
             });
             return true;
         }
@@ -72,7 +74,6 @@ export class MailService {
 
     generateFooterHtml(): string {
         let html = '<div>';
-        
         html = html.concat(this.paragraf(this.bold('Email: ') + this.info.email));
         html = html.concat(this.paragraf(this.bold('Telefon: ') + this.info.telefon));
         html = html.concat(this.paragraf(this.bold('Adresse: ') + this.info.adresse + ', ' + this.info.postnr + ' ' + this.info.by));
