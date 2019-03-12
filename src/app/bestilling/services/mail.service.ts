@@ -107,7 +107,7 @@ export class MailService {
         });
         sumAllProducts = sumAllProducts + this.ekspeditionsgebyr;
         html = html.concat(this.paragraf('Ekspeditionsgebyr - af ' + this.ekspeditionsgebyr + 'kr.'));
-        html = html.concat(this.paragraf(this.bold('Pris ialt: ') + sumAllProducts));
+        html = html.concat(this.paragraf(this.bold('Pris ialt: ') + sumAllProducts + 'kr.'));
         html = html.concat('</div><hr>');
         return html;
     }
