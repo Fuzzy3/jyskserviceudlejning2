@@ -13,7 +13,7 @@ export class MailService {
 
     bestilling: IBestilling;
     info: BestillingInfo;
-    receiverMail: String = 'redbird.world.solutions@gmail.com';
+    receiverMail: String = 'jens@jyskserviceudlejning.dk';
     ekspeditionsgebyr = 62.50;
 
     httpOptions = {
