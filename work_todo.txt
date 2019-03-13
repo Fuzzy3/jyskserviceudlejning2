@@ -1,3 +1,38 @@
+First deployment test:
+
+Deployed to test.jyskserviceudlejning.dk
+
+Defects:
+- Deep linking doesn't work
+- Remove Console log 
+- Timeout is not removed on happy
+- Cached order is not removed after order
+
+Fixed Defects
+- æøå doesn't work in images
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+OLD:
 Deploy most recent version to fuzzy3.github.io
 
 Defects:
