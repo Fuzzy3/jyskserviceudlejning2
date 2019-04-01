@@ -10,10 +10,10 @@
                                         <div class="col-md-3 side-order-menu" style="padding-top: 30px !important" [class.d-flex]="stickyBot" [class.align-items-end]="stickyBot" #stickyParent>
                                             <div [class.sticky]="sticky" [class.sticky-width]=stickyBot #stickyMenu>
                                                 <div *ngIf="phoneWidth == false">
-                                                    <app-bestillingsliste [bestilling]="bestillingsListe" *ngIf="phoneWidth == false"></app-bestillingsliste>
+                                                    <app-bestillingsliste (productRemoved)="productRemoved($event)" [bestilling]="bestillingsListe" *ngIf="phoneWidth == false"></app-bestillingsliste>
                                                     <hr>
                                                 </div>
-                                                <app-bestillings-modal [bestilling]="bestillingsListe" [phoneMode]="phoneWidth"></app-bestillings-modal>
+                                                <app-bestillings-modal (productRemoved)="productRemoved($event)" [bestilling]="bestillingsListe" [phoneMode]="phoneWidth"></app-bestillings-modal>
                                             </div>
                                         </div>
                                         <div class="col-md-9 margin-top-30">
@@ -35,7 +35,7 @@
                                                                 <form class="margin-top-10 padding-5">
                                                                     <div class="form-row">
                                                                         <div class="col-6">
-                                                                            <input type="number" min="0" class="form-control"
+                                                                            <input type="number" min="0" value="0" class="form-control"
                                                                                 #standardKuvertAmount>
                                                                         </div>
                                                                         <div class="col-6 button-container">
@@ -78,7 +78,7 @@
                                                                 <form class="margin-top-10 padding-5">
                                                                     <div class="form-row">
                                                                         <div class="col-6">
-                                                                            <input type="number" min="0" class="form-control"
+                                                                            <input type="number" min="0" value="0" class="form-control"
                                                                                 #luksusKuvertAmount>
                                                                         </div>
                                                                         <div class="col-6 button-container">
@@ -136,7 +136,7 @@
                                                                                 <form class="margin-top-10 padding-5">
                                                                                     <div class="form-row">
                                                                                         <div class="col-6">
-                                                                                            <input type="number" class="form-control"
+                                                                                            <input type="number" class="form-control" value="0"
                                                                                                 #productAmount>
                                                                                         </div>
                                                                                         <div class="col-6 button-container">
@@ -162,7 +162,7 @@
                                                                                     <form class="margin-top-10 padding-5">
                                                                                         <div class="form-row">
                                                                                             <div class="col-6">
-                                                                                                <input type="number" min="0" class="form-control"
+                                                                                                <input type="number" min="0" class="form-control" value="0"
                                                                                                     #productAmount>
                                                                                             </div>
                                                                                             <div class="col-6 button-container">

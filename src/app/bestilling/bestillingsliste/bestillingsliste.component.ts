@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit, HostListener } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit, HostListener, Output, EventEmitter } from '@angular/core';
 import { IBestilling, Bestilling } from '../model/bestilling.model';
 import { Produkt } from '../model/produkt.model';
 import { generate } from 'rxjs';
@@ -11,6 +11,7 @@ import { generate } from 'rxjs';
 export class BestillingslisteComponent implements OnInit {
 
   @Input() bestilling: IBestilling;
+  @Output() productRemoved = new EventEmitter<string>();
 
   constructor() { }
 
@@ -26,6 +27,10 @@ export class BestillingslisteComponent implements OnInit {
         }
     });
     return produkter;
+  }
+
+  removeProduct(productToBeRemoved: Bestilling) {
+    this.productRemoved.emit(productToBeRemoved.produkt.navn);
   }
 
 }

@@ -40,8 +40,6 @@ export class BestillingsModalFormComponent implements OnInit {
     this.bestillingInfo.besked = this.besked;
     const wasMailSent = this.mailService.sendMail(this.bestillingInfo, this.bestilling);
     this.mailFormSubmitted.emit(true);
-    console.log('Was mail correct: ' + wasMailSent);
-    console.log(this.bestillingInfo);
   }
 
   fillFormWithDummyData() {

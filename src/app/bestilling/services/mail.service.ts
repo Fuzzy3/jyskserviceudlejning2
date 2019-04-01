@@ -1,3 +1,4 @@
+import { ProductService } from './product.service';
 import { Produkt } from './../model/produkt.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Bestilling, IBestilling } from './../model/bestilling.model';
@@ -23,7 +24,7 @@ export class MailService {
         })
     };
 
-    constructor(private http: HttpClient, private router: Router) { }
+    constructor(private http: HttpClient, private router: Router, private productService: ProductService) { }
 
     sendMail(info: BestillingInfo, bestilling: IBestilling) {
         this.info = info;
@@ -45,9 +46,9 @@ export class MailService {
                 text: textToSend,
                 html: htmlToSend
             };
-            console.log(emailRequest);
 
             this.http.post(url, emailRequest).subscribe(res => {
+                this.productService.clearCache();
                 this.router.navigateByUrl('/tak-for-din-bestilling');
             });
             return true;
@@ -84,12 +85,10 @@ export class MailService {
 
     generateEmailHtml(): String {
         let html = '<div style="font-size: 15px; color: black;">';
-        console.log(this.info.dato);
         html = html.concat(this.generateHeaderHtml(this.info.navn, this.info.dato));
         html = html.concat(this.generateOrderListHtml());
         html = html.concat(this.generateFooterHtml());
         html = html.concat('</div>');
-        console.log(html);
         return html;
     }
 
@@ -105,7 +104,7 @@ export class MailService {
                 value.produkt.pris + 'kr. stk = ' + sumSingleProduct + 'kr.'));
             sumAllProducts = sumAllProducts + sumSingleProduct;
         });
-        sumAllProducts = sumAllProducts + this.ekspeditionsgebyr;
+        sumAllProducts = Math.round((sumAllProducts + this.ekspeditionsgebyr) * 100) / 100;
         html = html.concat(this.paragraf('Ekspeditionsgebyr - af ' + this.ekspeditionsgebyr + 'kr.'));
         html = html.concat(this.paragraf(this.bold('Pris ialt: ') + sumAllProducts + 'kr.'));
         html = html.concat('</div><hr>');
@@ -113,6 +112,6 @@ export class MailService {
     }
 
     calcProductPrice(price: number, amount: number): number {
-        return amount * price;
+        return Math.round(amount * price * 100) / 100;
     }
 }

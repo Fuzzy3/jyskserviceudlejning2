@@ -1,3 +1,13 @@
+@import 'src/sass/variables';
+
+.remove-product-icon {
+    font-size:  20px;
+    &:hover {
+        color: $secondary-brand-color;
+    }
+}
+
+
 .card-img-top {
     object-fit: contain;
 }
@@ -10,4 +20,3 @@
     font-size: 12px;
     text-align: start;
 }
-

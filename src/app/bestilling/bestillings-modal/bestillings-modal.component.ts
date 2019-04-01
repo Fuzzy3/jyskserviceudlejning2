@@ -3,8 +3,8 @@ import { Produkt } from './../model/produkt.model';
 import { ProduktOrder } from './../model/produktOrder.model';
 import { ProduktSerie } from './../model/produktSerie.model';
 import { BestillingInfo } from './../model/bestillingInfo.model';
-import { IBestilling } from './../model/bestilling.model';
-import { Component, OnInit, Input, ViewChild, ElementRef, ViewChildren } from '@angular/core';
+import { IBestilling, Bestilling } from './../model/bestilling.model';
+import { Component, OnInit, Input, ViewChild, ElementRef, ViewChildren, EventEmitter, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
@@ -20,6 +20,8 @@ export class BestillingsModalComponent {
 
   @Input() bestilling: IBestilling;
   @Input() phoneMode: Boolean;
+  @Output() productRemoved = new EventEmitter<string>();
+
   closeResult: string;
 
 
@@ -27,9 +29,8 @@ export class BestillingsModalComponent {
 
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      console.log('Closed with: ' + result);
     }, (reason) => {
-      console.log('Exited ' + this.getDismissReason(reason));
+    
     });
   }
 
@@ -46,6 +47,10 @@ export class BestillingsModalComponent {
         }
     });
     return produkter;
+  }
+
+  removeProduct(productToBeRemoved: ProduktOrder) {
+    this.productRemoved.emit(productToBeRemoved.navn);
   }
 
   private getDismissReason(reason: any): string {

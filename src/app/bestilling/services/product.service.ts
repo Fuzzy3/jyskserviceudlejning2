@@ -45,5 +45,10 @@ export class ProductService {
     return this.dataCached;
   }
 
+  public clearCache() {
+    this.dataCached = false;
+    this.bestilling = {};
+  }
+
 
 }

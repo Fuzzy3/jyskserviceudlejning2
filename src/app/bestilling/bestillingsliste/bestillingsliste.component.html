@@ -11,9 +11,10 @@
             <div class="list-group-item padding-5 no-border" *ngIf="p < 20">
               <div class="container">
                 <div class="row bestilling">
-                  <div class="col-md-12">
+                  <div class="col-md-10">
                       {{bestilling.antal}}x {{bestilling.produkt.navn}}
                   </div>
+                  <div class="col-md-2"><a (click)="removeProduct(bestilling)"><i class="fa fa-times-circle remove-product-icon"></i></a></div>
                 </div>
               </div>
             </div>

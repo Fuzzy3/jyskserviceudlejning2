@@ -1,3 +1,4 @@
+import { objectFitImages } from 'object-fit-images';
 import { BestillingInfo } from './model/bestillingInfo.model';
 import { Bestilling, IBestilling } from './model/bestilling.model';
 import { ProduktSerie } from './model/produktSerie.model';
@@ -13,6 +14,7 @@ import { MailService } from './services/mail.service';
   styleUrls: ['./bestilling.component.scss']
 })
 export class BestillingComponent implements OnInit {
+
   productSerier: ProduktSerie[];
   bestillingsListe: IBestilling = {};
   menuPosition: any = 233;
@@ -79,7 +81,8 @@ export class BestillingComponent implements OnInit {
     if (amount === 0) {
       this.bestillingsListe[id] = null;
     }
-    this.bestillingsListe[id] = {antal: amount, produkt: this.productSerier[produktSerieId].produkter[produktId]};
+    const trimmedAmount = parseInt(amount + '', 10);
+    this.bestillingsListe[id] = {antal: trimmedAmount, produkt: this.productSerier[produktSerieId].produkter[produktId]};
     this.productService.setBestillingsliste(this.bestillingsListe);
   }
 
@@ -88,13 +91,23 @@ export class BestillingComponent implements OnInit {
     if (amount === 0) {
       this.bestillingsListe[id] = null;
     }
+    const trimmedAmount = parseInt(amount + '', 10);
     const kuvert: Produkt = new Produkt();
     kuvert.navn = produktNavn;
     kuvert.pris = pris;
     kuvert.billedURL = '';
 
-    this.bestillingsListe[id] = {antal: amount, produkt: kuvert};
+    this.bestillingsListe[id] = {antal: trimmedAmount, produkt: kuvert};
     this.productService.setBestillingsliste(this.bestillingsListe);
   }
+
+    productRemoved(productToBeRemoved: string) {
+        Object.keys(this.bestillingsListe).forEach(key => {
+            if (this.bestillingsListe[key].produkt.navn === productToBeRemoved) {
+                this.bestillingsListe[key].antal = 0;
+                return;
+            }
+        });
+    }
 
 }

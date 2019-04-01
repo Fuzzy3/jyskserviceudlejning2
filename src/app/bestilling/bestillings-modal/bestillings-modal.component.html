@@ -1,7 +1,7 @@
 <ng-template #content let-modal>
   <div class="modal-header" style="padding-left: 30px;">
     <h4 class="modal-title" id="modal-basic-title">Din Bestilling</h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <button type="button" class="close" tabindex="-1" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -18,7 +18,10 @@
           <p>Bestilling</p>
           <div class="list-group">
             <div class="list-group-item" *ngFor="let produkt of generateOrderList() ; index as p">
-              {{produkt.antal}}x {{produkt.navn}}
+              <div class="row">
+                <div class="col-md-10">{{produkt.antal}}x {{produkt.navn}}</div>
+                <div class="col-md-2 text-right" (click)="removeProduct(produkt)"><i class="fa fa-times-circle remove-product-icon"></i></div>
+              </div>
             </div>
           </div>
         </div>

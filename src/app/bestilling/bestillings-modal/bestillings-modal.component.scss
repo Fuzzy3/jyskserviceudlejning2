@@ -1,0 +1,12 @@
+@import 'src/sass/variables';
+
+.remove-product-icon {
+    font-size:  24px;
+    &:hover {
+        color: $secondary-brand-color;
+    }
+}
+
+.list-group-item {
+    padding: 8px 8px 8px 8px;
+}
