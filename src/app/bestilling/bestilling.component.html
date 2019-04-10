@@ -31,7 +31,7 @@
                                                             </div>
                                                             <div class="card-body padding no-padding">
                                                                 <p class="card-title">Standardkuvert</p>
-                                                                <p class="price-tag margin no-margin">DKK 7.95</p>
+                                                                <p class="price-tag margin no-margin">DKK 7,95</p>
                                                                 <form class="margin-top-10 padding-5">
                                                                     <div class="form-row">
                                                                         <div class="col-6">
@@ -157,8 +157,7 @@
                                                                                 </div>
                                                                                 <div class="card-body padding no-padding">
                                                                                     <p class="card-title">{{produkt.navn}}</p>
-                                                                                    <p class="price-tag margin no-margin">DKK {{produkt.pris |
-                                                                                        number: '1.2-2'}}</p>
+                                                                                    <p class="price-tag margin no-margin">DKK {{getNumber(produkt.pris)}}</p>
                                                                                     <form class="margin-top-10 padding-5">
                                                                                         <div class="form-row">
                                                                                             <div class="col-6">

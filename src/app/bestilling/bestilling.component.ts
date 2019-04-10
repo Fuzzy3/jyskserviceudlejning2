@@ -110,4 +110,9 @@ export class BestillingComponent implements OnInit {
         });
     }
 
+  getNumber(pris: number): String {
+    const twoDecimalsPrice = (Math.round(pris * 100) / 100).toFixed(2);
+    return (twoDecimalsPrice + '').replace('.', ',');
+  }
+
 }
