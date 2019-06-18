@@ -35,6 +35,11 @@
     </div>
   </div>
 </ng-template>
-<div class="button-container text-center">
+<div class="button-container text-center" *ngIf="!shoppingBasket;else shoppingBasketMenu">
   <button class="btn btn-primary btn-md btn-sticky" (click)="open(content)">Bestilling<i class="fa fa-shopping-basket shopping-basket"></i></button>
 </div>
+<ng-template #shoppingBasketMenu>
+  <div class="button-container text-center shopping-basket-menu-container" [style.left]="basketLeftMargin">
+    <button class="btn btn-primary" (click)="open(content)"><i class="fa fa-shopping-basket shopping-basket"></i> (2)</button>
+  </div>
+</ng-template>

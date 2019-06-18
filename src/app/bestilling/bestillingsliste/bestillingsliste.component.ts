@@ -13,7 +13,9 @@ export class BestillingslisteComponent implements OnInit {
 
   bestilling: IBestilling;
 
-  constructor(private orderService: OrderService) { }
+  constructor(private orderService: OrderService) { 
+    orderService.getOrder$().subscribe(order => this.bestilling = order);
+  }
 
   ngOnInit() {
   }

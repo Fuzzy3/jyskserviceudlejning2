@@ -6,7 +6,7 @@ import { ProduktOrder } from './../model/produktOrder.model';
 import { ProduktSerie } from './../model/produktSerie.model';
 import { BestillingInfo } from './../model/bestillingInfo.model';
 import { IBestilling, Bestilling } from './../model/bestilling.model';
-import { Component, OnInit, Input, ViewChild, ElementRef, ViewChildren, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, ViewChildren, EventEmitter, Output, HostListener } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
@@ -18,9 +18,10 @@ import { send } from 'q';
   templateUrl: './bestillings-modal.component.html',
   styleUrls: ['./bestillings-modal.component.scss']
 })
-export class BestillingsModalComponent {
+export class BestillingsModalComponent implements OnInit   {
 
   @Input() bestilling: IBestilling;
+  @Input() shoppingBasket = false;
   @Output() productRemoved = new EventEmitter<string>();
 
   closeResult: string;
@@ -69,6 +70,26 @@ export class BestillingsModalComponent {
     if (shouldClose) {
       this.modalService.dismissAll('Submitted');
     }
+  }
+
+  basketLeftMargin = "1000px";
+  
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.calcBasketLeftMargin(window.innerWidth);
+  }
+  
+  private calcBasketLeftMargin(width: number): void {
+    if(width > 991) {
+      this.basketLeftMargin = ((width-677)/2)+677 + "px"; //677,44px
+    } else {
+      this.basketLeftMargin = (width-125) + "px";
+    }
+    console.log(this.basketLeftMargin);
+  }
+  
+  ngOnInit(): void {
+    this.calcBasketLeftMargin(window.innerWidth);
   }
 
 }
