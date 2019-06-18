@@ -2,6 +2,7 @@ import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit, HostLis
 import { IBestilling, Bestilling } from '../model/bestilling.model';
 import { Produkt } from '../model/produkt.model';
 import { generate } from 'rxjs';
+import { OrderService } from 'src/app/core/order.service';
 
 @Component({
   selector: 'app-bestillingsliste',
@@ -10,10 +11,9 @@ import { generate } from 'rxjs';
 })
 export class BestillingslisteComponent implements OnInit {
 
-  @Input() bestilling: IBestilling;
-  @Output() productRemoved = new EventEmitter<string>();
+  bestilling: IBestilling;
 
-  constructor() { }
+  constructor(private orderService: OrderService) { }
 
   ngOnInit() {
   }
@@ -29,8 +29,8 @@ export class BestillingslisteComponent implements OnInit {
     return produkter;
   }
 
-  removeProduct(productToBeRemoved: Bestilling) {
-    this.productRemoved.emit(productToBeRemoved.produkt.navn);
+  removeProduct(productToBeRemoved: string) {
+    this.orderService.removeProductFromOrder(productToBeRemoved);
   }
 
 }

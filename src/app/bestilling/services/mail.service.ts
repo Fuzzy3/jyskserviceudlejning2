@@ -1,3 +1,4 @@
+import { OrderService } from './../../core/order.service';
 import { ProductService } from './product.service';
 import { Produkt } from './../model/produkt.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -24,7 +25,7 @@ export class MailService {
         })
     };
 
-    constructor(private http: HttpClient, private router: Router, private productService: ProductService) { }
+    constructor(private http: HttpClient, private router: Router, private orderService: OrderService) { }
 
     sendMail(info: BestillingInfo, bestilling: IBestilling) {
         this.info = info;
@@ -48,7 +49,7 @@ export class MailService {
             };
 
             this.http.post(url, emailRequest).subscribe(res => {
-                this.productService.clearCache();
+                this.orderService.clearOrder();
                 this.router.navigateByUrl('/tak-for-din-bestilling');
             });
             return true;

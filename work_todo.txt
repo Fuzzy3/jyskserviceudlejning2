@@ -2,30 +2,13 @@ First deployment test:
 
 Deployed to test.jyskserviceudlejning.dk
 
-Defects:
-- Deep linking doesn't work
-- Remove Console log 
-
-Fixed Defects
-- æøå doesn't work in images
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Todo:
+- Facebook like knap
+- Sitemap.html & Sitemap.xml (Undersøg muligheden)
+- Undersøg SEO i forhold til Angular (Bookmark)
 
 
 

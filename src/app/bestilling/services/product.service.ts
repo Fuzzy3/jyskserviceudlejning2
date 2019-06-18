@@ -14,8 +14,8 @@ import { Produkt } from '../model/produkt.model';
 export class ProductService {
 
   private request$: Observable<ProduktSerie[]>;
-  private bestilling: IBestilling;
-  private dataCached = false;
+  // private bestilling: IBestilling;
+  // private dataCached = false;
 
   constructor(http: HttpClient) {
     this.request$ = http.get<Produkt[]>('assets/produkter.json').pipe(
@@ -32,23 +32,23 @@ export class ProductService {
     return this.request$;
   }
 
-  public setBestillingsliste(bestilling: IBestilling) {
-    this.bestilling = bestilling;
-    this.dataCached = true;
-  }
+  // public setBestillingsliste(bestilling: IBestilling) {
+  //   this.bestilling = bestilling;
+  //   this.dataCached = true;
+  // }
 
-  public getBestillingsliste(): IBestilling {
-    return this.bestilling;
-  }
+  // public getBestillingsliste(): IBestilling {
+  //   return this.bestilling;
+  // }
 
-  public isDataCached(): boolean {
-    return this.dataCached;
-  }
+  // public isDataCached(): boolean {
+  //   return this.dataCached;
+  // }
 
-  public clearCache() {
-    this.dataCached = false;
-    this.bestilling = {};
-  }
+  // public clearCache() {
+  //   this.dataCached = false;
+  //   this.bestilling = {};
+  // }
 
 
 }

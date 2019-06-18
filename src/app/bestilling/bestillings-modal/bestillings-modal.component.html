@@ -19,8 +19,8 @@
           <div class="list-group">
             <div class="list-group-item" *ngFor="let produkt of generateOrderList() ; index as p">
               <div class="row">
-                <div class="col-md-10">{{produkt.antal}}x {{produkt.navn}}</div>
-                <div class="col-md-2 text-right" (click)="removeProduct(produkt)"><i class="fa fa-times-circle remove-product-icon"></i></div>
+                <div class="col-10">{{produkt.antal}}x {{produkt.navn}}</div>
+                <div class="col-2 text-right" (click)="removeProduct(produkt)"><i class="fa fa-times-circle remove-product-icon"></i></div>
               </div>
             </div>
           </div>
@@ -36,5 +36,5 @@
   </div>
 </ng-template>
 <div class="button-container text-center">
-  <button class="btn btn-primary btn-md btn-sticky" (click)="open(content)">Gå til bestilling</button>
+  <button class="btn btn-primary btn-md btn-sticky" (click)="open(content)">Bestilling<i class="fa fa-shopping-basket shopping-basket"></i></button>
 </div>

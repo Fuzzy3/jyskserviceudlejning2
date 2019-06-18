@@ -1,3 +1,5 @@
+import { DeviceWidth, WidthSize } from './../../core/deviceWidth.model';
+import { DeviceService } from './../../core/device.service';
 import { MailService } from './../services/mail.service';
 import { Produkt } from './../model/produkt.model';
 import { ProduktOrder } from './../model/produktOrder.model';
@@ -19,18 +21,18 @@ import { send } from 'q';
 export class BestillingsModalComponent {
 
   @Input() bestilling: IBestilling;
-  @Input() phoneMode: Boolean;
   @Output() productRemoved = new EventEmitter<string>();
 
   closeResult: string;
 
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal, private deviceService: DeviceService) {
+  }
 
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
     }, (reason) => {
-    
+
     });
   }
 

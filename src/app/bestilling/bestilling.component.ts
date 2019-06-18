@@ -1,3 +1,6 @@
+import { OrderService } from './../core/order.service';
+import { WidthSize, DeviceWidth } from './../core/deviceWidth.model';
+import { DeviceService } from './../core/device.service';
 import { objectFitImages } from 'object-fit-images';
 import { BestillingInfo } from './model/bestillingInfo.model';
 import { Bestilling, IBestilling } from './model/bestilling.model';
@@ -20,23 +23,23 @@ export class BestillingComponent implements OnInit {
   menuPosition: any = 233;
   @ViewChild('stickyMenu') menuElement: ElementRef;
   @ViewChild('fullHeight') fullHeightElement: ElementRef;
-  stickyBot: Boolean = false;
-  sticky: Boolean = false;
-  phoneWidth: Boolean = false;
+  stickyBot = false;
+  isSticky = false;
+  isMobile = false;
   innerHeight: any;
   public innerWidth: any;
 
   @HostListener('window:scroll', ['$event']) handleScroll() {
     const windowScroll = window.pageYOffset;
-    if (!this.phoneWidth) {
+    if (!this.isMobile) {
       if ((windowScroll >= this.menuPosition) && (windowScroll <= this.calcStopperY())) {
-        this.sticky = true;
+        this.isSticky = true;
         this.stickyBot = false;
       } else if (windowScroll > this.calcStopperY()) {
-        this.sticky = false;
+        this.isSticky = false;
         this.stickyBot = true;
       } else {
-        this.sticky = false;
+        this.isSticky = false;
         this.stickyBot = false;
       }
     }
@@ -45,8 +48,6 @@ export class BestillingComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.innerHeight = window.innerHeight;
-    this.innerWidth = window.innerWidth;
-    this.setPhoneWidth(innerWidth);
   }
 
   private calcStopperY() {
@@ -54,26 +55,24 @@ export class BestillingComponent implements OnInit {
     return fullHeight + this.menuPosition - (innerHeight * 0.8);
   }
 
-  private setPhoneWidth(width: number) {
-    if (width < 768) {
-      this.phoneWidth = true;
-      this.sticky = true;
+
+  constructor(productService: ProductService, deviceService: DeviceService, private orderService: OrderService) {
+    deviceService.getDeviceWidth$().subscribe(deviceWidth => this.updateOnMobileDevice(deviceWidth));
+    productService.getProducts().subscribe(produktSerier => this.productSerier = produktSerier);
+    orderService.getOrder$().subscribe(order => this.bestillingsListe = order);
+  }
+
+  updateOnMobileDevice(deviceWidth: DeviceWidth) {
+    if (deviceWidth.getWidthSize() === WidthSize.Mobile) {
+      this.isMobile = true;
+      this.isSticky = true;
     } else {
-      this.phoneWidth = false;
-      this.sticky = false;
+      this.isMobile = false;
+      this.isSticky = false;
     }
   }
 
-
-  constructor(private productService: ProductService, private mailService: MailService) { }
-
   ngOnInit() {
-    this.innerWidth = window.innerWidth;
-    this.setPhoneWidth(this.innerWidth);
-    this.productService.getProducts().subscribe(produktSerier => this.productSerier = produktSerier);
-    if (this.productService.isDataCached()) {
-      this.bestillingsListe = this.productService.getBestillingsliste();
-    }
   }
 
   onProductAdded(amount: number, produktSerieId: number, produktId: number) {
@@ -83,7 +82,7 @@ export class BestillingComponent implements OnInit {
     }
     const trimmedAmount = parseInt(amount + '', 10);
     this.bestillingsListe[id] = {antal: trimmedAmount, produkt: this.productSerier[produktSerieId].produkter[produktId]};
-    this.productService.setBestillingsliste(this.bestillingsListe);
+    this.orderService.setOrder(this.bestillingsListe);
   }
 
   onKuvertProductAdded(amount: number, productid: string, produktNavn: string, pris: number) {
@@ -98,17 +97,8 @@ export class BestillingComponent implements OnInit {
     kuvert.billedURL = '';
 
     this.bestillingsListe[id] = {antal: trimmedAmount, produkt: kuvert};
-    this.productService.setBestillingsliste(this.bestillingsListe);
+    this.orderService.setOrder(this.bestillingsListe);
   }
-
-    productRemoved(productToBeRemoved: string) {
-        Object.keys(this.bestillingsListe).forEach(key => {
-            if (this.bestillingsListe[key].produkt.navn === productToBeRemoved) {
-                this.bestillingsListe[key].antal = 0;
-                return;
-            }
-        });
-    }
 
   getNumber(pris: number): String {
     const twoDecimalsPrice = (Math.round(pris * 100) / 100).toFixed(2);

@@ -1,3 +1,4 @@
+import { DeviceService } from './core/device.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -22,6 +23,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BestillingsModalFormComponent } from './bestilling/bestillings-modal/bestillings-modal-form/bestillings-modal-form.component';
 import { AfsluttetBestillingComponent } from './afsluttet-bestilling/afsluttet-bestilling.component';
 import { LoadingComponent } from './loading/loading.component';
+import { DeviceDirective } from './core/device.directive';
 
 
 const appRoutes: Routes = [
@@ -86,7 +88,8 @@ const appRoutes: Routes = [
     BestillingsModalComponent,
     BestillingsModalFormComponent,
     AfsluttetBestillingComponent,
-    LoadingComponent
+    LoadingComponent,
+    DeviceDirective
   ],
   imports: [
     BrowserModule,
@@ -97,7 +100,7 @@ const appRoutes: Routes = [
     FormsModule,
     NgbModule
   ],
-  providers: [ProductService],
+  providers: [ProductService, DeviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
