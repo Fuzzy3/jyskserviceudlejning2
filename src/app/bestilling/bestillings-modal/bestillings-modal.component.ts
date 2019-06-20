@@ -11,30 +11,46 @@ import { NgForm } from '@angular/forms';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { send } from 'q';
-
+import { OrderService } from 'src/app/core/order.service';
+import { trigger, transition, useAnimation } from '@angular/animations';
+import { bounce } from 'ng-animate';
 
 @Component({
   selector: 'app-bestillings-modal',
   templateUrl: './bestillings-modal.component.html',
-  styleUrls: ['./bestillings-modal.component.scss']
+  styleUrls: ['./bestillings-modal.component.scss'],
+  animations: [
+    trigger('bounce', [transition('* => *', useAnimation(bounce))])
+  ]
 })
 export class BestillingsModalComponent implements OnInit   {
 
-  @Input() bestilling: IBestilling;
+  bounce = false;
+  bestilling: IBestilling;
+  basketLeftMargin = "1000px";
+  basketTopMargin = "115px";
   @Input() shoppingBasket = false;
   @Output() productRemoved = new EventEmitter<string>();
 
   closeResult: string;
 
 
-  constructor(private modalService: NgbModal, private deviceService: DeviceService) {
-  }
+  constructor(private modalService: NgbModal, orderService: OrderService) {
+    orderService.getOrder$().subscribe(order => {
+        this.bestilling = order;
+        this.bounce = !bounce;
+      });
+    }
 
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
     }, (reason) => {
 
     });
+  }
+
+  private getOrderAmount(): number {
+    return Object.keys(this.bestilling).length;
   }
 
   generateOrderList(): ProduktOrder[] {
@@ -72,7 +88,6 @@ export class BestillingsModalComponent implements OnInit   {
     }
   }
 
-  basketLeftMargin = "1000px";
   
   @HostListener('window:resize', ['$event'])
   onResize(event) {
@@ -82,8 +97,10 @@ export class BestillingsModalComponent implements OnInit   {
   private calcBasketLeftMargin(width: number): void {
     if(width > 991) {
       this.basketLeftMargin = ((width-677)/2)+677 + "px"; //677,44px
+      this.basketTopMargin = "115px";
     } else {
-      this.basketLeftMargin = (width-125) + "px";
+      this.basketLeftMargin = (width-170) + "px";
+      this.basketTopMargin = "119px";
     }
     console.log(this.basketLeftMargin);
   }

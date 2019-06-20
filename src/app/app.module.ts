@@ -24,6 +24,8 @@ import { BestillingsModalFormComponent } from './bestilling/bestillings-modal/be
 import { AfsluttetBestillingComponent } from './afsluttet-bestilling/afsluttet-bestilling.component';
 import { LoadingComponent } from './loading/loading.component';
 import { DeviceDirective } from './core/device.directive';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 const appRoutes: Routes = [
@@ -98,7 +100,8 @@ const appRoutes: Routes = [
     ),
     HttpClientModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule 
   ],
   providers: [ProductService, DeviceService],
   bootstrap: [AppComponent]

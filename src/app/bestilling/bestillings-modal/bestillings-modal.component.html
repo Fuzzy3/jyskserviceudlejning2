@@ -9,20 +9,23 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <p>Efter tryk på bestilling vil du snarest blive kontaktet af os med et tilbud</p>
+          <p>Efter tryk på <em>bestil</em> vil du snarest blive kontaktet af os med et tilbud</p>
         </div>
       </div>
       <hr>
       <div class="row">
         <div class="col">
           <p>Bestilling</p>
-          <div class="list-group">
+          <div class="list-group" *ngIf="generateOrderList().length == 0;else noProductsWarning">
             <div class="list-group-item" *ngFor="let produkt of generateOrderList() ; index as p">
               <div class="row">
                 <div class="col-10">{{produkt.antal}}x {{produkt.navn}}</div>
                 <div class="col-2 text-right" (click)="removeProduct(produkt)"><i class="fa fa-times-circle remove-product-icon"></i></div>
               </div>
             </div>
+          </div>
+          <div #noProductWarning>
+            <div class="invalid-feedback text-center">Du har endnu ikke tilføjet nogen produkter til kurven</div>
           </div>
         </div>
       </div>
@@ -36,10 +39,10 @@
   </div>
 </ng-template>
 <div class="button-container text-center" *ngIf="!shoppingBasket;else shoppingBasketMenu">
-  <button class="btn btn-primary btn-md btn-sticky" (click)="open(content)">Bestilling<i class="fa fa-shopping-basket shopping-basket"></i></button>
+  <button class="btn btn-primary btn-md btn-sticky" (click)="open(content)"><i class="fa fa-shopping-basket shopping-basket" [@bounce]="bounce"></i> ({{getOrderAmount()}})</button>
 </div>
 <ng-template #shoppingBasketMenu>
-  <div class="button-container text-center shopping-basket-menu-container" [style.left]="basketLeftMargin">
-    <button class="btn btn-primary" (click)="open(content)"><i class="fa fa-shopping-basket shopping-basket"></i> (2)</button>
+  <div class="button-container text-center shopping-basket-menu-container" [style.left]="basketLeftMargin" [style.top]="basketTopMargin">
+    <button class="btn btn-primary" (click)="open(content)"><i class="fa fa-shopping-basket shopping-basket"></i> ({{getOrderAmount()}}) <span style="width:1px;"></span></button>
   </div>
 </ng-template>

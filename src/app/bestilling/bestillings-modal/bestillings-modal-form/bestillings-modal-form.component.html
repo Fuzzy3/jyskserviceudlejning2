@@ -47,7 +47,7 @@
       </div>
     </div>
     <div class="button-container text-center">
-      <div class="invalid-feedback" *ngIf="disabledOrderButton">Bestilling ikke tilladt uden at have valgt minimum et produkt</div>
+      <div class="invalid-feedback" *ngIf="disabledOrderButton">Bestilling ikke muligt uden at have valgt et produkt</div>
       <button class="btn btn-primary btn-md" type="submit" [disabled]="disabledOrderButton || !f.form.valid" [hidden]="disabledOrderButton">Bestil</button>
     </div>
   </form>

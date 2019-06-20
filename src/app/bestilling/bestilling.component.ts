@@ -10,6 +10,7 @@ import { ProductService } from './services/product.service';
 import { Produkt } from './model/produkt.model';
 import { NgForm } from '@angular/forms';
 import { MailService } from './services/mail.service';
+import { ConsoleReporter } from 'jasmine';
 
 @Component({
   selector: 'app-bestilling',
@@ -64,9 +65,11 @@ export class BestillingComponent implements OnInit {
 
   updateOnMobileDevice(deviceWidth: DeviceWidth) {
     if (deviceWidth.getWidthSize() === WidthSize.Mobile) {
+      console.log("mobile");
       this.isMobile = true;
       this.isSticky = true;
     } else {
+      console.log("not mobile")
       this.isMobile = false;
       this.isSticky = false;
     }
