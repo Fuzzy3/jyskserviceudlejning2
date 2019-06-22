@@ -20,25 +20,26 @@ import { bounce } from 'ng-animate';
   templateUrl: './bestillings-modal.component.html',
   styleUrls: ['./bestillings-modal.component.scss'],
   animations: [
-    trigger('bounce', [transition('* => *', useAnimation(bounce))])
+    trigger('bounce', [
+      transition('* => *', useAnimation(bounce))]),
   ]
 })
 export class BestillingsModalComponent implements OnInit   {
 
   bounce = false;
-  bestilling: IBestilling;
   basketLeftMargin = "1000px";
   basketTopMargin = "115px";
+  produkter: ProduktOrder[] = [];
+
   @Input() shoppingBasket = false;
-  @Output() productRemoved = new EventEmitter<string>();
 
   closeResult: string;
 
 
-  constructor(private modalService: NgbModal, orderService: OrderService) {
+  constructor(private modalService: NgbModal, private orderService: OrderService) {
     orderService.getOrder$().subscribe(order => {
-        this.bestilling = order;
-        this.bounce = !bounce;
+        this.produkter = this.generateOrderList(order);
+        this.bounce = !this.bounce;
       });
     }
 
@@ -50,13 +51,13 @@ export class BestillingsModalComponent implements OnInit   {
   }
 
   private getOrderAmount(): number {
-    return Object.keys(this.bestilling).length;
+    return this.produkter.length;
   }
 
-  generateOrderList(): ProduktOrder[] {
+  generateOrderList(bestilling: IBestilling): ProduktOrder[] {
     const produkter: ProduktOrder[] = [];
-    Object.keys(this.bestilling).forEach(key => {
-        const value = this.bestilling[key]; /* Use key, value here */
+    Object.keys(bestilling).forEach(key => {
+        const value = bestilling[key]; /* Use key, value here */
         if (value.antal > 0) {
           const produkt: ProduktOrder = new ProduktOrder();
           produkt.antal = value.antal;
@@ -66,10 +67,6 @@ export class BestillingsModalComponent implements OnInit   {
         }
     });
     return produkter;
-  }
-
-  removeProduct(productToBeRemoved: ProduktOrder) {
-    this.productRemoved.emit(productToBeRemoved.navn);
   }
 
   private getDismissReason(reason: any): string {
@@ -88,6 +85,10 @@ export class BestillingsModalComponent implements OnInit   {
     }
   }
 
+  removeProduct(produkt: Produkt) {
+    this.orderService.removeProductFromOrder(produkt.navn);
+  }
+
   
   @HostListener('window:resize', ['$event'])
   onResize(event) {
@@ -102,7 +103,6 @@ export class BestillingsModalComponent implements OnInit   {
       this.basketLeftMargin = (width-170) + "px";
       this.basketTopMargin = "119px";
     }
-    console.log(this.basketLeftMargin);
   }
   
   ngOnInit(): void {

@@ -3,6 +3,7 @@ import { IBestilling, Bestilling } from '../model/bestilling.model';
 import { Produkt } from '../model/produkt.model';
 import { generate } from 'rxjs';
 import { OrderService } from 'src/app/core/order.service';
+import { ProduktOrder } from '../model/produktOrder.model';
 
 @Component({
   selector: 'app-bestillingsliste',
@@ -11,28 +12,37 @@ import { OrderService } from 'src/app/core/order.service';
 })
 export class BestillingslisteComponent implements OnInit {
 
-  bestilling: IBestilling;
+  produkter: ProduktOrder[];
 
   constructor(private orderService: OrderService) { 
-    orderService.getOrder$().subscribe(order => this.bestilling = order);
+    orderService.getOrder$().subscribe(order => this.produkter = this.generateOrderList(order));
   }
 
   ngOnInit() {
   }
 
-  generateOrderList(): Bestilling[] {
-    const produkter: Bestilling[] = [];
-    Object.keys(this.bestilling).forEach(key => {
-        const value = this.bestilling[key]; /* Use key, value here */
+  generateOrderList(bestilling: IBestilling): ProduktOrder[] {
+    const produkter: ProduktOrder[] = [];
+    Object.keys(bestilling).forEach(key => {
+        const value = bestilling[key]; /* Use key, value here */
         if (value.antal > 0) {
-          produkter.push(value);
+          const produkt: ProduktOrder = new ProduktOrder();
+          produkt.antal = value.antal;
+          produkt.navn = value.produkt.navn;
+          produkt.pris = value.produkt.pris;
+          produkter.push(produkt);
         }
     });
     return produkter;
   }
 
-  removeProduct(productToBeRemoved: string) {
-    this.orderService.removeProductFromOrder(productToBeRemoved);
+  getOrderAmount(): number {
+    return this.produkter.length;
+  }
+
+  removeProduct(productToBeRemoved: Produkt) {
+    console.log(productToBeRemoved);
+    this.orderService.removeProductFromOrder(productToBeRemoved.navn);
   }
 
 }

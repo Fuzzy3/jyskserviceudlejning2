@@ -28,15 +28,18 @@ export class OrderService {
   }
 
   // Returns true if the item was successfuly removed, otherwise false
-  public removeProductFromOrder(productToBeRemoved: string): boolean {
+  public removeProductFromOrder(productToBeRemoved: string) {
+    this.changeAmountOfProduct(productToBeRemoved, 0);
+  }
+
+  public changeAmountOfProduct(productName: string, newAmount: number) {
     const order: IBestilling = this.orderSubject.value;
     Object.keys(order).forEach(key => {
-        if (order[key].produkt.navn === productToBeRemoved) {
-            order[key].antal = 0;
-            return;
+        if (order[key].produkt.navn === productName) {
+            order[key].antal = newAmount;
+            this.setOrder(order);
         }
     });
-    return true;
   }
 
 }
