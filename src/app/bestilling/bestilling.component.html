@@ -10,10 +10,10 @@
                                         <div class="col-md-3 side-order-menu" style="padding-top: 30px !important" [class.d-flex]="stickyBot" [class.align-items-end]="stickyBot" #stickyParent>
                                             <div [class.sticky]="isSticky" [class.sticky-width]=stickyBot #stickyMenu>
                                                 <div *ngIf="!isMobile">
-                                                    <app-bestillingsliste (productRemoved)="productRemoved($event)"></app-bestillingsliste>
+                                                    <app-bestillingsliste></app-bestillingsliste>
                                                     <hr>
                                                 </div>
-                                                <app-bestillings-modal (productRemoved)="productRemoved($event)"></app-bestillings-modal>
+                                                <app-bestillings-modal></app-bestillings-modal>
                                             </div>
                                         </div>
                                         <div class="col-md-9 margin-top-30">
