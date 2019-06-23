@@ -38,8 +38,11 @@ export class BestillingsModalComponent implements OnInit   {
 
   constructor(private modalService: NgbModal, private orderService: OrderService) {
     orderService.getOrder$().subscribe(order => {
+        const numberOfProducts = this.getOrderAmount();
         this.produkter = this.generateOrderList(order);
-        this.bounce = !this.bounce;
+        if(numberOfProducts != this.getOrderAmount()) {
+          this.bounce = !this.bounce;
+        }
       });
     }
 
@@ -85,8 +88,12 @@ export class BestillingsModalComponent implements OnInit   {
     }
   }
 
-  removeProduct(produkt: Produkt) {
+  removeProduct(produkt: ProduktOrder) {
     this.orderService.removeProductFromOrder(produkt.navn);
+  }
+
+  changeProductAmount(produkt: ProduktOrder, amount: number) {
+    this.orderService.changeAmountOfProduct(produkt.navn, amount);
   }
 
   

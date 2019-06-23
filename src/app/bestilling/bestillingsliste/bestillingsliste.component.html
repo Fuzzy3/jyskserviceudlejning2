@@ -1,6 +1,6 @@
 <div class="container-fluid padding no-padding">
   <div class="row">
-    <div class="col-md-12 padding no-padding">
+    <div class="col-md-12 padding no-padding" #bestillingListe>
       <p>Bestilling</p>
       <div *ngIf="getOrderAmount() == 0; else product_list">
         <em class="bestilling">Du har ikke tilføjet nogen produkter</em>
@@ -8,18 +8,18 @@
       <ng-template #product_list>
         <div class="list-group">
           <div *ngFor="let produkt of produkter ; index as p">
-            <div class="list-group-item padding-5 no-border" *ngIf="p < 20">
+            <div class="list-group-item padding-3 no-border" *ngIf="p < getOrderLimit()">
               <div class="container">
                 <div class="row bestilling">
-                  <div class="col-md-10">
+                  <div class="col-10" style="padding-right: 3px;">
                       {{produkt.antal}}x {{produkt.navn}}
                   </div>
-                  <div class="col-md-2"><a (click)="removeProduct(produkt)"><i class="fa fa-times-circle remove-product-icon"></i></a></div>
+                  <div class="col-2" style="padding-right: 0px; padding-left: 0px;"><a (click)="removeProduct(produkt)"><i class="fa fa-times-circle remove-product-icon"></i></a></div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="list-group-item padding-5 no-border text-align-right" *ngIf="getOrderAmount() > 20"><strong>+{{generateOrderList().length - 20}}</strong></div>
+          <div class="list-group-item padding-5 no-border text-align-right" *ngIf="getOrderAmount() > getOrderLimit()"><strong>+{{getOrderAmount() - getOrderLimit()}}</strong></div>
         </div>
       </ng-template>
     </div>

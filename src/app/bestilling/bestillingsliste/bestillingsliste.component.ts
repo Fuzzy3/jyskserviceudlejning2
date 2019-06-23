@@ -12,13 +12,22 @@ import { ProduktOrder } from '../model/produktOrder.model';
 })
 export class BestillingslisteComponent implements OnInit {
 
+  @ViewChild("bestillingListe") productsElement: ElementRef;
   produkter: ProduktOrder[];
+  windowHeight: number;
+  maxAmount: number = 100;
 
   constructor(private orderService: OrderService) { 
     orderService.getOrder$().subscribe(order => this.produkter = this.generateOrderList(order));
   }
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.windowHeight = window.innerHeight;
+  }
+
   ngOnInit() {
+    this.windowHeight = window.innerHeight;
   }
 
   generateOrderList(bestilling: IBestilling): ProduktOrder[] {
@@ -36,12 +45,35 @@ export class BestillingslisteComponent implements OnInit {
     return produkter;
   }
 
-  getOrderAmount(): number {
+  getOrderAmount(): number  {
     return this.produkter.length;
   }
 
+  getOrderLimit(): number {
+    if(this.windowHeight  <= 700) {
+      return 13 ;
+    } 
+    return 20;
+  }
+
+  // getOrderLimit(): number {
+  //   if(this.maxAmount > this.produkter.length) {
+  //     const plusTextHeight = 34;
+  //     const dividerHeight = 33;
+  //     const buttonHeight = 60;
+  //     const orderHeight = (<HTMLElement> this.productsElement.nativeElement).getBoundingClientRect().height;
+  //     const fullHeight = plusTextHeight + dividerHeight + buttonHeight + orderHeight;
+  //     const dualLineElement = 42;
+  //     console.log(fullHeight + dualLineElement);
+  //     console.log(orderHeight);
+  //     if(fullHeight + dualLineElement > this.windowHeight) {
+  //       this.maxAmount = this.produkter.length;
+  //     }
+  //   }
+  //   return this.maxAmount;
+  // }
+
   removeProduct(productToBeRemoved: Produkt) {
-    console.log(productToBeRemoved);
     this.orderService.removeProductFromOrder(productToBeRemoved.navn);
   }
 

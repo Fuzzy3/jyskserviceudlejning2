@@ -18,12 +18,12 @@
           <p><strong>Ordre</strong></p>
           <div class="list-group" *ngIf="getOrderAmount() != 0;else noProductsWarning">
             <div class="list-group-item" *ngFor="let produkt of produkter ; index as p">
-              <div class="row">
-                <div class="col-2">
-                    <input type="number" class="form-control" value="produkt.antal" #productAmount>
+              <div class="row" style="align-items: center;">
+                <div class="col-4 col-md-3">
+                    <input type="number" class="form-control" [value]="produkt.antal" (blur)="changeProductAmount(produkt, productAmount.value)" #productAmount>
                 </div>
-                <div class="col-8">{{produkt.navn}}</div>
-                <div class="col-2 text-right" (click)="removeProduct(produkt)"><i class="fa fa-times-circle remove-product-icon"></i></div>
+                <div class="col-8 col-md-9">{{produkt.navn}}</div>
+                <!-- <div class="col-2 text-right" (click)="removeProduct(produkt)"><i class="fa fa-times-circle remove-product-icon"></i></div> -->
               </div>
             </div>
           </div>
