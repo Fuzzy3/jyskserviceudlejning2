@@ -1,9 +1,10 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit, HostListener, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit, HostListener, Output, EventEmitter, Inject } from '@angular/core';
 import { IBestilling, Bestilling } from '../model/bestilling.model';
 import { Produkt } from '../model/produkt.model';
 import { generate } from 'rxjs';
 import { OrderService } from 'src/app/core/order.service';
 import { ProduktOrder } from '../model/produktOrder.model';
+import { WINDOW } from '@ng-toolkit/universal';
 
 @Component({
   selector: 'app-bestillingsliste',
@@ -17,17 +18,17 @@ export class BestillingslisteComponent implements OnInit {
   windowHeight: number;
   maxAmount: number = 100;
 
-  constructor(private orderService: OrderService) { 
+  constructor(@Inject(WINDOW) private window: Window, private orderService: OrderService) { 
     orderService.getOrder$().subscribe(order => this.produkter = this.generateOrderList(order));
   }
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-    this.windowHeight = window.innerHeight;
+    this.this.window = this.window.innerHeight;
   }
 
   ngOnInit() {
-    this.windowHeight = window.innerHeight;
+    this.this.window = this.window.innerHeight;
   }
 
   generateOrderList(bestilling: IBestilling): ProduktOrder[] {
@@ -50,7 +51,7 @@ export class BestillingslisteComponent implements OnInit {
   }
 
   getOrderLimit(): number {
-    if(this.windowHeight  <= 700) {
+    if(this.this.window  <= 700) {
       return 13 ;
     } 
     return 20;

@@ -1,5 +1,5 @@
 import { DeviceService } from './core/device.service';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -25,9 +25,7 @@ import { AfsluttetBestillingComponent } from './afsluttet-bestilling/afsluttet-b
 import { LoadingComponent } from './loading/loading.component';
 import { DeviceDirective } from './core/device.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CommonModule } from '@angular/common';
-import { TransferHttpCacheModule } from '@nguniversal/common';
-import { NgtUniversalModule } from '@ng-toolkit/universal';
+import { AppModule } from './app.module';
 
 
 
@@ -77,27 +75,8 @@ const appRoutes: Routes = [
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FrontpageComponent,
-    FooterComponent,
-    PageNotFoundComponent,
-    OmOsComponent,
-    InspirationComponent,
-    LejebetingelserComponent,
-    BestillingComponent,
-    SamarbejdspartnereComponent,
-    KontaktComponent,
-    BestillingslisteComponent,
-    BestillingsModalComponent,
-    BestillingsModalFormComponent,
-    AfsluttetBestillingComponent,
-    LoadingComponent,
-    DeviceDirective
-  ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    
     RouterModule.forRoot(
       appRoutes, {scrollPositionRestoration: 'enabled'}
     ),
@@ -105,11 +84,10 @@ const appRoutes: Routes = [
     FormsModule,
     NgbModule,
     BrowserAnimationsModule,
-    CommonModule,
-    TransferHttpCacheModule,
-    NgtUniversalModule 
+    AppModule,
+    BrowserTransferStateModule 
   ],
   providers: [ProductService, DeviceService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppBrowserModule { }

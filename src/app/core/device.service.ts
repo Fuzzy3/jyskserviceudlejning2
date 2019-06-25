@@ -1,7 +1,8 @@
 import { DeviceWidth, WidthSize } from './deviceWidth.model';
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { publishReplay, refCount } from 'rxjs/operators';
+import { WINDOW } from '@ng-toolkit/universal';
 
 @Injectable({
   providedIn: 'root'
@@ -38,5 +39,5 @@ export class DeviceService {
     );
   }
 
-  constructor() { }
+  constructor(@Inject(WINDOW) private window: Window, ) { }
 }

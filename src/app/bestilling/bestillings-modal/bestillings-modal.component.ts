@@ -6,7 +6,7 @@ import { ProduktOrder } from './../model/produktOrder.model';
 import { ProduktSerie } from './../model/produktSerie.model';
 import { BestillingInfo } from './../model/bestillingInfo.model';
 import { IBestilling, Bestilling } from './../model/bestilling.model';
-import { Component, OnInit, Input, ViewChild, ElementRef, ViewChildren, EventEmitter, Output, HostListener } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, ViewChildren, EventEmitter, Output, HostListener, Inject } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
@@ -14,6 +14,7 @@ import { send } from 'q';
 import { OrderService } from 'src/app/core/order.service';
 import { trigger, transition, useAnimation } from '@angular/animations';
 import { bounce } from 'ng-animate';
+import { WINDOW } from '@ng-toolkit/universal';
 
 @Component({
   selector: 'app-bestillings-modal',
@@ -36,7 +37,7 @@ export class BestillingsModalComponent implements OnInit   {
   closeResult: string;
 
 
-  constructor(private modalService: NgbModal, private orderService: OrderService) {
+  constructor(@Inject(WINDOW) private window: Window, private modalService: NgbModal, private orderService: OrderService) {
     orderService.getOrder$().subscribe(order => {
         const numberOfProducts = this.getOrderAmount();
         this.produkter = this.generateOrderList(order);
@@ -99,7 +100,7 @@ export class BestillingsModalComponent implements OnInit   {
   
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-    this.calcBasketLeftMargin(window.innerWidth);
+    this.calcBasketLeftMargin(this.window.innerWidth);
   }
   
   private calcBasketLeftMargin(width: number): void {
@@ -113,7 +114,7 @@ export class BestillingsModalComponent implements OnInit   {
   }
   
   ngOnInit(): void {
-    this.calcBasketLeftMargin(window.innerWidth);
+    this.calcBasketLeftMargin(this.window.innerWidth);
   }
 
 }

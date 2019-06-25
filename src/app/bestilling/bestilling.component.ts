@@ -5,11 +5,12 @@ import { objectFitImages } from 'object-fit-images';
 import { BestillingInfo } from './model/bestillingInfo.model';
 import { Bestilling, IBestilling } from './model/bestilling.model';
 import { ProduktSerie } from './model/produktSerie.model';
-import { Component, OnInit, ViewChild, ElementRef, HostListener, AfterViewInit, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, HostListener, AfterViewInit, EventEmitter, Inject } from '@angular/core';
 import { ProductService } from './services/product.service';
 import { Produkt } from './model/produkt.model';
 import { NgForm } from '@angular/forms';
 import { MailService } from './services/mail.service';
+import { WINDOW } from '@ng-toolkit/universal';
 
 @Component({
   selector: 'app-bestilling',
@@ -30,12 +31,12 @@ export class BestillingComponent implements OnInit {
   public innerWidth: any;
 
   @HostListener('window:scroll', ['$event']) handleScroll() {
-    const windowScroll = window.pageYOffset;
+    const this.window = this.window.pageYOffset;
     if (!this.isMobile) {
-      if ((windowScroll >= this.menuPosition) && (windowScroll <= this.calcStopperY())) {
+      if ((this.window >= this.menuPosition) && (this.window <= this.calcStopperY())) {
         this.isSticky = true;
         this.stickyBot = false;
-      } else if (windowScroll > this.calcStopperY()) {
+      } else if (this.window > this.calcStopperY()) {
         this.isSticky = false;
         this.stickyBot = true;
       } else {
@@ -47,7 +48,7 @@ export class BestillingComponent implements OnInit {
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-    this.innerHeight = window.innerHeight;
+    this.innerHeight = this.window.innerHeight;
   }
 
   private calcStopperY() {
@@ -56,7 +57,7 @@ export class BestillingComponent implements OnInit {
   }
 
 
-  constructor(productService: ProductService, deviceService: DeviceService, private orderService: OrderService) {
+  constructor(@Inject(WINDOW) private window: Window, productService: ProductService, deviceService: DeviceService, private orderService: OrderService) {
     deviceService.getDeviceWidth$().subscribe(deviceWidth => this.updateOnMobileDevice(deviceWidth));
     productService.getProducts().subscribe(produktSerier => this.productSerier = produktSerier);
     orderService.getOrder$().subscribe(order => this.bestillingsListe = order);
