@@ -22,8 +22,8 @@ export class BestillingComponent implements OnInit {
   productSerier: ProduktSerie[];
   bestillingsListe: IBestilling = {};
   menuPosition: any = 233;
-  @ViewChild('stickyMenu') menuElement: ElementRef;
-  @ViewChild('fullHeight') fullHeightElement: ElementRef;
+  @ViewChild('stickyMenu', { static: true }) menuElement: ElementRef;
+  @ViewChild('fullHeight', { static: true }) fullHeightElement: ElementRef;
   stickyBot = false;
   isSticky = false;
   isMobile = false;

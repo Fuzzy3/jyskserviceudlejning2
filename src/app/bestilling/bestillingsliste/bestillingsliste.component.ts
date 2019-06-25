@@ -13,7 +13,7 @@ import { WINDOW } from '@ng-toolkit/universal';
 })
 export class BestillingslisteComponent implements OnInit {
 
-  @ViewChild("bestillingListe") productsElement: ElementRef;
+  @ViewChild("bestillingListe", { static: true }) productsElement: ElementRef;
   produkter: ProduktOrder[];
   windowHeight: number;
   maxAmount: number = 100;
