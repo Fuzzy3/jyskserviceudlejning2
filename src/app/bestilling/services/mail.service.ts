@@ -25,11 +25,12 @@ export class MailService {
         })
     };
 
-    constructor(private http: HttpClient, private router: Router, private orderService: OrderService) { }
+    constructor(private http: HttpClient, private router: Router, private orderService: OrderService) {
+        orderService.getOrder$().subscribe(bestilling => this.bestilling = bestilling);
+    }
 
-    sendMail(info: BestillingInfo, bestilling: IBestilling) {
+    sendMail(info: BestillingInfo) {
         this.info = info;
-        this.bestilling = bestilling;
         const url = 'https://us-central1-jyskserviceudlejningdk.cloudfunctions.net/httpEmail';
 
         const htmlToSend = this.generateEmailHtml();
