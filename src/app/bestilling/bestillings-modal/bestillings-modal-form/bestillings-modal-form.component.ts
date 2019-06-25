@@ -38,7 +38,7 @@ export class BestillingsModalFormComponent implements OnInit {
     this.bestillingInfo.email = this.email;
     this.bestillingInfo.dato = this.dato;
     this.bestillingInfo.besked = this.besked;
-    const wasMailSent = this.mailService.sendMail(this.bestillingInfo, this.bestilling);
+    const wasMailSent = this.mailService.sendMail(this.bestillingInfo);
     this.mailFormSubmitted.emit(true);
   }
 

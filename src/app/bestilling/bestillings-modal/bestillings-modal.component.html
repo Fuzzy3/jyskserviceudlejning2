@@ -35,7 +35,7 @@
       <hr>
       <div class="row">
         <div class="col">
-          <app-bestillings-modal-form [bestilling]="bestilling" (mailFormSubmitted)="closeModal($event)" [disabledOrderButton]="getOrderAmount().length == 0"></app-bestillings-modal-form>
+          <app-bestillings-modal-form (mailFormSubmitted)="closeModal($event)" [disabledOrderButton]="getOrderAmount().length == 0"></app-bestillings-modal-form>
         </div>
       </div>
     </div>
