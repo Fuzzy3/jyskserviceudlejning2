@@ -1,5 +1,5 @@
 <ng-template #content let-modal>
-  <div class="modal-header" style="padding-left: 30px;">
+  <div class="modal-header p-left-30">
     <h4 class="modal-title" id="modal-basic-title">Din Bestilling</h4>
     <button type="button" class="close" tabindex="-1" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
@@ -18,7 +18,7 @@
           <p><strong>Ordre</strong></p>
           <div class="list-group" *ngIf="getOrderAmount() != 0;else noProductsWarning">
             <div class="list-group-item" *ngFor="let produkt of produkter ; index as p">
-              <div class="row" style="align-items: center;">
+              <div class="row a-center">
                 <div class="col-4 col-md-3">
                     <input type="number" class="form-control" [value]="produkt.antal" (blur)="changeProductAmount(produkt, productAmount.value)" #productAmount>
                 </div>
@@ -46,6 +46,6 @@
 </div>
 <ng-template #shoppingBasketMenu>
   <div class="button-container text-center shopping-basket-menu-container" [style.left]="basketLeftMargin" [style.top]="basketTopMargin">
-    <button class="btn btn-primary" (click)="open(content)"><i class="fa fa-shopping-basket shopping-basket"></i> ({{getOrderAmount()}}) <span style="width:1px;"></span></button>
+    <button class="btn btn-primary" (click)="open(content)"><i class="fa fa-shopping-basket shopping-basket"></i> ({{getOrderAmount()}}) <span class="w-1"></span></button>
   </div>
 </ng-template>

@@ -24,11 +24,11 @@ export class BestillingslisteComponent implements OnInit {
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-    this.this.window = this.window.innerHeight;
+    this.windowHeight = window.innerHeight;
   }
 
   ngOnInit() {
-    this.this.window = this.window.innerHeight;
+    this.windowHeight = window.innerHeight;
   }
 
   generateOrderList(bestilling: IBestilling): ProduktOrder[] {
@@ -51,7 +51,7 @@ export class BestillingslisteComponent implements OnInit {
   }
 
   getOrderLimit(): number {
-    if(this.this.window  <= 700) {
+    if(this.windowHeight  <= 700) {
       return 13 ;
     } 
     return 20;

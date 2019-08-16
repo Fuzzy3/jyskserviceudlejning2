@@ -106,7 +106,7 @@
 
 .card-header {
     font-family: Merriweather;
-    & h4 {
+    & h2 {
         line-height: 40px;
         font-weight: bold;
         font-size: 24px;
@@ -114,6 +114,10 @@
             font-size: 20px;
         }
     }
+}
+
+.small-text {
+    font-size: 14px !important;
 }
 
 
@@ -143,9 +147,12 @@ p {
 
 .card-text-small {
     padding: 5px;
-    font-size: 14px;
     text-align: center;
+}
+
+.small-text {
     line-height: 25px;
+    font-size: 14px;
 }
 
 .frontpage-dynamic-card-title {

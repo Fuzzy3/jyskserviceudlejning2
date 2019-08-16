@@ -11,10 +11,10 @@ export class DeviceDirective implements OnInit {
   
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-    this.deviceService.this.window(this.window.innerWidth);
+    this.deviceService.windowSizeChanged(window.innerWidth);
   }
   
   ngOnInit(): void {
-    this.deviceService.this.window(this.window.innerWidth);
+    this.deviceService.windowSizeChanged(window.innerWidth);
   }
 }

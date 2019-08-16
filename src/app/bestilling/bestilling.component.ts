@@ -11,6 +11,7 @@ import { Produkt } from './model/produkt.model';
 import { NgForm } from '@angular/forms';
 import { MailService } from './services/mail.service';
 import { WINDOW } from '@ng-toolkit/universal';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-bestilling',
@@ -28,15 +29,14 @@ export class BestillingComponent implements OnInit {
   isSticky = false;
   isMobile = false;
   innerHeight: any;
-  public innerWidth: any;
 
   @HostListener('window:scroll', ['$event']) handleScroll() {
-    const this.window = this.window.pageYOffset;
+    const windowScroll = window.pageYOffset;
     if (!this.isMobile) {
-      if ((this.window >= this.menuPosition) && (this.window <= this.calcStopperY())) {
+      if ((windowScroll >= this.menuPosition) && (windowScroll <= this.calcStopperY())) {
         this.isSticky = true;
         this.stickyBot = false;
-      } else if (this.window > this.calcStopperY()) {
+      } else if (windowScroll > this.calcStopperY()) {
         this.isSticky = false;
         this.stickyBot = true;
       } else {
@@ -48,7 +48,7 @@ export class BestillingComponent implements OnInit {
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-    this.innerHeight = this.window.innerHeight;
+    this.innerHeight = window.innerHeight;
   }
 
   private calcStopperY() {
@@ -57,10 +57,11 @@ export class BestillingComponent implements OnInit {
   }
 
 
-  constructor(@Inject(WINDOW) private window: Window, productService: ProductService, deviceService: DeviceService, private orderService: OrderService) {
+  constructor(@Inject(WINDOW) private window: Window, productService: ProductService, titleService: Title, deviceService: DeviceService, private orderService: OrderService) {
     deviceService.getDeviceWidth$().subscribe(deviceWidth => this.updateOnMobileDevice(deviceWidth));
     productService.getProducts().subscribe(produktSerier => this.productSerier = produktSerier);
     orderService.getOrder$().subscribe(order => this.bestillingsListe = order);
+    titleService.setTitle("Bestilling af service Jyskserviceudlejning - ordre")
   }
 
   updateOnMobileDevice(deviceWidth: DeviceWidth) {

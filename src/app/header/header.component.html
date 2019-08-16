@@ -1,4 +1,4 @@
-<div class="container text-center logo-container" style="height: 111px;">
+<div class="container text-center logo-container height-111">
   <a routerLink="/home">
     <img class="img-fluid" src="../../assets/img/jysk-header.png" alt="Jysk Serviceudlening Header">
   </a>
@@ -9,7 +9,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" [class.show]="show" id="navbarSupportedContent">
-    <div class="d-flex fill-width" [ngStyle]="{'text-align': show ? 'right' : 'left', 'justify-content': show ? 'flex-end' : 'center'}">
+    <div class="d-flex fill-width bar" [class.shownBar]="show">
       <ul class="navbar-nav small-links">
         <li class="nav-item">
           <a class="nav-link" routerLink="/home" (click)="toggleHide()" routerLinkActive="active">Forside</a>

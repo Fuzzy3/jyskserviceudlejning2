@@ -1,5 +1,5 @@
 import { DeviceService } from './core/device.service';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -71,8 +71,7 @@ const appRoutes: Routes = [
   { path: '',
     redirectTo: '/home',
     pathMatch: 'full'
-  },
-  { path: '**', component: PageNotFoundComponent }
+  }
 ];
 
 
@@ -107,9 +106,9 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     CommonModule,
     TransferHttpCacheModule,
-    NgtUniversalModule 
+    NgtUniversalModule
   ],
-  providers: [ProductService, DeviceService],
+  providers: [ProductService, DeviceService, Title],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

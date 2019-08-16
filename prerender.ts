@@ -157,7 +157,7 @@ allRoutes.forEach((route) => {
 
 // copy static files
 filesBrowser.forEach(file => {
-    if (file !== 'index.html') {
+    if (file !== 'index.html' || file !== 'assets') {
         fs.copyFileSync(`./dist/browser/${file}`, `./dist/static/${file}`);
     }
 });

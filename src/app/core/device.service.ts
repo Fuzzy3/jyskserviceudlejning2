@@ -39,5 +39,5 @@ export class DeviceService {
     );
   }
 
-  constructor(@Inject(WINDOW) private window: Window, ) { }
+  constructor(@Inject(WINDOW) private window: Window) { }
 }
