@@ -1,3 +1,4 @@
+import { FreezePageService } from './freeze-page.service';
 import { DeviceWidth, WidthSize } from './../../core/deviceWidth.model';
 import { DeviceService } from './../../core/device.service';
 import { MailService } from './../services/mail.service';
@@ -15,6 +16,7 @@ import { OrderService } from 'src/app/core/order.service';
 import { trigger, transition, useAnimation } from '@angular/animations';
 import { bounce } from 'ng-animate';
 import { WINDOW } from '@ng-toolkit/universal';
+import * as bodyScroll from 'body-scroll-toggle';
 
 @Component({
   selector: 'app-bestillings-modal',
@@ -37,7 +39,7 @@ export class BestillingsModalComponent implements OnInit   {
   closeResult: string;
 
 
-  constructor(@Inject(WINDOW) private window: Window, private modalService: NgbModal, private orderService: OrderService) {
+  constructor(@Inject(WINDOW) private window: Window, private modalService: NgbModal, private orderService: OrderService, private freezePageService: FreezePageService) {
     orderService.getOrder$().subscribe(order => {
         const numberOfProducts = this.getOrderAmount();
         this.produkter = this.generateOrderList(order);
@@ -48,9 +50,12 @@ export class BestillingsModalComponent implements OnInit   {
     }
 
   open(content) {
+    bodyScroll.disable();
+    this.freezePageService.setFreeze(true);
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
     }, (reason) => {
-
+      bodyScroll.enable();
+      this.freezePageService.setFreeze(false);
     });
   }
 

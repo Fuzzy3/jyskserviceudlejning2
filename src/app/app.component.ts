@@ -1,3 +1,4 @@
+import { FreezePageService } from './bestilling/bestillings-modal/freeze-page.service';
 import { Component, OnInit, HostListener } from '@angular/core';
 
 @Component({
@@ -5,9 +6,21 @@ import { Component, OnInit, HostListener } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'jyskserviceudlejning2';
- 
+  
+  isFrozen: boolean = false;
+  
+  constructor(private freezeService: FreezePageService) {
+  }
+  
+  
+  ngOnInit(): void {
+    this.freezeService.freezeChange$.subscribe(value => {
+      this.isFrozen = value;
+    });
+  }
+
 }
 
 
