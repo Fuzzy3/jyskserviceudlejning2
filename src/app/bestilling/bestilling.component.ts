@@ -61,7 +61,7 @@ export class BestillingComponent implements OnInit {
     deviceService.getDeviceWidth$().subscribe(deviceWidth => this.updateOnMobileDevice(deviceWidth));
     productService.getProducts().subscribe(produktSerier => this.productSerier = produktSerier);
     orderService.getOrder$().subscribe(order => this.bestillingsListe = order);
-    titleService.setTitle("Bestilling af service Jyskserviceudlejning - ordre")
+    titleService.setTitle("Bestilling af service Skanderborgserviceudlejning - ordre")
   }
 
   updateOnMobileDevice(deviceWidth: DeviceWidth) {

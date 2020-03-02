@@ -9,7 +9,7 @@ import { Title } from '@angular/platform-browser';
 export class OmOsComponent implements OnInit {
 
   constructor(titleService: Title) {
-    titleService.setTitle("Læs om os her - jyskserviceudlejning");
+    titleService.setTitle("Læs om os her - skanderborgserviceudlejning");
   }
 
   ngOnInit() {
