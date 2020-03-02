@@ -10,7 +10,7 @@ export class FrontpageComponent implements OnInit {
 
 
   constructor(titleService: Title) {
-    titleService.setTitle("Jyskserviceudlejning billigt service Aarhus Skanderborg")
+    titleService.setTitle("Horsensserviceudlejning billigt service Aarhus Skanderborg")
   }
 
   ngOnInit() {
