@@ -6,6 +6,8 @@ import { Bestilling, IBestilling } from './../model/bestilling.model';
 import { BestillingInfo } from './../model/bestillingInfo.model';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable, of } from 'rxjs';
+import { publishLast, refCount, catchError } from 'rxjs/operators';
 
 
 @Injectable({
@@ -26,6 +28,14 @@ export class MailService {
     };
 
     constructor(private http: HttpClient, private router: Router, private orderService: OrderService) {
+        http.get<{}>('assets/mail_receiver.json').pipe(
+            catchError((error: Response) => {
+                console.error('Kunne ikke læse mailmodtager', error.statusText);
+                return of({});
+            }),
+            publishLast(),
+            refCount()
+        ).subscribe(mailjson => this.receiverMail = mailjson.mail_receiver);
         orderService.getOrder$().subscribe(bestilling => this.bestilling = bestilling);
     }
 
