@@ -1,6 +1,6 @@
 [{
     "overskrift": "Borde & stole",
-    "produkter": [
+    "produkter": [ 
     {
         "navn": "Borde, 73 x 180cm",
         "pris": 29.00,
@@ -14,7 +14,7 @@
 },
 {
     "overskrift": "Slushice",
-    "produkter": [
+    "produkter": [ 
     {
         "navn": "Slushicemaskine",
         "pris": 399.00,
@@ -33,12 +33,12 @@
     {
         "navn": "Sugerør med ske",
         "pris": 0.5,
-        "billedURL": "assets/Sugeror.jpg"
+        "billedURL": "assets/Sugerør.jpg"
     }]
 },
 {
     "overskrift": "Maskiner",
-    "produkter": [
+    "produkter": [ 
     {
         "navn": "Popcornmaskine",
         "pris": 199.00,
@@ -52,7 +52,7 @@
     {
         "navn": "Chokoladefontæne",
         "pris": 199.00,
-        "billedURL": "assets/Chokoladefontane.jpg"
+        "billedURL": "assets/Chokoladefontæne.jpg"
     },
     {
         "navn": "Pandekagepande",
@@ -72,7 +72,7 @@
 },
 {
     "overskrift": "Hvidt procelæn, Hvid Figgjo",
-    "produkter": [
+    "produkter": [ 
     {
         "navn": "Middagstallerken",
         "pris": 1.0,
@@ -106,12 +106,12 @@
     {
         "navn": "Sukkerskål",
         "pris": 2.50,
-        "billedURL": "assets/Sukkerskal.jpg"
+        "billedURL": "assets/Sukkerskål.jpg"
     },
     {
         "navn": "Flødekande",
         "pris": 2.50,
-        "billedURL": "assets/Flodekande.jpg"
+        "billedURL": "assets/Flødekande.jpg"
     },
     {
         "navn": "Salt & peber",
@@ -127,7 +127,7 @@
 },
 {
     "overskrift": "Bestik",
-    "produkter": [
+    "produkter": [ 
     {
         "navn": "Gafler",
         "pris": 0.95,
@@ -156,7 +156,7 @@
     {
         "navn": "Pålægsgafler",
         "pris": 0.80,
-        "billedURL": "assets/Palagsgafler.jpg"
+        "billedURL": "assets/Pålægsgafler.jpg"
     },
     {
         "navn": "Kartoffelskeer",
@@ -171,7 +171,7 @@
 },
 {
     "overskrift": "Glas",
-    "produkter": [
+    "produkter": [ 
     {
         "navn": "Velkomstglas",
         "pris": 1.00,
@@ -180,7 +180,7 @@
     {
         "navn": "Rødvinsglas (højglas)",
         "pris": 1.00,
-        "billedURL": "assets/Rodvinsglas.jpg"
+        "billedURL": "assets/Rødvinsglas.jpg"
     },
     {
         "navn": "Hvidvinsglas (højglas)",
@@ -200,12 +200,12 @@
     {
         "navn": "Ølglas",
         "pris": 1.00,
-        "billedURL": "assets/olglas.jpg"
+        "billedURL": "assets/Ølglas.jpg"
     },
     {
         "navn": "Likør",
         "pris": 1.00,
-        "billedURL": "assets/Likorglas.jpg"
+        "billedURL": "assets/Likørglas.jpg"
     },
     {
         "navn": "Cognacglas",
@@ -220,16 +220,16 @@
 },
 {
     "overskrift": "Fade og skåle",
-    "produkter": [
+    "produkter": [ 
     {
         "navn": "Sauceskåle",
         "pris": 4.00,
-        "billedURL": "assets/Souceskal.jpg"
+        "billedURL": "assets/Souceskål.jpg"
     },
     {
         "navn": "Kartoffelskåle",
         "pris": 4.00,
-        "billedURL": "assets/Kartoffelskal.jpg"
+        "billedURL": "assets/Kartoffelskål.jpg"
     },
     {
         "navn": "Fade, ovale 35x55",
@@ -239,16 +239,16 @@
 },
 {
     "overskrift": "Glasvarer",
-    "produkter": [
+    "produkter": [ 
     {
         "navn": "Glasskål 18 cm",
         "pris": 4.00,
-        "billedURL": "assets/Glasskal_18cm.jpg"
+        "billedURL": "assets/Glasskål,18cm.jpg"
     },
     {
         "navn": "Glasskål 23 cm",
         "pris": 4.50,
-        "billedURL": "assets/Glasskal_23cm.jpg"
+        "billedURL": "assets/Glasskål_23cm.jpg"
     },
     {
         "navn": "Glaskander",
@@ -268,7 +268,7 @@
 },
 {
     "overskrift": "Termokander",
-    "produkter": [
+    "produkter": [ 
     {
         "navn": "Kaffekande",
         "pris": 9.00,
@@ -282,7 +282,7 @@
 },
 {
     "overskrift": "Stofduge & -servietter",
-    "produkter": [
+    "produkter": [ 
     {
         "navn": "175 x 140 (cirkamål)",
         "pris": 42.00,
@@ -301,7 +301,7 @@
 },
 {
     "overskrift": "Andet",
-    "produkter": [
+    "produkter": [ 
         {
             "navn": "Italiensk Proffesionel Ismaskine",
             "pris": 4500.00,
