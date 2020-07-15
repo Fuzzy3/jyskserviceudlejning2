@@ -17,7 +17,7 @@ export class MailService {
 
     bestilling: IBestilling;
     info: BestillingInfo;
-    receiverMail: String = 'jens@jyskserviceudlejning.dk';
+    receiverMail: String = 'jyskserviceudlejning@gmail.com';
     ekspeditionsgebyr = 62.50;
 
     httpOptions = {
