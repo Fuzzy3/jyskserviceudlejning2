@@ -6,7 +6,7 @@ import { Bestilling, IBestilling } from './../model/bestilling.model';
 import { BestillingInfo } from './../model/bestillingInfo.model';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { Observable, of, BehaviorSubject } from 'rxjs';
 import { publishLast, refCount, catchError } from 'rxjs/operators';
 
 
@@ -17,8 +17,9 @@ export class MailService {
 
     bestilling: IBestilling;
     info: BestillingInfo;
-    receiverMail: String = 'jyskserviceudlejning@gmail.com';
     ekspeditionsgebyr = 62.50;
+
+    private receiverMailSubject: BehaviorSubject<String> = new BehaviorSubject('jyskserviceudlejning@gmail.com');
 
     httpOptions = {
         headers: new HttpHeaders({
@@ -35,8 +36,12 @@ export class MailService {
             }),
             publishLast(),
             refCount()
-        ).subscribe(mailjson => this.receiverMail = mailjson.mail_receiver);
+        ).subscribe(mailjson => this.receiverMailSubject.next(mailjson.mail_receiver));
         orderService.getOrder$().subscribe(bestilling => this.bestilling = bestilling);
+    }
+
+    public getMailReceiver(): Observable<String> {
+      return this.receiverMailSubject.asObservable();
     }
 
     sendMail(info: BestillingInfo) {
@@ -44,7 +49,7 @@ export class MailService {
         const url = 'https://us-central1-jyskserviceudlejningdk.cloudfunctions.net/httpEmail';
 
         const htmlToSend = this.generateEmailHtml();
-        const toEmail = this.receiverMail;
+        const toEmail = this.receiverMailSubject.value;
         const fromEmail = info.email;
         const subjectFromInfo = 'Ny bestilling d. ' + info.dato + ' af ' + info.navn;
         const textToSend = 'Bestilling fra: ' + info.navn;
