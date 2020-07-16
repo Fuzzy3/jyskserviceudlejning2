@@ -8,9 +8,9 @@
         </a>
       </div>
       <div class="col-sm-12 col-md-4 text-center margin-bottom-20">
-        <a href="mailto:jens@jyskserviceudlejning.dk" class="footer-linking">
+        <a [href]="getMailSender() | async" class="footer-linking">
           <i class="fa fa-envelope-open-o footer-icon"></i>
-          <p>Jens@jyskserviceudlejning.dk</p>
+          <p>{{getMail() | async}}</p>
         </a>
       </div>
       <div class="col-sm-12 col-md-4 text-center">
