@@ -1,15 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { MailService } from '../bestilling/services/mail.service';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent {
 
-  constructor() { }
+  constructor(private mailService: MailService) { }
 
-  ngOnInit() {
+  getMailSender(): Observable<String> {
+    return this.mailService.getMailReceiver().pipe(
+      map(value => 'mailto:' + value)
+    );
+  }
+
+  getMail(): Observable<String> {
+    return this.mailService.getMailReceiver();
   }
 
 }
